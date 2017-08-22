@@ -1,17 +1,76 @@
 <!DOCTYPE html>
 <html>
     <head>
+	<meta charset="utf-8">
         <title>Hello World, I'm BSN !</title>
+	<style>
+         	body { 
+            		color: black;
+         	}
+blockquote {
+    margin: 1.5em 0;
+    padding: 0.5em 15px;
+    line-height: 1.5;
+    background: #ff8822;
+    border-left: 5px solid #888888;
+}
+h1 {
+	color: black; 
+}
+
+/* Пример оформления фотографии */
+.photocard {
+    display: block;
+    width: auto;
+    margin: 20px; /*auto*/
+    border-radius: 10px;
+    box-shadow: 0 0 10px #666;
+}
+
+p {
+    margin: 10px 0;
+    padding: 5px 10px;
+    color: white;
+    border: 1px solid #ccc;
+    border-left-width: 10px;
+}
+.learned-ok {
+    /*text-decoration: line-through;*/
+    border-color: #27ae60;
+    background-color: #2ecc71;
+}
+
+.learning-in-progress {
+    border-color: #f39c12;
+    background-color: #f1c40f;
+}
+
+.not-learned {
+    border-color: #c0392b;
+    background-color: #e74c3c;
+}
+
+
+      	</style>
     </head>
     <body>
-        <h1>Hello World, I'm BSN !</h1>
-        <p>Это мой теплый ламповый статический сайт.</p>
-        <p>Хороший способ познакомиться со мной, моими техническими проектами и просто мыслями на разные филосовские темы.</p>
+        <h1><strong><em> Hello World, I'm BSN !</em></strong></h1>
+	<blockquote class = photocard>
+        	<p>Это мой теплый ламповый статический сайт.</p>
+        	<p>Это хороший способ познакомиться с моими техническими проектами и размышлениями на разные филосовские темы.</p>
 
-	<p>Дополнение к страничке в Вконтакте</p>
+		<p>Это дополнение к страничке в Вконтакте.</p>
 
-        <p>Не смотрите на скудное оформление сайта, главное -- содержание, ведь на заре интернета, большинство сайтов были такими. В этом простом лаконичном стиле как мне кажется, есть что-то душевное.</p>
-	<p>Содержание:</p>
-		
+        	<p>Не смотрите на такое простое оформление сайта, ведь главное &#8211 содержание.  Но в этом лаконичном стиле, как мне кажется, есть что-то душевное.</p>
+	</blockquote>
+	<h2 style="color: #000000;" ><strong><em>Содержание:</strong></em></h2>
+	<blockquote class = photocard>
+        	<p class=learned-ok>Работа с библиотекой SDL2.0</p>
+		<p class=not-learned>Алгоритм построения пути</p>
+	</blockquote>
+	<h2 style="color: #000000;" ><strong><em>Лирическое отступление</strong></em></h2>
+<blockquote class = photocard>
+<p>На заре интернета, когда он был еще маленьким, почти все сайты были такими &#8211 маленькими, сверстанными вручную без всяких наворотов.</p>
+</blockquote>	 
     </body>
 </html>
