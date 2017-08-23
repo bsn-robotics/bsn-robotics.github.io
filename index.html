@@ -6,12 +6,12 @@
 	<style>
          	body { 
             		color: black;
+background: #ffffff;
          	}
 blockquote {
     margin: 1.5em 0;
     padding: 0.5em 15px;
     line-height: 1.5;
-    background: #ff8822;
     border-left: 5px solid #888888;
 }
 h1 {
@@ -25,52 +25,116 @@ h1 {
     margin: 20px; /*auto*/
     border-radius: 10px;
     box-shadow: 0 0 10px #666;
+	 background: #f0f0f0;
 }
 
 p {
+	color: black;
     margin: 10px 0;
     padding: 5px 10px;
-    color: white;
     border: 1px solid #ccc;
     border-left-width: 10px;
 }
 .learned-ok {
-    /*text-decoration: line-through;*/
+color: white;
+    text-decoration: strong;
     border-color: #27ae60;
     background-color: #2ecc71;
 }
 
 .learning-in-progress {
+color: white;
     border-color: #f39c12;
     background-color: #f1c40f;
 }
 
 .not-learned {
+color: white;
     border-color: #c0392b;
     background-color: #e74c3c;
 }
+.df {
+color: white;
+    background-color: #ff8822;
+}
 
+ul.ul-treefree { padding-left:25px; }
+ul.ul-treefree ul { margin:0; padding-left:6px; }
+ul.ul-treefree li { position:relative; list-style:none outside none; border-left:solid 1px #999; margin:0; padding:0 0 0 19px; line-height:23px; }
+ul.ul-treefree li:before { content:''; display:block; border-bottom:solid 1px #999; position:absolute; width:18px; height:11px; left:0; top:0; }
+ul.ul-treefree li:last-child { border-left:0 none; }
+ul.ul-treefree li:last-child:before { border-left:solid 1px #999; }
+
+.treeHTML {
+  line-height: normal;
+}
+.treeHTML details {
+  display: block;
+}
+.treeHTML div {
+  position: relative;
+  margin: 0 0 0 .5em;
+  padding: 0 0 0 1.2em;
+}
+.treeHTML div:not(:last-child) { /* необязательно */
+  border-left: 1px solid #ccc;
+}
+.treeHTML div:before { /* необязательно */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.1em;
+  height: .5em;
+  border-bottom: 1px solid #ccc;
+}
+.treeHTML div:last-child:before { /* необязательно */
+  border-left: 1px solid #ccc;
+}
+.treeHTML summary { /* стилями можно задать любую форму, например, тот же плюс. Я специально не стала усложнять, чтобы можно было проще разобраться в коде */
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+.treeHTML details[open] summary { /* убрать рамку при фокусе */
+  outline: none;
+}
 
       	</style>
     </head>
     <body>
         <h1><strong><em> Hello World, I'm BSN !</em></strong></h1>
 	<blockquote class = photocard>
-        	<p>Это мой теплый ламповый статический сайт.</p>
-        	<p>Это хороший способ познакомиться с моими техническими проектами и размышлениями на разные филосовские темы.</p>
-
-		<p>Это дополнение к страничке в Вконтакте.</p>
-
-        	<p>Не смотрите на такое простое оформление сайта, ведь главное &#8211 содержание.  Но в этом лаконичном стиле, как мне кажется, есть что-то душевное.</p>
+        	<p class=df >Это мой теплый ламповый статический сайт.</p>
+        	<p class=df >Хороший способ познакомиться с моими техническими проектами и мыслями на разные филосовские темы.</p>
+        	<p class=df >Здесь главное не форма, главное &#8211 содержание.</p>
 	</blockquote>
-	<h2 style="color: #000000;" ><strong><em>Содержание:</strong></em></h2>
-	<blockquote class = photocard>
-        	<p class=learned-ok>Работа с библиотекой SDL2.0</p>
-		<p class=not-learned>Алгоритм построения пути</p>
-	</blockquote>
-	<h2 style="color: #000000;" ><strong><em>Лирическое отступление</strong></em></h2>
-<blockquote class = photocard>
-<p>На заре интернета, когда он был еще маленьким, почти все сайты были такими &#8211 маленькими, сверстанными вручную без всяких наворотов.</p>
-</blockquote>	 
+	<div class="treeHTML"><h1 style="color: #000000;" ><strong><em>Содержание</strong></em></h1>
+	  <div><p class=df >Робототехника</p>
+    		<details><summary></summary>
+			<div><p class=learned-ok>SLAM алгоритмы</p></div>
+			<div><p class=learned-ok>RTAB-Map</p></div>
+      			<div><p class=learned-ok>Работа с библиотекой SDL2.0</p></div>
+      			<div><p class=not-learned>Алгоритмы поиска пути на графе</p></div>
+   		</details>
+  	 </div>
+	 <div><p class=df >Стихотворения</p>
+    		<details><summary></summary>
+      			<div><p></p></div>
+     			<div><p></p></div>
+      			<div><p></p></div>
+   		</details>
+  	 </div>
+ 	 <div ><p class=df >Контакты</p></div>
+	 </div>
+	<h1 style="color: #000000;" ><strong><em>Лирическое отступление</strong></em></h1>
+<!--<blockquote class = photocard>-->
+<p style="color: #000000;" >На заре интернета, когда он был еще маленьким, почти все сайты были такими &#8211 маленькими, сверстанными вручную без всяких наворотов. Но в этом лаконичном стиле, как мне кажется, есть что-то душевное.
+В 1970-е годы НАСА запустило на четырех аппаратах в космос проект MAPS, известный как золотая пластинка Voyager и раскрывающий местоположение Земли во Вселенной. Прошло 40 лет назад, и инопланетяне, если и существуют, уже могли найти нас. Однако ученые, занимавшиеся проектом, уже жалеют, что выдали местонахождение нашей планеты.
+ 
+Доктор Фрэнк Дрейк, разработавший карты (MAPS), рассказал, что решение осуществить проект было слишком опасным. Все четыре космических аппарата Voyager уже покинули Солнечную систему и ускоряются дальше в пространство с координатами Земли на борту. Комиссию, занимавшуюся подготовкой пластинки, возглавлял Карл Саган.</p>
+<!--</blockquote>-->
+ 
     </body>
 </html>
