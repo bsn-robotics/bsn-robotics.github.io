@@ -1,0 +1,657 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title></title>
+	<meta name="generator" content="LibreOffice 4.2.8.2 (Linux)">
+	<meta name="created" content="0;0">
+	<meta name="changed" content="20170628;32231364608646">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-06-09T16:53:12.199879616">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-06-01T13:40:23.407099482">
+	<meta name="created" content="2017-05-30T14:49:02.076297046">
+	<meta name="changed" content="2017-05-30T14:49:59.676040140">
+	<meta name="created" content="00:00:00">
+	<meta name="changed" content="2017-05-30T14:48:09.052107372">
+	<meta name="created" content="2017-05-30T14:29:13.107188050">
+	<meta name="changed" content="2017-05-30T14:30:48.959285588">
+	<style type="text/css">
+	<!--
+		p { color: #000000 }
+		h1 { color: #000000 }
+		pre { color: #000000 }
+		pre.cjk { font-family: "Nimbus Mono L", monospace }
+		tt.cjk { font-family: "Nimbus Mono L", monospace }
+		code.cjk { font-family: "Nimbus Mono L", monospace }
+		a.western:visited { so-language: ru-RU }
+	-->
+	</style>
+</head>
+<body lang="ru-RU" text="#000000" dir="ltr" style="background: transparent">
+<p style="margin-bottom: 0in"><br>
+</p>
+<div id="header2" dir="ltr">
+	<p style="margin-bottom: 0in"><br>
+	</p>
+	<div id="locationline" dir="ltr">
+		<p style="margin-bottom: 0in"><br>
+		</p>
+	</div>
+</div>
+<div id="page" dir="ltr">
+	<p style="margin-bottom: 0in"><br>
+	</p>
+	<div id="content" dir="ltr">
+		<p style="margin-bottom: 0in"><a name="line-24"></a><a name="line-23"></a><a name="line-26"></a><a name="line-25"></a>
+		ROS Kinetic&nbsp;<strong>ONLY</strong>&nbsp;supports Wily (Ubuntu
+		15.10), Xenial (Ubuntu 16.04) and Jessie (Debian 8) for debian
+		packages.</p>
+		<div id="Installation.2BAC8-Ubuntu.2BAC8-Sources.content" dir="ltr">
+			<p style="margin-bottom: 0in"><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.Configure_your_Ubuntu_repositories"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-1"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.top"></a>
+			Configure your Ubuntu repositories</p>
+			<p style="margin-bottom: 0in"><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-3"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-2"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-5"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-4"></a>
+			Configure your Ubuntu repositories to allow &quot;restricted,&quot;
+			&quot;universe,&quot; and &quot;multiverse.&quot; You can&nbsp;<a class="western" href="https://help.ubuntu.com/community/Repositories/Ubuntu">follow
+			the Ubuntu guide</a>&nbsp;for instructions on doing this.</p>
+			<p style="margin-bottom: 0in"><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.Setup_your_sources.list"></a>
+			Setup your sources.list</p>
+			<p style="margin-bottom: 0in"><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-7"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-6"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-9"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-8"></a>
+			Setup your computer to accept software from packages.ros.org.</p>
+			<ul>
+				<li><p style="margin-bottom: 0in"><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-1-1"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-11"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-10"></a>
+				sudo sh -c 'echo &quot;deb http://packages.ros.org/ros/ubuntu
+				$(lsb_release -sc) main&quot; &gt;
+				/etc/apt/sources.list.d/ros-latest.list'</p>
+			</ul>
+			<p style="margin-bottom: 0in"><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-14"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-13"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-12"></a>
+			<br>
+			</p>
+			<p style="margin-bottom: 0in"><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.Set_up_your_keys"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-16"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-15"></a>
+			Set up your keys</p>
+			<ul>
+				<li><p style="margin-bottom: 0in"><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-1-2"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-20"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-19"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-18"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-17"></a>
+				sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80
+				--recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116</p>
+			</ul>
+			<p style="margin-bottom: 0in"><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-22"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-21"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.bottom"></a><a name="Installation.2BAC8-Ubuntu.2BAC8-Sources.line-23"></a>
+			If you experience issues connecting to the keyserver, you can try
+			substituting&nbsp;<tt class="western">hkp://pgp.mit.edu:80</tt>&nbsp;or&nbsp;<tt class="western">hkp://keyserver.ubuntu.com:80</tt>&nbsp;in
+			the previous command.</p>
+		</div>
+		<p style="margin-bottom: 0in"><a name="Installation-1"></a><a name="line-28"></a><a name="line-27"></a>
+		Installation</p>
+		<p style="margin-bottom: 0in"><a name="line-30"></a><a name="line-29"></a><a name="line-31"></a>
+		First, make sure your Debian package index is up-to-date:</p>
+		<ul>
+			<li><p style="margin-bottom: 0in"><a name="line-1-2"></a><a name="line-33"></a><a name="line-32"></a>
+			sudo apt-get update</p>
+		</ul>
+		<p style="margin-bottom: 0in"><a name="line-35"></a><a name="line-34"></a><a name="line-37"></a><a name="line-36"></a>
+		There are many different libraries and tools in ROS. We provided
+		four default configurations to get you started. You can also
+		install ROS packages individually.</p>
+		<p style="margin-bottom: 0in"><a name="line-39"></a><a name="line-38"></a>
+		In case of problems with the next step, you can use following
+		repositories instead of the ones mentioned above&nbsp;<a class="western" href="http://wiki.ros.org/ShadowRepository">ros-shadow-fixed</a></p>
+		<ul>
+			<li><p style="margin-bottom: 0in"><a name="line-40"></a><strong>Desktop-Full
+			Install: (Recommended)</strong>&nbsp;: ROS,&nbsp;<a class="western" href="http://wiki.ros.org/rqt">rqt</a>,&nbsp;<a class="western" href="http://wiki.ros.org/rviz">rviz</a>,
+			robot-generic libraries, 2D/3D simulators, navigation and 2D/3D
+			perception</p>
+			<ul>
+				<li><p style="margin-bottom: 0in"><a name="line-1-3"></a><a name="line-42"></a><a name="line-41"></a>
+				sudo apt-get install ros-kinetic-desktop-full</p>
+				<p style="margin-bottom: 0in"><a name="line-44"></a><a name="line-43"></a><a name="line-46"></a><a name="line-45"></a>
+				or&nbsp;<a class="western" href="apt:ros-kinetic-desktop-full?refresh=yes">click
+				here</a></p>
+			</ul>
+			<p style="margin-bottom: 0in"><a name="line-47"></a><strong>Desktop
+			Install:&nbsp;</strong>ROS,&nbsp;<a class="western" href="http://wiki.ros.org/rqt">rqt</a>,&nbsp;<a class="western" href="http://wiki.ros.org/rviz">rviz</a>,
+			and robot-generic libraries</p>
+			<ul>
+				<li><p style="margin-bottom: 0in"><a name="line-1-4"></a><a name="line-49"></a><a name="line-48"></a>
+				sudo apt-get install ros-kinetic-desktop</p>
+				<p style="margin-bottom: 0in"><a name="line-51"></a><a name="line-50"></a><a name="line-53"></a><a name="line-52"></a>
+				or&nbsp;<a class="western" href="apt:ros-kinetic-desktop?refresh=yes">click
+				here</a></p>
+			</ul>
+			<p style="margin-bottom: 0in"><a name="line-55"></a><a name="line-54"></a>
+			<strong>ROS-Base: (Bare Bones)</strong>&nbsp;ROS package, build,
+			and communication libraries. No GUI tools.</p>
+			<ul>
+				<li><p style="margin-bottom: 0in"><a name="line-1-5"></a><a name="line-57"></a><a name="line-56"></a>
+				sudo apt-get install ros-kinetic-ros-base</p>
+				<p style="margin-bottom: 0in"><a name="line-59"></a><a name="line-58"></a><a name="line-62"></a><a name="line-61"></a><a name="line-60"></a>
+				or&nbsp;<a class="western" href="apt:ros-kinetic-ros-base?refresh=yes">click
+				here</a></p>
+			</ul>
+			<p style="margin-bottom: 0in"><a name="line-63"></a><strong>Individual
+			Package:</strong>&nbsp;You can also install a specific ROS package
+			(replace underscores with dashes of the package name):</p>
+			<ul>
+				<li><p style="margin-bottom: 0in"><a name="line-1-6"></a><a name="line-65"></a><a name="line-64"></a>
+				sudo apt-get install ros-kinetic-PACKAGE</p>
+				<p style="margin-bottom: 0in"><a name="line-68"></a><a name="line-67"></a><a name="line-66"></a>
+				e.g.</p>
+				<p style="margin-bottom: 0in"><a name="line-1-7"></a>sudo apt-get
+				install ros-kinetic-slam-gmapping</p>
+			</ul>
+		</ul>
+		<p style="margin-bottom: 0in"><a name="line-70"></a><a name="line-69"></a><a name="line-73"></a><a name="line-72"></a><a name="line-71"></a>
+		To find available packages, use:</p>
+		<p style="margin-bottom: 0in"><a name="line-1-8"></a>apt-cache
+		search ros-kinetic</p>
+		<p style="margin-bottom: 0in"><a name="Initialize_rosdep"></a><a name="line-75"></a><a name="line-74"></a>
+		Initialize rosdep</p>
+		<p style="margin-bottom: 0in"><a name="line-77"></a><a name="line-76"></a><a name="line-79"></a><a name="line-78"></a>
+		Before you can use ROS, you will need to
+		initialize&nbsp;<tt class="western">rosdep</tt>.&nbsp;<tt class="western">rosdep</tt>&nbsp;enables
+		you to easily install system dependencies for source you want to
+		compile and is required to run some core components in ROS.</p>
+		<p style="margin-bottom: 0in"><a name="line-1-9"></a><a name="line-82"></a><a name="line-81"></a><a name="line-80"></a>
+		sudo rosdep init</p>
+		<p style="margin-bottom: 0in"><a name="line-2-2"></a>rosdep update</p>
+		<div id="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.content" dir="ltr">
+			<p style="margin-bottom: 0in"><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.Environment_setup"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-3"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-2"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.additional"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-1"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.top"></a>
+			Environment setup</p>
+			<p style="margin-bottom: 0in"><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-4"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-6"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-5"></a>
+			It's convenient if the ROS environment variables are automatically
+			added to your bash session every time a new shell is launched:</p>
+			<p style="margin-bottom: 0in"><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-1-1"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-9"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-8"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-7"></a>
+			echo &quot;source /opt/ros/kinetic/setup.bash&quot; &gt;&gt;
+			~/.bashrc</p>
+			<p style="margin-bottom: 0in"><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-2-1"></a>
+			source ~/.bashrc</p>
+			<p style="margin-bottom: 0in"><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-10"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-12"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-11"></a>
+			<em>If you have more than one ROS distribution
+			installed,&nbsp;</em><tt class="western">~/.bashrc</tt><em>&nbsp;must
+			only source the&nbsp;</em><tt class="western">setup.bash</tt><em>&nbsp;for
+			the version you are currently using.</em></p>
+			<p style="margin-bottom: 0in"><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-14"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-13"></a>
+			If you just want to change the environment of your current shell,
+			instead of the above you can type:</p>
+			<p style="margin-bottom: 0in"><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-1-2"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-16"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-15"></a>
+			source /opt/ros/kinetic/setup.bash</p>
+			<p style="margin-bottom: 0in"><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-17"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-19"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-18"></a>
+			If you use zsh instead of bash you need to run the following
+			commands to set up your shell:</p>
+			<p style="margin-bottom: 0in"><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-1-3"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-22"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-21"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-20"></a>
+			echo &quot;source /opt/ros/kinetic/setup.zsh&quot; &gt;&gt;
+			~/.zshrc</p>
+			<p style="margin-bottom: 0in"><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-2-2"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.line-23"></a><a name="kinetic.2BAC8-Installation.2BAC8-DebEnvironment.bottom"></a>
+			source ~/.zshrc</p>
+		</div>
+		<p style="margin-bottom: 0in"><a name="Getting_rosinstall"></a><a name="line-86"></a><a name="line-85"></a>
+		Getting rosinstall</p>
+		<p style="margin-bottom: 0in"><a name="line-88"></a><a name="line-87"></a><a name="line-90"></a><a name="line-89"></a>
+		<a class="western" href="http://wiki.ros.org/rosinstall">rosinstall</a>&nbsp;is
+		a frequently used command-line tool in ROS that is distributed
+		separately. It enables you to easily download many source trees for
+		ROS packages with one command.</p>
+		<p style="margin-bottom: 0in"><a name="line-92"></a><a name="line-91"></a>
+		To install this tool on Ubuntu, run:</p>
+		<p style="margin-bottom: 0in"><a name="line-1-10"></a><a name="line-94"></a><a name="line-93"></a>
+		sudo apt-get install python-rosinstall</p>
+		<p style="margin-bottom: 0in"><a name="Build_farm_status"></a><a name="line-96"></a><a name="line-95"></a>
+		Build farm status</p>
+		<p style="margin-bottom: 0in"><a name="line-98"></a><a name="line-97"></a><a name="line-100"></a><a name="line-99"></a>
+		The packages that you installed were built by the&nbsp;<a class="western" href="http://build.ros.org/">ROS
+		build farm</a>. You can check the status of individual
+		packages&nbsp;<a class="western" href="http://repositories.ros.org/status_page/ros_kinetic_default.html">here</a>.</p>
+		<div id="kinetic.2BAC8-Installation.2BAC8-PostInstall.content" dir="ltr">
+			<p style="margin-bottom: 0in"><a name="kinetic.2BAC8-Installation.2BAC8-PostInstall.Tutorials"></a><a name="kinetic.2BAC8-Installation.2BAC8-PostInstall.line-2"></a><a name="kinetic.2BAC8-Installation.2BAC8-PostInstall.line-1"></a><a name="kinetic.2BAC8-Installation.2BAC8-PostInstall.top"></a>
+			Tutorials</p>
+			<p style="margin-bottom: 0in"><a name="kinetic.2BAC8-Installation.2BAC8-PostInstall.bottom"></a><a name="kinetic.2BAC8-Installation.2BAC8-PostInstall.line-5"></a><a name="line-101"></a><a name="bottom"></a>
+			Now, to test your installation, please proceed to the&nbsp;<a class="western" href="http://wiki.ros.org/ROS/Tutorials">ROS
+			Tutorials</a>.</p>
+		</div>
+	</div>
+</div>
+<div id="pagebottom" dir="ltr">
+	<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><br><br>
+	</p>
+</div>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2">На ROS
+Kinetic не удалось запустить kinect_bridge</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2">Я установил
+ROS Indigo</p>
+<pre class="western" style="margin-bottom: 0.1in; font-variant: normal; font-style: normal; font-weight: normal; widows: 2; orphans: 2">
+<font color="#333333"><font size="2" style="font-size: 9pt">$</font></font></pre>
+<pre class="western" style="margin-bottom: 0.1in; font-variant: normal; font-style: normal; font-weight: normal; widows: 2; orphans: 2">
+<font color="#333333"><font size="2" style="font-size: 9pt">mkdir</font></font></pre>
+<pre class="western" style="margin-bottom: 0.1in; font-variant: normal; font-style: normal; font-weight: normal; widows: 2; orphans: 2">
+<font color="#333333"><font size="2" style="font-size: 9pt">-p</font></font></pre>
+<pre class="western" style="margin-bottom: 0.1in; font-variant: normal; font-style: normal; font-weight: normal; widows: 2; orphans: 2">
+<font color="#333333"><font face="courier, monospace"><font size="2" style="font-size: 9pt">~/catkin_ws/src</font></font></font></pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; line-height: 142%; widows: 2; orphans: 2"><a name="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreateWorkspace.line-2-1"></a>
+<br><br>
+</pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; line-height: 142%; widows: 2; orphans: 2">
+<br><br>
+</pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; line-height: 142%; widows: 2; orphans: 2">
+<br><br>
+</pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 142%; widows: 2; orphans: 2">
+<font color="#333333"><font size="2" style="font-size: 9pt">$</font></font></pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 142%; widows: 2; orphans: 2">
+<font color="#333333"><font size="2" style="font-size: 9pt">cd</font></font></pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 142%; widows: 2; orphans: 2">
+<font color="#333333"><font face="courier, monospace"><font size="2" style="font-size: 9pt">~/catkin_ws</font></font></font></pre>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><a name="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreateWorkspace.line-9"></a><a name="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreateWorkspace.line-10"></a><a name="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreateWorkspace.line-11"></a><a name="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreateWorkspace.line-12"></a>
+<span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">Even
+though the workspace is empty (there are no packages in the 'src'
+folder, just a single&nbsp;</span></span></font></font></font></span><tt class="western"><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">CMakeLists.txt</span></span></font></font></font></span></tt><span style="font-variant: normal"><font color="#333333">&nbsp;</font></span><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">link)
+you can still &quot;build&quot; the workspace:</span></span></font></font></font></span></p>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; line-height: 142%; widows: 2; orphans: 2"><a name="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreateWorkspace.line-13"></a><a name="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreateWorkspace.line-14"></a><a name="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreateWorkspace.line-15"></a><a name="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreateWorkspace.line-1-2"></a>
+<br><br>
+</pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; line-height: 142%; widows: 2; orphans: 2">
+<br><br>
+</pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; line-height: 142%; widows: 2; orphans: 2">
+<br><br>
+</pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 142%; widows: 2; orphans: 2">
+<font color="#333333"><font size="2" style="font-size: 9pt">$</font></font></pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 142%; widows: 2; orphans: 2">
+<font color="#333333"><font size="2" style="font-size: 9pt">cd</font></font></pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 142%; widows: 2; orphans: 2">
+<font color="#333333"><font face="courier, monospace"><font size="2" style="font-size: 9pt">~/catkin_ws/</font></font></font></pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; line-height: 142%; widows: 2; orphans: 2"><a name="ROS.2BAC8-Tutorials.2BAC8-catkin.2BAC8-CreateWorkspace.line-2-2"></a>
+<br><br>
+</pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; line-height: 142%; widows: 2; orphans: 2">
+<br><br>
+</pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; line-height: 142%; widows: 2; orphans: 2">
+<br><br>
+</pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 142%; widows: 2; orphans: 2">
+<font color="#333333"><font size="2" style="font-size: 9pt">$</font></font></pre>
+<pre class="western" style="margin-bottom: 0.1in; background: #f3f5f7; border: 1.00pt solid #aebdcc; padding: 0.07in; font-variant: normal; font-style: normal; font-weight: normal; line-height: 142%; widows: 2; orphans: 2">
+<font color="#333333"><font face="courier, monospace"><font size="2" style="font-size: 9pt">catkin_make</font></font></font></pre>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><br><br>
+</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><br><br>
+</p>
+<h1>Kinect 2</h1>
+<p>Для работы с kinect 2, я использую следующие
+программное обеспечение:</p>
+<p>1) ОС Linux Ubuntu 14.04.5 LTS</p>
+<p>2) ROS indigo</p>
+<p>3)</p>
+<p><br><br>
+</p>
+<p><br><br>
+</p>
+<p>По материалам взятым с 
+</p>
+<p>iai kinect2 использует подправленную
+библиотеку freenect2.</p>
+<p><a class="western" href="https://github.com/code-iai/iai_kinect2">https://github.com/code-iai/iai_kinect2</a></p>
+<p><a class="western" href="https://github.com/wiedemeyer/libfreenect2">https://github.com/wiedemeyer/libfreenect2</a></p>
+<p><br><br>
+</p>
+<p><br><br>
+</p>
+<p><br><br>
+</p>
+<p>$ sudo dpkg -i debs/libusb*deb</p>
+<p>!!!!!!!!!!!! короткий - , а не длинный как в
+книжке, там ошибка</p>
+<p>(Ros_robotics_example 342)</p>
+<pre class="western" style="margin-bottom: 0.2in"><span style="display: inline-block; border: none; padding: 0in"><span style="font-variant: normal"><font color="#24292e"><font size="2" style="font-size: 9pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><code class="western">git</span></span></span></span></font></font></span></code></pre>
+<pre class="western" style="margin-bottom: 0.2in"><span style="display: inline-block; border: none; padding: 0in"><span style="font-variant: normal"><font color="#24292e"><font size="2" style="font-size: 9pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><code class="western">clone</span></span></span></span></font></font></span></code></pre>
+<pre class="western" style="margin-bottom: 0.2in"><span style="display: inline-block; border: none; padding: 0in"><span style="font-variant: normal"><font color="#24292e"><font face="SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace"><font size="2" style="font-size: 9pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"><code class="western">https://github.com/OpenKinect/libfreenect2.git</span></span></span></span></font></font></font></span></code></pre>
+<p style="line-height: 100%">$ cd ~/libfreenect2</p>
+<p style="line-height: 100%">$ mkdir build</p>
+<p style="line-height: 100%">$ cd build</p>
+<p style="line-height: 100%">$ cmake ..
+-DCMAKE_INSTALL_PREFIX=$HOME/freenect2 -DENABLE_CXX11=ON</p>
+<p style="line-height: 100%">$ make</p>
+<p style="line-height: 100%">$ make install</p>
+<p style="line-height: 100%">sudo cp
+~/libfreenect2/platform/linux/udev/90-kinect2.rules /etc/udev/rules.d</p>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Установка
+iai_kinect2</font></font></p>
+<p style="line-height: 100%"><a class="western" href="https://github.com/code-iai/iai_kinect2">https://github.com/code-iai/iai_kinect2</a></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal; line-height: 100%">
+<font color="#24292e"><font face="apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol"><font size="3" style="font-size: 12pt">cd
+~/catkin_ws/src/</font></font></font></p>
+<p style="line-height: 100%"><span style="font-variant: normal"><font color="#24292e"><font face="apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal">git
+clone&nbsp;</span></span></font></font></font></span><a class="western" href="https://github.com/code-iai/iai_kinect2.git"><span style="font-variant: normal"><font color="#0366d6"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: #ffffff">https://github.com/code-iai/iai_kinect2.git</span></span></span></font></font></span></font></span></a></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+<font face="apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">cd
+iai_kinect2</span></font></font></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+<font face="apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">rosdep
+install -r —from-paths</span></font></font></p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+<font face="apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">cd
+~/catkin_ws </span></font></font>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+<font face="apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">catkin_make
+-DCMAKE_BUILD_TYPE=&quot;Release&quot;</span></font></font></p>
+<p style="line-height: 100%"><br><br>
+</p>
+<p style="font-variant: normal; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+<font face="apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol"><font size="3" style="font-size: 12pt"><span style="background: #ffffff">http://answers.opencv.org/question/114664/is-it-possible-to-run-ros-kinetic-with-opencv-24x/</span></font></font></p>
+<p style="line-height: 100%"><br><br>
+</p>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt"><b>Запуск
+<span style="font-variant: normal"><font color="#000000"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol"><font size="3" style="font-size: 12pt"><span style="font-style: normal"><span style="background: #ffffff">ai_kinect2</span></span></font></font></span></font></span></b></font></font></p>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">открываем</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">консоль,</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">устанавливаем
+источник</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">cd</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">catkin_ws</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">source</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">devel/setup.bash</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">Запускаем</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">мост</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">roslaunch</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">kinect2_bridge</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">kinect2_bridge.launch</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%"><br><br>
+</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">В
+другой</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">консоли,</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">можем
+запустить viewer</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">открываем</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">консоль,</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">устанавливаем
+источник</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">cd</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">catkin_ws</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">source</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">devel/setup.bash</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">Запускаем</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">viewer</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">rosrun
+kinect2_viewer</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%">kinect2_viewer</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%"><br><br>
+</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%"><br><br>
+</pre>
+<pre class="western" style="margin-bottom: 0.2in; line-height: 100%"><br><br>
+</pre>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt"><b>Установка
+RTABMAP</b></font></font></p>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Запуск</font></font></p>
+<p style="margin-bottom: 0in"><a class="western" href="http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping">http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping</a></p>
+<p style="margin-bottom: 0in">В каждом терминале свой
+набор команд.</p>
+<p style="margin-bottom: 0in">В первом терминале
+запускается мост между ROS и драйвером
+libreenect2:</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in">cd catkin_ws 
+</p>
+<p style="margin-bottom: 0in">source devel/setup.bash 
+</p>
+<p style="margin-bottom: 0in">roslaunch kinect2_bridge
+kinect2_bridge.launch publish_tf:=true 
+</p>
+<p style="margin-bottom: 0in">Во втором терминале
+заупускается RVIZ с данными из RTABMAP.
+Выполнять не обязательно. :</p>
+<p style="margin-bottom: 0in">cd catkin_ws 
+</p>
+<p style="margin-bottom: 0in">source devel/setup.bash 
+</p>
+<p style="margin-bottom: 0in">roslaunch rtabmap_ros
+rgbd_mapping.launch rtabmap_args:=&quot;--delete_db_on_start&quot;
+rviz:=true rtabmapviz:=false 
+</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in">В третьем: 
+</p>
+<p style="margin-bottom: 0in">cd catkin_ws 
+</p>
+<p style="margin-bottom: 0in">source devel/setup.bash</p>
+<p style="margin-bottom: 0in">rosrun tf static_transform_publisher 0
+0 0 -1.5707963267948966 0 -1.5707963267948966 camera_link
+kinect2_link 100 
+</p>
+<p style="margin-bottom: 0in">В четвертом запускается
+RTABMAP:</p>
+<p style="margin-bottom: 0in">cd catkin_ws 
+</p>
+<p style="margin-bottom: 0in">source devel/setup.bash</p>
+<p style="margin-bottom: 0in">roslaunch rtabmap_ros
+rgbd_mapping.launch rtabmap_args:=&quot;--delete_db_on_start&quot;
+rgb_topic:=/kinect2/qhd/image_color_rect
+depth_registered_topic:=/kinect2/qhd/image_depth_rect
+camera_info_topic:=/kinect2/qhd/camera_info</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in">Для запуска режима
+локализации:</p>
+<p style="margin-bottom: 0in">Убрать аргумент
+&quot;--delete_db_on_start&quot;</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in">По этому пути находится
+файл <span style="display: inline-block; border: none; padding: 0in"><font color="#2b7fcf"><span style="text-decoration: none"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: #ffffff"><span style="font-variant: normal"><a class="western" href="https://github.com/introlab/rtabmap_ros/blob/master/launch/rtabmap.launch">rtabmap.launch</a>:</span></span></span></span></font></font></span></font></span></p>
+<p style="margin-bottom: 0in">/opt/ros/indigo/share/rtabmap_ros</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p>Merge<br><span style="font-variant: normal"><font color="#000000"><font face="Arial, Tahoma, Helvetica, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">RTAB-Map
+имеет возможность автоматически
+объединять сеансы сопоставления, такие
+как добавление новых изображений на
+предыдущую карту. Когда вы нажимаете
+pause / resume, отображение продолжается с
+последней позы на той же карте. Если вы
+остановите отображение, а затем запустите
+снова, в текущей базе данных будет
+создана новая карта: когда будет закрыто
+замыкание цикла между текущим сеансом
+сопоставления и предыдущим в базе
+данных, карты будут объединены вместе.
+Когда вы хотите начать новый сеанс
+сопоставления из чистой базы данных,
+вы должны закрыть текущий и создать
+новый, нажать «Файл-&gt; Закрыть базу
+данных» (обратите внимание, что резервная
+копия текущей базы данных автоматически
+сохраняется):</span></span></font></font></font></span></p>
+<p align="justify" style="margin-top: 0.11in; margin-bottom: 0.07in; border: none; padding: 0in; line-height: 150%; widows: 2; orphans: 2">
+Graphview сохранить</p>
+<p align="justify" style="margin-top: 0.11in; margin-bottom: 0.07in; border: none; padding: 0in; line-height: 150%; widows: 2; orphans: 2">
+Обновить изображение базы.</p>
+<p style="margin-top: 0.17in; page-break-after: avoid"><font face="Albany, sans-serif"><font size="4" style="font-size: 14pt">Multi
+session</font></font></p>
+<p style="margin-bottom: 0in">Склейка нескольких
+карт.</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in">Навигация с Turtlebot</p>
+<p style="margin-bottom: 0in">2014 Challenge</p>
+<h1>RVIZ</h1>
+<p>Запуск</p>
+<p>В первом терминале: 
+</p>
+<p>roscore</p>
+<p>Во втором терминале:</p>
+<p>rosrun rviz rviz</p>
+<p><br><br>
+</p>
+<p style="line-height: 100%"><br><br>
+</p>
+<p style="line-height: 100%"><br><br>
+</p>
+<p style="line-height: 100%"><br><br>
+</p>
+<p style="line-height: 100%">Программа на С++ с этой
+библиотекой.</p>
+<p><a class="western" href="http://answers.opencv.org/question/76468/opencvkinect-onekinect-for-windows-v2linuxlibfreenect2/">http://answers.opencv.org/question/76468/opencvkinect-onekinect-for-windows-v2linuxlibfreenect2/</a></p>
+<p><br><br>
+</p>
+<p>Программа с использованием PCL
+(effective_rob_prog 398-431)</p>
+<p><br><br>
+</p>
+<p>Проекция облака точек на плоскость
+пола.</p>
+<p style="widows: 2; orphans: 2"><a name="line-1940"></a><tt class="western"><span style="font-variant: normal"><font color="#333333"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">proj_map</span></span></font></font></span></tt><span style="font-variant: normal"><font color="#333333">&nbsp;</font></span><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">(</span></span></font></font></font></span><span style="display: inline-block; border: none; padding: 0in"><span style="font-variant: normal"><font color="#2b7fcf"><span style="text-decoration: none"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: #ffffff"><a class="western" href="http://docs.ros.org/api/nav_msgs/html/msg/OccupancyGrid.html">nav_msgs/OccupancyGrid</span></span></span></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">)</span></span></font></font></font></span></p>
+<ul>
+	<li><p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><a name="line-1941"></a><a name="line-1942"></a><a name="line-1943"></a><a name="line-1944"></a>
+	<em><strong><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><b>Mapping</b></span></font></font></font></span></strong></em><span style="font-variant: normal"><font color="#333333">&nbsp;</font></span><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">Occupancy
+	grid generated from projection of the 3D point clouds on the ground.
+	Use parameters with prefixes&nbsp;</span></span></font></font></font></span><tt class="western"><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">map_</span></span></font></font></font></span></tt><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">,&nbsp;</span></span></font></font></font></span><tt class="western"><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">grid_</span></span></font></font></font></span></tt><span style="font-variant: normal"><font color="#333333">&nbsp;</font></span><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">and&nbsp;</span></span></font></font></font></span><tt class="western"><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">proj_</span></span></font></font></font></span></tt><span style="font-variant: normal"><font color="#333333">&nbsp;</font></span><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">below.</span></span></font></font></font></span></p>
+</ul>
+<p style="widows: 2; orphans: 2"><a name="line-2001"></a><tt class="western"><span style="font-variant: normal"><font color="#333333"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><br>get_proj_map</span></span></font></font></span></tt><span style="font-variant: normal"><font color="#333333">&nbsp;</font></span><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">(</span></span></font></font></font></span><span style="display: inline-block; border: none; padding: 0in"><span style="font-variant: normal"><font color="#2b7fcf"><span style="text-decoration: none"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: #ffffff"><a class="western" href="http://docs.ros.org/api/nav_msgs/html/srv/GetMap.html">nav_msgs/GetMap</span></span></span></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">)</span></span></font></font></font></span></p>
+<ul>
+	<li><p style="margin-bottom: 0.1in; font-variant: normal; font-style: normal; font-weight: normal; widows: 2; orphans: 2">
+	<font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt">Call
+	this service to get the occupancy grid built from the projection of
+	the 3D point clouds</font></font></font></p>
+</ul>
+<p style="widows: 2; orphans: 2"><br><br>
+</p>
+<p style="widows: 2; orphans: 2"><br><br>
+</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">The&nbsp;</span></span></font></font></font></span><strong><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><b>Map</b></span></font></font></font></span></strong><span style="font-variant: normal"><font color="#333333"><b>&nbsp;</b></font></span><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">display
+shows a </span></span></font></font></font></span><span style="display: inline-block; border: none; padding: 0in"><span style="font-variant: normal"><font color="#2b7fcf"><span style="text-decoration: none"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: #ffffff"><a class="western" href="http://docs.ros.org/api/nav_msgs/html/msg/OccupancyGrid.html">nav_msgs/OccupancyGrid</span></span></span></font></font></span></font></span></a><font color="#333333"><span style="text-decoration: none"><span style="background: #ffffff"><span style="font-variant: normal">
+</span></span></span></font></span><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">message.
+The occupancy grid is treated the way the&nbsp;</span></span></font></font></font></span><span style="display: inline-block; border: none; padding: 0in"><span style="font-variant: normal"><font color="#2b7fcf"><span style="text-decoration: none"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: #ffffff"><a class="western" href="http://wiki.ros.org/navigation">navigation</span></span></span></span></font></font></span></font></span></a><span style="font-variant: normal"><font color="#333333">&nbsp;</font></span><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">stack
+treats it. A value of 100 is black (occupied), a value of 0 is white
+(unoccupied), and anything else is gray (unknown).</span></span></font></font></font></span></p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><br><br>
+</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2">~grid_cell_size
+(double, default: 0.05)</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2">Mapping Grid
+cell size (m). Used for grid_map and proj_map published topics.</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2">~grid_size
+(double, default: 0)</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2">Mapping
+Initial size of the map (m). If 0, the map will grow as new data are
+added. If set, the map will still grow when the initial size is
+reached. Used for grid_map and proj_map published topics.</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><br><br>
+</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2">~proj_max_ground_angle
+(double, default: 45)</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2">Mapping
+Maximum angle (degrees) between point's normal to ground's normal to
+label it as ground. Points with higher angle difference are
+considered as obstacles. Used for proj_map published topic.</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><a name="line-2285"></a>
+<tt class="western"><span style="font-variant: normal"><font color="#333333"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">~proj_min_cluster_size</span></span></font></font></span></tt><span style="font-variant: normal"><font color="#333333">&nbsp;</font></span><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">(</span></span></font></font></font></span><tt class="western"><span style="font-variant: normal"><font color="#333333"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">int</span></span></font></font></span></tt><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">,
+default: 20)</span></span></font></font></font></span></p>
+<ul>
+	<li><p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><em><strong><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><b>Mapping</b></span></font></font></font></span></strong></em><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;Minimum
+	cluster size to project the points. The distance between clusters is
+	defined by 2*</span></span></font></font></font></span><tt class="western"><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">grid_cell_size</span></span></font></font></font></span></tt><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">.
+	Used for&nbsp;</span></span></font></font></font></span><tt class="western"><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">proj_map</span></span></font></font></font></span></tt><span style="font-variant: normal"><font color="#333333"><font face="Helvetica Neue, Helvetica, Arial, sans-serif"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;published
+	topic.</span></span></font></font></font></span></p>
+</ul>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2">~proj_max_height
+(double, default: 2.0)</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2">Mapping
+Maximum height of points used for projection. Used for proj_map
+published topic.</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><br><br>
+</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><font face="Liberation Serif, serif"><font size="4" style="font-size: 14pt"><span style="font-variant: normal"><font color="#333333"><span style="font-style: normal"><span style="font-weight: normal">Алгоритм
+берет данные из сообщения ROS интерфейса
+</span></span></font></span><span style="font-variant: normal"><font color="#000000"><span style="font-style: normal"><span style="font-weight: normal">nav_msgs/OccupancyGrid</span></span></font></span></font></font></p>
+<p style="widows: 2; orphans: 2"><br><br>
+</p>
+<p style="widows: 2; orphans: 2"><tt class="western"><span style="font-variant: normal"><font color="#333333"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">Просмотр
+карты в RVIZ</span></span></font></font></span></tt></p>
+<p style="widows: 2; orphans: 2"><tt class="western"><span style="font-variant: normal"><font color="#333333"><font size="2" style="font-size: 10pt"><span style="font-style: normal"><span style="font-weight: normal">distance
+= 10</span></span></font></font></span></tt></p>
+<p style="widows: 2; orphans: 2">pitch = 1.5698</p>
+<p style="widows: 2; orphans: 2">yaw =3.14159</p>
+<p style="widows: 2; orphans: 2">скриншот</p>
+<p>rosservice call /rtabmap/get_proj_map</p>
+<p><br><br>
+</p>
+<p><br><br>
+</p>
+<p><b>/ROS/Tutorials/InstallingandConfiguringROSEnvironment</b></p>
+<p><b>catkin workspace</b></p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><b>Tutorials/NavigatingTheFilesystem</b></p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><br><br>
+</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><br><br>
+</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><br><br>
+</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><br><br>
+</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><br><br>
+</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in">Поставновка задачи</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Times New Roman"><font size="4" style="font-size: 14pt">Разработка
+алгоритмов навигации робота в неизвестной
+среде с использованием времяпролётной
+камеры.</font></font></p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal">
+<font face="Times New Roman"><font size="4" style="font-size: 14pt"><b>3D
+SLAM</b></font></font></p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><br><br>
+</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><br><br>
+</p>
+<p style="margin-bottom: 0.1in; widows: 2; orphans: 2"><br><br>
+</p>
+<h1 style="page-break-before: always">Другие проекты по
+этой теме</h1>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in; font-variant: normal; font-style: normal; font-weight: normal">
+<font face="Times New Roman"><font size="4" style="font-size: 14pt">Робот
+германского центра робототехники</font></font></p>
+<p style="margin-bottom: 0in"><a class="western" href="http://www.dlr.de/rmc/rm/en/desktopdefault.aspx/tabid-3755/17612_read-44875/"><span style="font-variant: normal"><font color="#000000"><font face="Times New Roman"><font size="4" style="font-size: 14pt"><span style="font-style: normal"><b>http://www.dlr.de/rmc/rm/en/desktopdefault.aspx/tabid-3755/17612_read-44875/</b></span></font></font></font></span></a></p>
+<p style="margin-bottom: 0in"><a class="western" href="https://www.youtube.com/watch?v=wCTkSxcna8o"><span style="font-variant: normal"><font color="#000000"><font face="Times New Roman"><font size="4" style="font-size: 14pt"><span style="font-style: normal"><b>https://www.youtube.com/watch?v=wCTkSxcna8o</b></span></font></font></font></span></a></p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in">TurtleBot 2.0</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in"><a class="western" href="http://spectrum.ieee.org/automaton/robotics/diy/turtlebot-2-now-available-for-preorder-from-clearpath-robotics">http://spectrum.ieee.org/automaton/robotics/diy/turtlebot-2-now-available-for-preorder-from-clearpath-robotics</a></p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in"><br>
+</p>
+<p style="margin-bottom: 0in">Обзор времепролетных
+камер</p>
+<p style="margin-bottom: 0in; widows: 2; orphans: 2"><a class="western" href="https://geektimes.ru/post/224605/">https://geektimes.ru/post/224605/</a></p>
+<p style="margin-bottom: 0in; widows: 2; orphans: 2"><br>
+</p>
+<p style="margin-bottom: 0in; widows: 2; orphans: 2"><br>
+</p>
+<p style="margin-bottom: 0in; widows: 2; orphans: 2">139 стр ROS
+by example навигация робота</p>
+</body>
+</html>

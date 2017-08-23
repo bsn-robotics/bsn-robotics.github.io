@@ -35,6 +35,14 @@ p {
     border: 1px solid #ccc;
     border-left-width: 10px;
 }
+
+a {
+    text-decoration: none; /* Убирает подчеркивание для ссылок */
+   } 
+a:hover { 
+    text-decoration: underline; /* Добавляем подчеркивание при наведении курсора на ссылку */
+    color: white; /* Ссылка красного цвета */
+   }
 .learned-ok {
 color: white;
     text-decoration: strong;
@@ -48,7 +56,7 @@ color: white;
     background-color: #f1c40f;
 }
 
-.not-learned {
+.learned-no {
 color: white;
     border-color: #c0392b;
     background-color: #e74c3c;
@@ -57,13 +65,11 @@ color: white;
 color: white;
     background-color: #ff8822;
 }
+.contacts {
+color: white;
+    background-color: #507299;
+}
 
-ul.ul-treefree { padding-left:25px; }
-ul.ul-treefree ul { margin:0; padding-left:6px; }
-ul.ul-treefree li { position:relative; list-style:none outside none; border-left:solid 1px #999; margin:0; padding:0 0 0 19px; line-height:23px; }
-ul.ul-treefree li:before { content:''; display:block; border-bottom:solid 1px #999; position:absolute; width:18px; height:11px; left:0; top:0; }
-ul.ul-treefree li:last-child { border-left:0 none; }
-ul.ul-treefree li:last-child:before { border-left:solid 1px #999; }
 
 .treeHTML {
   line-height: normal;
@@ -104,6 +110,7 @@ ul.ul-treefree li:last-child:before { border-left:solid 1px #999; }
       	</style>
     </head>
     <body>
+	<base target="_blank">
         <h1><strong><em> Hello World, I'm BSN !</em></strong></h1>
 	<blockquote class = photocard>
         	<p class=df >Это мой теплый ламповый статический сайт.</p>
@@ -113,28 +120,57 @@ ul.ul-treefree li:last-child:before { border-left:solid 1px #999; }
 	<div class="treeHTML"><h1 style="color: #000000;" ><strong><em>Содержание</strong></em></h1>
 	  <div><p class=df >Робототехника</p>
     		<details><summary></summary>
-			<div><p class=learned-ok>SLAM алгоритмы</p></div>
-			<div><p class=learned-ok>RTAB-Map</p></div>
-      			<div><p class=learned-ok>Работа с библиотекой SDL2.0</p></div>
-      			<div><p class=not-learned>Алгоритмы поиска пути на графе</p></div>
+			<div><a href="Project.html"><p class=learned-ok>Project</p></a></div>
+			<div><a href="ROS.html"><p class=learned-no>ROS</p></a></div>
+			<div><p class=learned-no>SLAM алгоритмы</p></div>
+			<div><p class=learned-no>RTAB-Map</p></div>
+      			<div><a href="SDL.html"><p class=learned-ok>Работа с библиотекой SDL2.0</p></a></div>
+      			<div><a href="Pathfinding.html"><p class=learned-no>Алгоритмы поиска пути</p></a></div>
+			<div><p class=df >Программирование микроконтроллеров</p>
+    				<details><summary></summary>
+					<div><p class=df >Arduino</p></div>
+      					<div><p class=df >STM32</p>
+						<details><summary></summary>
+							<div><a href="Keil.html"><p class=learned-ok>Keil</p></a></div>
+						</details>
+					</div>
+
+   				</details>
+			</div>
    		</details>
+  	 </div>
+	<div><p class=df >Компьютерные технологии</p>
+    		<details><summary></summary>
+      			<div><a href="Linux.html"><p class=learned-no>Linux</p></a></div>
+   		  	<div><a href="HTML.html"><p class=learned-no>HTML</p></a></div>
+   			<div><a href="Git.html"><p class=learned-ok>Git</p></a></div>
+			<div><p class=df >Библиотеки С++</p>
+    				<details><summary></summary>
+					<div><a href="ncurses.html"><p class=learned-ok>ncurses</p></a></div>
+					<div><a href="SDL.html"><p class=learned-ok>Работа с библиотекой SDL2.0</p></a></div>
+   				</details>
+			</div>
+		</details>
   	 </div>
 	 <div><p class=df >Стихотворения</p>
     		<details><summary></summary>
-      			<div><p></p></div>
-     			<div><p></p></div>
-      			<div><p></p></div>
+      			<div><a href="Summer.html"><p class=learned-no>Лето</p></a></div>
    		</details>
   	 </div>
- 	 <div ><p class=df >Контакты</p></div>
+	 
+ 	 <div ><p class=df >Контакты</p>
+		<details><summary></summary>
+      			<div><a href="https://vk.com"><p class=contacts>Вконтакте</p></a></div><!--youaremyimagination-->
+			<div><p class=contacts>Почта</p></div>
+   		</details>
+	 </div>
 	 </div>
 	<h1 style="color: #000000;" ><strong><em>Лирическое отступление</strong></em></h1>
 <!--<blockquote class = photocard>-->
-<p style="color: #000000;" >На заре интернета, когда он был еще маленьким, почти все сайты были такими &#8211 маленькими, сверстанными вручную без всяких наворотов. Но в этом лаконичном стиле, как мне кажется, есть что-то душевное.
-В 1970-е годы НАСА запустило на четырех аппаратах в космос проект MAPS, известный как золотая пластинка Voyager и раскрывающий местоположение Земли во Вселенной. Прошло 40 лет назад, и инопланетяне, если и существуют, уже могли найти нас. Однако ученые, занимавшиеся проектом, уже жалеют, что выдали местонахождение нашей планеты.
- 
-Доктор Фрэнк Дрейк, разработавший карты (MAPS), рассказал, что решение осуществить проект было слишком опасным. Все четыре космических аппарата Voyager уже покинули Солнечную систему и ускоряются дальше в пространство с координатами Земли на борту. Комиссию, занимавшуюся подготовкой пластинки, возглавлял Карл Саган.</p>
+<p style="color: #000000;" >На заре интернета, почти все сайты были такими простенькими, сверстанными вручную без наворотов. Но в этом лаконичном стиле, как мне кажется, есть что-то душевное.
+</p>
 <!--</blockquote>-->
- 
+
     </body>
 </html>
+
