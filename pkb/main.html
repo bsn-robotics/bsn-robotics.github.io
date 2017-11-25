@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <title>BSN Robotics</title>
+    <style>
+      blockquote {
+    		margin: 1.5em 0;
+   			padding: 0.5em 15px;
+    		line-height: 1.5;
+    		border-left: 5px solid #888888;
+			}
+			h1 {
+				color: black; 
+			}
+
+/* Пример оформления фотографии */
+.photocard {
+    display: block;
+    width: auto;
+    margin: 20px; /*auto*/
+    border-radius: 10px;
+    box-shadow: 0 0 10px #666;
+	 	background: #f0f0f0;
+}
+      div{
+    		border-left: 1px dotted black;
+    		margin: 10px 10px 10px 10px; /* Отступы вокруг */
+
+      }
+        
+      summary {
+    		margin: 5px 0;
+    		padding: 5px 10px;
+   			border: 1px solid #ccc;
+    		border-left-width: 10px;
+        color: white;
+    		background-color: #ff8822;
+			}
+      
+      p {
+				color: black;
+    		margin: 10px 0;
+   			padding: 5px 10px;
+    		border: 1px solid #ccc;
+    		border-left-width: 10px;
+			}
+      
+      a {
+    		text-decoration: none; /* Убирает подчеркивание для ссылок */
+   		} 
+			a:hover { 
+    		text-decoration: underline; /* Добавляем подчеркивание при наведении курсора на ссылку */
+    		color: white; /* Ссылка красного цвета */
+   		}
+
+.learned-ok {
+color: white;
+    text-decoration: strong;
+    border-color: #27ae60;
+    background-color: #2ecc71;
+}
+
+.learning-in-progress {
+color: white;
+    border-color: #f39c12;
+    background-color: #f1c40f;
+}
+.learned-no {
+color: white;
+    border-color: #c0392b;
+    background-color: #e74c3c;
+}
+.df {
+color: white;
+    background-color: #ff8822;
+}
+.contacts {
+color: white;
+    background-color: #507299;
+}
+      
+		</style>
+  </head>
+  <body>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter45717165 = new Ya.Metrika({
+                    id:45717165,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    ut:"noindex"
+                });
+            } catch(e) { }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script><noscript><div><img src="https://mc.yandex.ru/watch/45717165?ut=noindex"
+style="position:absolute; left:-9999px;" alt=""></div></noscript>
+    <!-- /Yandex.Metrika counter --> <base target="_blank">
+    <h1><strong><em> Hello World, I'm BSN !</em></strong></h1>
+    <blockquote class="photocard">
+      <p class="df"><a href="Private/i.html">Это мой теплый ламповый статический
+          сайт.</a></p>
+    </blockquote>
+    <h1 style="color: #000000;"><strong><em>Содержание</em></strong></h1>
+    <div>
+      <details>
+        <summary>Робототехника</summary>
+        <div> <a href="project.html">
+            <p class="learned-no">Project</p>
+          </a> </div>
+        <div> <a href="turtlebot.html">
+            <p class="learned-no">TurtleBot</p>
+          </a> </div>
+        <div> <a href="project_robot_giroscyter.html">
+            <p class="learned-no">Робот из гироскутера</p>
+          </a> </div>
+        <div> <a href="shematic.html">
+            <p class="learned-no">Схемотехника</p>
+          </a> </div>
+        <div>
+          <details>
+            <summary>ROS</summary>
+            <div> <a href="ROS.html">
+                <p class="learned-no">ROS</p>
+              </a> </div>
+            <div> <a href="ros_tutorials.html">
+                <p class="learned-no">ROS Tutorial Indigo</p>
+              </a> </div>
+            <div> <a href="ros_map.html">
+                <p class="learned-no">ROS Mapping</p>
+              </a> </div>
+            <div> <a href="modelling_ros.html">
+                <p class="learned-no">Моделирование робота в ROS RVIZ и Gazebo</p>
+              </a> </div>
+            <div> <a href="gazebo.html">
+                <p class="learned-no">Gazebo</p>
+              </a> </div>
+            <div> <a href="pgm.html">
+                <p class="learned-no">pgm</p>
+              </a> </div>
+          </details>
+        </div>
+        <div> <a href="navigation.html">
+            <p class="learned-no">Система навигации робота</p>
+          </a> </div>
+        <div> <a href="SLAM.html">
+            <p class="learned-no">SLAM алгоритмы</p>
+          </a> </div>
+        <div> <a href="map.html">
+            <p class="learned-no">Модель недетерминированной среды для задач
+              навигации робота</p>
+          </a> </div>
+        <div> <a href="rtabmap.html">
+            <p class="learned-no">RTAB-Map</p>
+          </a> </div>
+        <div> <a href="rtabmapoctomap.html">
+            <p class="learned-no">RTAB-Map + OctoMap</p>
+          </a> </div>
+        <div> <a href="kinect2.html">
+            <p class="learned-no">Kinect 2</p>
+          </a> </div>
+        <div> <a href="Pathfinding.html">
+            <p class="learned-no">Алгоритмы поиска пути</p>
+          </a> </div>
+        <div> <a href="trajectory.html">
+            <p class="learned-no">Алгоритмы построения траектории</p>
+          </a> </div>
+        <div> <a href="planner.html">
+            <p class="learned-no">Планировщик траектории в ROS</p>
+          </a> </div>
+        <div> <a href="simulators_robot.html">
+            <p class="learned-no">Симуляторы робота</p>
+          </a> </div>
+        <div> <a href="Tech.html">
+            <p class="learned-ok">Технологии в робототехнике</p>
+          </a> </div>
+        <div> <a href="Projects_other.html">
+            <p class="learned-ok">Чужие проекты</p>
+          </a> </div>
+        <div> <a href="resource.html">
+            <p class="learned-ok">Интернет ресурсы по робототехнике</p>
+          </a> </div>
+        <div> <a href="magazine.html">
+            <p class="learned-ok">Интернет магазины робототехники</p>
+          </a> </div>
+        <div> <a href="ardrone.html">
+            <p class="learned-no">AR Drone</p>
+          </a> </div>
+        <div> <a href="robotics.html">
+            <p class="learned-no">Интересные статьи по робототехнике</p>
+          </a> </div>
+        <div>
+          <details>
+            <summary>Библиотеки С++</summary>
+            <div><a href="SDL.html">
+                <p class="learned-no">Работа с библиотекой SDL2.0</p>
+              </a></div>
+            <div><a href="opencv.html">
+                <p class="learned-no">OpenCV</p>
+              </a></div>
+          </details>
+        </div>
+        <div>
+          <details open="">
+            <summary>Програмиирование микроконтроллеров</summary>
+            <div>
+              <!--<details>
+                <summary>Arduino</summary>              </details>--> </div>
+            <div>
+              <details>
+                <summary>STM32</summary>
+                <div> <a href="microcontrollers.html">
+                    <p class="learned-no">Микроконтроллеры</p>
+                  </a> </div>
+                <div> <a href="Keil.html">
+                    <p class="learned-no">Keil</p>
+                  </a> </div>
+              </details>
+            </div>
+          </details>
+        </div>
+      </details>
+    </div>
+    <div>
+      <details>
+        <summary>Компьютерные технологии</summary>
+        <div><a href="programming.html">
+            <p class="learned-no">Программирование и парадигмы</p>
+          </a></div>
+        <div><a href="cplusplus.html">
+            <p class="learned-no">C++</p>
+          </a></div>
+        <div><a href="java.html">
+            <p class="learned-no">Java</p>
+          </a></div>
+        <div><a href="Linux.html">
+            <p class="learned-no">Linux</p>
+          </a></div>
+        <div><a href="HTML.html">
+            <p class="learned-no">HTML</p>
+          </a></div>
+        <div><a href="assembler.html">
+            <p class="learned-no">Ассемблер</p>
+          </a></div>
+        <div><a href="Git.html">
+            <p class="learned-no">Git</p>
+          </a></div>
+        <div><a href="cmake.html">
+            <p class="learned-no">Cmake</p>
+          </a></div>
+        <div><a href="word.html">
+            <p class="learned-no">Word</p>
+          </a></div>
+        <div><a href="matlab.html">
+            <p class="learned-no">Matlab</p>
+          </a></div>
+        <div><a href="game_driver.html">
+            <p class="learned-no">Игровой движок</p>
+          </a></div>
+        <div><a href="com_port.html">
+            <p class="learned-no">COM port</p>
+          </a></div>
+        <div>
+          <details>
+            <summary>Библиотеки С++</summary>
+            <div><a href="ncurses.html">
+                <p class="learned-no">ncurses</p>
+              </a></div>
+            <div><a href="SDL.html">
+                <p class="learned-ok">Работа с библиотекой SDL2.0</p>
+              </a></div>
+            <div><a href="opencv.html">
+                <p class="learned-no">OpenCV</p>
+              </a></div>
+            <div><a href="opengl.html">
+                <p class="learned-no">OpenGL</p>
+              </a></div>
+            <div><a href="sfml.html">
+                <p class="learned-no">SFML</p>
+              </a></div>
+          </details>
+        </div>
+      </details>
+    </div>
+    <div>
+      <details>
+        <summary>Университет</summary>
+        <div><a href="matan.html">
+            <p class="learned-no">Математический анализ</p>
+          </a></div>
+        <div><a href="Physics.html">
+            <p class="learned-no">Физика</p>
+          </a></div>
+        <div> <a href="tau.html">
+            <p class="learned-no">ТАУ</p>
+          </a> </div>
+        <div> <a href="graph_theory.html">
+            <p class="learned-no">Теория графов</p>
+          </a> </div>
+        <div> <a href="math_logic.html">
+            <p class="learned-no">Математическая логика</p>
+          </a> </div>
+      </details>
+    </div>
+    <div>
+      <details>
+        <summary>Творчество</summary>
+        <div><a href="creative/poems.html">
+            <p class="learned-no">Стихотворения</p>
+          </a></div>
+        <div><a href="creative/way.html">
+            <p class="learned-no">Рассказ</p>
+          </a></div>
+        <div><a href="creative/music.html">
+            <p class="learned-no">Музыка</p>
+          </a></div>
+      </details>
+    </div>
+    <div>
+      <details>
+        <summary>Разное</summary>
+        <div><a href="Private/manual.html">
+            <p>Manual</p>
+          </a></div>
+        <div><a href="Private/plan.html">
+            <p>Plan</p>
+          </a></div>
+        <div><a href="Private/diary.html">
+            <p>Diary</p>
+          </a></div>
+        <div><a href="Private/Peoples.html">
+            <p>Peoples</p>
+          </a></div>
+        <div><a href="Private/thoughts.html">
+            <p>Мысли</p>
+          </a></div>
+        <div><a href="Private/idea.html">
+            <p>idea</p>
+          </a></div>
+        <div><a href="Private/communications.html">
+            <p>Сommunications</p>
+          </a></div>
+        <div><a href="Private/courses.html">
+            <p>Курсы</p>
+          </a></div>
+        <div><a href="Private/new_tech.html">
+            <p>Новые технологии</p>
+          </a></div>
+        <div><a href="Private/character.html">
+            <p>Ch</p>
+          </a></div>
+        <div><a href="Private/cs_center.html">
+            <p>CS</p>
+          </a></div>
+        <div><a href="Private/books.html">
+            <p>books</p>
+          </a></div>
+        <div><a href="Private/gtd.html">
+            <p>gtd</p>
+          </a></div>
+        <div><a href="Private/cniirtc.html">
+            <p>cniirtc</p>
+          </a></div>
+        <div><a href="Private/project_13.html">
+            <p>p13</p>
+          </a></div>
+        <div><a href="Private/health.html">
+            <p>hp</p>
+          </a></div>
+        <div><a href="Private/ai_cup.html">
+            <p>ai_cup</p>
+          </a></div>
+        <div><a href="Private/sport.html">
+            <p>sport</p>
+          </a></div>
+        <div><a href="mind.html">
+            <p class="learned-no">Mind</p>
+          </a></div>
+        <div><a href="Private/diplom.html">
+            <p class="learned-no">diplom</p>
+          </a></div>
+      </details>
+    </div>
+    <div>
+      <details>
+        <summary>Контакты</summary>
+        <div><a href="https://vk.com">
+            <p class="contacts">Вконтакте</p>
+          </a></div>
+        <!--youaremyimagination-->
+        <div>
+          <p class="contacts">Почта</p>
+        </div>
+      </details>
+    </div>
+    <h1 style="color: #000000;"><strong><em>Лирическое отступление</em></strong></h1>
+    <!--<blockquote class = photocard>-->
+    <p style="color: #000000;">На заре интернета, почти все сайты были такими
+      простенькими, сверстанными вручную без наворотов, но в этом лаконичном
+      стиле, как мне кажется, есть что-то душевное.</p>
+    <p style="color: #000000;">Хороший способ познакомиться с моими техническими
+      проектами и мыслями на разные филосовские темы.<br>
+      <br>
+      Здесь главное не форма, главное – содержание.</p>
+    <!--</blockquote>-->
+    <!-- Yandex.Metrika informer --> <a href="https://metrika.yandex.ru/stat/?id=45717165&amp;from=informer"
+      target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/45717165/3_0_FFA020FF_FF8000FF_1_pageviews"
+        style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)"
+        class="ym-advanced-informer" data-cid="45717165" data-lang="ru"></a>
+    <!-- /Yandex.Metrika informer -->
+  </body>
+</html>
