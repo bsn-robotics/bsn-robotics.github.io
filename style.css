@@ -39,6 +39,8 @@ p {
     line-height: 1.5;/**/
     text-indent: 1.5cm; /* Отступ первой строки в пикселах */
     /*word-wrap: break-word;  Перенос слов */ 
+    margin-top: 0em; /* Отступ сверху */
+    margin-bottom: 0em; /* Отступ снизу */
 }
 h1 {
     width: 17cm;
