@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>opengl</title>
+  </head>
+  <body>
+    <h1>OpenGL</h1>
+    <p><a href="https://www.opengl.org/">https://www.opengl.org/</a></p>
+    <p><a href="https://www.khronos.org/opengl/wiki/Getting_Started#Tutorials_and_How_To_Guides">https://www.khronos.org/opengl/wiki/Getting_Started#Tutorials_and_How_To_Guides</a></p>
+    <p><a href="https://www.mesa3d.org/">https://www.mesa3d.org/</a><a href="https://www.opengl.org/"></a></p>
+    <p><a href="http://pmg.org.ru/index.html">http://pmg.org.ru/index.html</a></p>
+    <p><a href="http://vulkanapi.ru/">http://vulkanapi.ru/</a></p>
+    <p>&nbsp;&nbsp;&nbsp; Я изучаю OpenGL по урокам <a href="https://learnopengl.com/">https://learnopengl.com/</a>,
+      которые используют современный OpenGL. (2017 год) </p>
+    Личный cайт автора, на котором тоже много интересного - <a href="https://joeydevries.com/#home">https://joeydevries.com/#home</a>
+    <p>Перевод части уроков на Хабре: <a href="https://habrahabr.ru/post/310790/">https://habrahabr.ru/post/310790/</a></p>
+    <p>Еще одни уроки: 1 <a href="https://open.gl/introduction">https://open.gl/introduction</a></p>
+    <p><a href="http://antongerdelan.net/opengl/vertexbuffers.html">2
+        http://antongerdelan.net/opengl/vertexbuffers.html</a></p>
+    <p>3 <a href="http://www.opengl-tutorial.org/">http://www.opengl-tutorial.org/</a></p>
+    <p>4 <a href="https://triplepointfive.github.io/ogltutor/">https://triplepointfive.github.io/ogltutor/</a></p>
+    <a href="http://ogldev.atspace.co.uk/">5 http://ogldev.atspace.co.uk/</a><br>
+    <br>
+    <a href="https://www.youtube.com/playlist?list=PLKMRBwuMXxOoFlCWZfu9hheZ7ZSC2IEr3">https://www.youtube.com/playlist?list=PLKMRBwuMXxOoFlCWZfu9hheZ7ZSC2IEr3</a><br>
+    <br>
+    Игра с исходным кодом на OpenGL<a href="http://store.steampowered.com/app/488190/source_code/"><span
+        style="color: black;"> </span>http://store.steampowered.com/app/488190/source_code/</a>
+    <br>
+    <br>
+    <p>&nbsp;&nbsp;&nbsp; Для того чтобы начать изучать OpenGL по урокам <a href="https://learnopengl.com/">https://learnopengl.com/</a>
+      надо установить две библиотеки - GLFW и GLAD.</p>
+    <p>Я использую IDE CLion на OS Ubuntu 14.04. </p>
+    <p>CLion для подключения библиотек и компиляции использует CMake, поэтому
+      нужно написать CMakeLists.txt, а готового решения я не нашел, поэтому для
+      тех у кого возникла такая же проблема я выкладываю свой путь решения.</p>
+    <h2>Подключение библиотеки GLFW</h2>
+    <p>GLFW <a href="http://www.glfw.org/download.html">http://www.glfw.org/download.html</a></p>
+    <p><a href="http://steps3d.narod.ru/tutorials/glfw-tutorial.html">http://steps3d.narod.ru/tutorials/glfw-tutorial.html</a></p>
+    <p>Компилирование библиотеки из исходников под Linux:</p>
+    <p><a href="http://www.glfw.org/docs/latest/compile.html">http://www.glfw.org/docs/latest/compile.html</a></p>
+    <p><a href="https://stackoverflow.com/questions/17768008/how-to-build-install-glfw-3-and-use-it-in-a-linux-project">https://stackoverflow.com/questions/17768008/how-to-build-install-glfw-3-and-use-it-in-a-linux-project</a></p>
+    <p>Разархиврировать, перейти в терминале в эту директорию.</p>
+    <p>Установить зависимости:</p>
+    <p><code>sudo apt-get install xorg-dev</code></p>
+    <p><code>cmake</code> </p>
+    <p>Создать поддиректорию Build:</p>
+    <code> </code>
+    <p><code>mkdir glfw-build</code></p>
+    <code> </code>
+    <p><code>cd glfw-build</code></p>
+    <code> </code>
+    <p><code>cmake ~/game/glfw-3.2.1</code></p>
+    <code> </code>
+    <p><code>make</code></p>
+    <code> </code>
+    <p><code>sudo make install</code></p>
+    <p>Вывод:</p>
+    <p><code>Install configuration: ""<br>
+        -- Installing: /usr/local/include/GLFW<br>
+        -- Installing: /usr/local/include/GLFW/glfw3native.h<br>
+        -- Installing: /usr/local/include/GLFW/glfw3.h<br>
+        -- Installing: /usr/local/lib/cmake/glfw3/glfw3Config.cmake<br>
+        -- Installing: /usr/local/lib/cmake/glfw3/glfw3ConfigVersion.cmake<br>
+        -- Installing: /usr/local/lib/cmake/glfw3/glfw3Targets.cmake<br>
+        -- Installing: /usr/local/lib/cmake/glfw3/glfw3Targets-noconfig.cmake<br>
+        -- Installing: /usr/local/lib/pkgconfig/glfw3.pc<br>
+        -- Installing: /usr/local/lib/libglfw3.a</code></p>
+    <p>Создание тестовой программы:</p>
+    <p><a href="http://www.glfw.org/docs/3.0/quick.html">http://www.glfw.org/docs/3.0/quick.html</a></p>
+    <details>
+      <summary>Текст программы<br>
+      </summary>
+      <code>#include &lt;GLFW/glfw3.h&gt;<br>
+        #include &lt;stdlib.h&gt;<br>
+        #include &lt;stdio.h&gt;<br>
+        static void error_callback(int error, const char* description)<br>
+        {<br>
+        &nbsp;&nbsp;&nbsp; fputs(description, stderr);<br>
+        }<br>
+        static void key_callback(GLFWwindow* window, int key, int scancode, int
+        action, int mods)<br>
+        {<br>
+        &nbsp;&nbsp;&nbsp; if (key == GLFW_KEY_ESCAPE &amp;&amp; action ==
+        GLFW_PRESS)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        glfwSetWindowShouldClose(window, GL_TRUE);<br>
+        }<br>
+        int main(void)<br>
+        {<br>
+        &nbsp;&nbsp;&nbsp; GLFWwindow* window;<br>
+        &nbsp;&nbsp;&nbsp; glfwSetErrorCallback(error_callback);<br>
+        &nbsp;&nbsp;&nbsp; if (!glfwInit())<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit(EXIT_FAILURE);<br>
+        &nbsp;&nbsp;&nbsp; window = glfwCreateWindow(640, 480, "Simple example",
+        NULL, NULL);<br>
+        &nbsp;&nbsp;&nbsp; if (!window)<br>
+        &nbsp;&nbsp;&nbsp; {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glfwTerminate();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit(EXIT_FAILURE);<br>
+        &nbsp;&nbsp;&nbsp; }<br>
+        &nbsp;&nbsp;&nbsp; glfwMakeContextCurrent(window);<br>
+        &nbsp;&nbsp;&nbsp; glfwSetKeyCallback(window, key_callback);<br>
+        &nbsp;&nbsp;&nbsp; while (!glfwWindowShouldClose(window))<br>
+        &nbsp;&nbsp;&nbsp; {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float ratio;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int width, height;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        glfwGetFramebufferSize(window, &amp;width, &amp;height);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ratio = width / (float)
+        height;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glViewport(0, 0, width,
+        height);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glClear(GL_COLOR_BUFFER_BIT);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glMatrixMode(GL_PROJECTION);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLoadIdentity();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glOrtho(-ratio, ratio, -1.f,
+        1.f, 1.f, -1.f);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glMatrixMode(GL_MODELVIEW);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLoadIdentity();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glRotatef((float)
+        glfwGetTime() * 50.f, 0.f, 0.f, 1.f);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glBegin(GL_TRIANGLES);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glColor3f(1.f, 0.f, 0.f);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glVertex3f(-0.6f, -0.4f,
+        0.f);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glColor3f(0.f, 1.f, 0.f);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glVertex3f(0.6f, -0.4f, 0.f);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glColor3f(0.f, 0.f, 1.f);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glVertex3f(0.f, 0.6f, 0.f);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnd();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glfwSwapBuffers(window);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glfwPollEvents();<br>
+        &nbsp;&nbsp;&nbsp; }<br>
+        &nbsp;&nbsp;&nbsp; glfwDestroyWindow(window);<br>
+        &nbsp;&nbsp;&nbsp; glfwTerminate();<br>
+        &nbsp;&nbsp;&nbsp; exit(EXIT_SUCCESS);<br>
+        } </code></details>
+    <p>Компилирование:</p>
+    <p><code>g++ -std=c++11 -c test_gl.cpp</code></p>
+    <p><code>g++ test_gl.o -o test_gl.exec -lGL -lGLU -lglfw3 -lX11 -lXxf86vm
+        -lXrandr -lpthread -lXi -ldl -lXinerama -lXcursor</code></p>
+    <p>Вывод:</p>
+    <img style="width: 328px; height: 260px;" title="out test prog" alt="out test prog"
+      src="img/opengl1.png"><br>
+    <br>
+    <h2>CMakeLists.txt для Clion c библиотекой GLFW</h2>
+    <p><a href="http://eax.me/opengl-simple-project/">http://eax.me/opengl-simple-project/</a></p>
+    <p>Директорию с GLFW копирую в папку проекта и переименовываю в glfw.</p>
+    <p>Статическая линковка библиотеки GLFW.</p>
+    <p>Текст файла CMakeLists.txt:<code><br>
+      </code></p>
+    <code> </code>
+    <p><code>cmake_minimum_required(VERSION 3.8)<br>
+        project(untitled)<br>
+        set(CMAKE_CXX_STANDARD 11)<br>
+        find_package(OpenGL REQUIRED)<br>
+        add_subdirectory(glfw)<br>
+        include_directories(glfw/include) # lbhtrnjhbz<br>
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -Wextra -std=c++11")<br>
+        set(SOURCE_FILES main.cpp)<br>
+        add_executable(untitled ${SOURCE_FILES})<br>
+        target_link_libraries(untitled glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARY})</code></p>
+    <p>Таже самая программа компилирутеся в IDE CLion.</p>
+    <h2>Подключение библиотеки GLAD</h2>
+    <h2>CMakeLists.txt для Clion c библиотеками GLFW и GLAD</h2>
+    <p><code>cmake_minimum_required(VERSION 3.8)<br>
+        project(untitled)<br>
+        set(CMAKE_CXX_STANDARD 11)<br>
+        find_package(OpenGL REQUIRED)<br>
+        add_subdirectory(glfw)<br>
+        include_directories(glfw/include)<br>
+        include_directories(glad/include)<br>
+        set(SOURCE_LIB glad.cpp)<br>
+        add_library(glad STATIC ${SOURCE_LIB})<br>
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -Wall -Wextra -std=c++11")<br>
+        set(SOURCE_FILES main.cpp glad.cpp)<br>
+        add_executable(untitled ${SOURCE_FILES})<br>
+        target_link_libraries(untitled glad glfw ${GLFW_LIBRARIES}
+        ${OPENGL_LIBRARY})</code></p>
+    <h2><code></code>Материалы по OpenGL:</h2>
+    <p>NeHe современные <a href="http://nehe.gamedev.net/">http://nehe.gamedev.net/</a></p>
+    <p><a href="http://www.codersource.net/2011/02/06/a-simple-2d-game-with-opengl-ball-with-bat/">http://www.codersource.net/2011/02/06/a-simple-2d-game-with-opengl-ball-with-bat/</a></p>
+    <p>UDEMY <a href="https://www.udemy.com/opengl-tutorials/">https://www.udemy.com/opengl-tutorials/</a></p>
+    <p>Lazy Foo <a href="http://lazyfoo.net/tutorials/OpenGL/">http://lazyfoo.net/tutorials/OpenGL/</a></p>
+    <p>Tutorials <a href="http://3dcpptutorials.sk/index.php?id=14">http://3dcpptutorials.sk/index.php?id=14</a></p>
+    <p><a href="http://www.falloutsoftware.com/quick-start.html">http://www.falloutsoftware.com/quick-start.html</a></p>
+    <p><a href="https://www.youtube.com/watch?v=6Miai_t_ksw">https://www.youtube.com/watch?v=6Miai_t_ksw</a></p>
+    <p><a href="http://www3.ntu.edu.sg/home/ehchua/programming/opengl/cg_introduction.html">http://www3.ntu.edu.sg/home/ehchua/programming/opengl/cg_introduction.html</a></p>
+    <p><a href="http://www.codersource.net/2011/01/27/displaying-text-opengl-tutorial-5/">http://www.codersource.net/2011/01/27/displaying-text-opengl-tutorial-5/</a></p>
+    <p>Game <a href="https://www.youtube.com/watch?v=sLSbmHTfvv4">https://www.youtube.com/watch?v=sLSbmHTfvv4</a></p>
+    <p><a href="http://milantimko.info/index.php?page=articles&amp;category=projects&amp;article=02">http://milantimko.info/index.php?page=articles&amp;category=projects&amp;article=02</a></p>
+    <p>Game 2 <a href="https://www.youtube.com/playlist?list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP">https://www.youtube.com/playlist?list=PLRIWtICgwaX0u7Rf9zkZhLoLuZVfUksDP</a></p>
+    <p></p>
+    <p>sdl<a href="SDL.html#sdl"><span style="color: black;"> </span>openGL+SDL</a></p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p></p>
+    <h2> </h2>
+    <p></p>
+  </body>
+</html>

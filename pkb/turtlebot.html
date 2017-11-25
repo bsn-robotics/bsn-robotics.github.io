@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>turtlebot</title>
+  </head>
+  <body>
+    <h1>TurtleBot</h1>
+    <p><a href="http://wiki.ros.org/Robots/TurtleBot">http://wiki.ros.org/Robots/TurtleBot</a></p>
+    <p><a href="http://wiki.ros.org/turtlebot">http://wiki.ros.org/turtlebot</a></p>
+    <p><a href="https://github.com/turtlebot/turtlebot">https://github.com/turtlebot/turtlebot</a></p>
+    <p><a href="http://wiki.ros.org/turtlebot/Tutorials">http://wiki.ros.org/turtlebot/Tutorials</a></p>
+    <p><a href="http://wiki.ros.org/turtlebot_bringup/Tutorials/indigo/TurtleBot%20Bringup">http://wiki.ros.org/turtlebot_bringup/Tutorials/indigo/TurtleBot%20Bringup</a></p>
+    <p><a href="http://wiki.ros.org/rtabmap_ros/Tutorials/MappingAndNavigationOnTurtlebot">http://wiki.ros.org/rtabmap_ros/Tutorials/MappingAndNavigationOnTurtlebot</a></p>
+    <p><a href="http://learn.turtlebot.com/">http://learn.turtlebot.com/</a></p>
+    <p><a href="http://edu.gaitech.hk/getting_started/get-started.html">http://edu.gaitech.hk/getting_started/get-started.html</a></p>
+    <p>Kobuki</p>
+    <p><a href="http://kobuki.yujinrobot.com/wiki/online-user-guide/">http://kobuki.yujinrobot.com/wiki/online-user-guide/</a></p>
+    <p>Протокол <a href="http://yujinrobot.github.io/kobuki/enAppendixProtocolSpecification.html">http://yujinrobot.github.io/kobuki/enAppendixProtocolSpecification.html</a></p>
+    <p>Драйвер <a href="http://yujinrobot.github.io/kobuki/enMainPage.html">http://yujinrobot.github.io/kobuki/enMainPage.html</a></p>
+    <p>Сенсоры:</p>
+    <p>1) бампер</p>
+    <p>2) датчики земли</p>
+    <p>3) датчики вывешивания колес</p>
+    <p>4) гироскоп</p>
+    <p><br>
+    </p>
+    <p>Если есть робот:</p>
+    <p><code>roslaunch turtlebot_bringup minimal.launch</code></p>
+    <p><code><br>
+      </code></p>
+    <p><code> export TURTLEBOT_3D_SENSOR=kinect</code></p>
+    <p><code>roslaunch rtabmap_ros demo_turtlebot_mapping.launch
+        args:="--delete_db_on_start"</code></p>
+    <p><code><br>
+      </code></p>
+    <p><code>roslaunch rtabmap_ros demo_turtlebot_rviz.launch<br>
+      </code></p>
+    <p>Если есть только kinect:</p>
+    <p><code>roslaunch turtlebot_bringup minimal.launch</code></p>
+    <p><code><br>
+      </code></p>
+    <p><code>export TURTLEBOT_3D_SENSOR=kinect</code></p>
+    <p><code>roslaunch rtabmap_ros demo_turtlebot_mapping.launch
+        args:="--delete_db_on_start" rgbd_odometry:=true</code><code style="color: rgb(0, 0, 0); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"><br>
+      </code></p>
+    <p><code>roslaunch rtabmap_ros demo_turtlebot_rviz.launch</code></p>
+    <h3>Запуск симуляции в Gazebo:</h3>
+    <p><code>roslaunch turtlebot_gazebo turtlebot_world.launch</code></p>
+    <p><code>roslaunch rtabmap_ros demo_turtlebot_mapping.launch
+        simulation:=true</code></p>
+    <p><code>roslaunch rtabmap_ros demo_turtlebot_rviz.launch</code></p>
+    <p><br>
+    </p>
+    <p>Топик /move_base/DWAPlannerROS/global_plan</p>
+    <p>/move_base/DWAPlannerROS/local_plan</p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <h4>Запуск kinect2:</h4>
+    <p>./1.sh</p>
+    <p>./3.sh</p>
+    <p>roslaunch rtabmap_ros rgbd_mapping.launch
+      rtabmap_args:="--delete_db_on_start" rviz:=true rtabmapviz:=false
+      rgb_topic:=/kinect2/qhd/image_color_rect
+      depth_registered_topic:=/kinect2/qhd/image_depth_rect
+      camera_info_topic:=/kinect2/qhd/camera_info</p>
+    <h4>Или можно так:</h4>
+    <p><code>roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true<br>
+      </code></p>
+    <p><code>roslaunch rtabmap_ros rgbd_mapping_kinect2.launch rviz:=true
+        rtabmapviz:=false<br>
+      </code></p>
+    <p><br>
+    </p>
+    <p>Модификация <code>roslaunch rtabmap_ros demo_turtlebot_mapping.launch</code></p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p>Мы можем запустить только move_base от turtlebot\а вместе с rtabmap,
+      base_controller </p>
+    <p><code>roslaunch turtlebot_bringup minimal.launch</code></p>
+    <p><br>
+      <code>roslaunch base move_base.launch</code></p>
+    <p><br>
+      <code>roslaunch base base_controller.launch</code></p>
+    <p><code>roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true<br>
+      </code> </p>
+    <p><code>roslaunch rtabmap_ros rgbd_mapping_kinect2.launch rviz:=true
+        rtabmapviz:=false</code></p>
+    <p><code><br>
+      </code></p>
+    <h3>Запуск<code></code></h3>
+    <p><code>roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true</code></p>
+    <p><code>roslaunch rtabmap_ros rgbd_mapping_kinect2.launch rviz:=true
+        rtabmapviz:=false</code></p>
+    <p><code>rosrun model tf_broadcast</code></p>
+    <p><code>roslaunch base move_base.launch</code><br>
+      <code>roslaunch rtabmap_ros demo_turtlebot_rviz.launch</code></p>
+    <p><code></code></p>
+    <p><br>
+    </p>
+    <h3>Запуск 2</h3>
+    <h3><code></code></h3>
+    <code>roslaunch turtlebot_bringup minimal.launch</code>
+    <p><code>roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true</code></p>
+    <code> </code>
+    <p><code>rosrun model tf_broadcast</code></p>
+    <p><code>roslaunch rtabmap_ros demo_turtlebot_mapping.launch
+        args:="--delete_db_on_start" rgbd_odometry:=true</code></p>
+    <p><code>roslaunch rtabmap_ros demo_turtlebot_rviz.launch</code><br>
+      <code></code><code style="color: rgb(0, 0, 0); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"></code></p>
+    <h3>Запуск 3 подделка симуляции&nbsp;<code></code></h3>
+    <p><code>roslaunch turtlebot_gazebo turtlebot_world.launch</code> </p>
+    <p><code>roslaunch rtabmap_ros demo_turtlebot_mapping.launch
+        simulation:=true</code></p>
+    <p><code>roslaunch rtabmap_ros demo_turtlebot_rviz.launch</code></p>
+    <p><code><br>
+      </code></p>
+    <p>Отключаем данные лазера и одометрии в газебо.</p>
+    <p>Берем их с kinect2</p>
+    <p><code><br>
+      </code></p>
+    <p><code><br>
+      </code></p>
+    <p>В <code>roslaunch turtlebot_gazebo turtlebot_world.launch</code></p>
+    <p><code>запускатся tf footprint<br>
+      </code></p>
+    <p>!!!!! редактировал <code>rtabmap_ros demo_turtlebot_mapping.launch, в
+        копии оригинал.</code></p>
+    <p><code>!!!!! редактировал turtlebot_gazebo turtlebot_world.launch</code></p>
+    <p><code><br>
+      </code></p>
+    <p><code><a href="http://blog.csdn.net/xiaocainiaodeboke/article/details/53514625">http://blog.csdn.net/xiaocainiaodeboke/article/details/5351462</a></code></p>
+    <p><code><a href="http://blog.csdn.net/xiaocainiaodeboke/article/details/53514625">http://blog.csdn.net/Forrest_Z/article/details/56665631</a></code></p>
+    <code> </code><code></code><code style="color: rgb(0, 0, 0); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"></code>
+  </body>
+</html>

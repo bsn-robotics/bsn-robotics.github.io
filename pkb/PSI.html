@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>PSI</title>
+  </head>
+  <script>
+  function myClock() {
+    var siteTime = new Date(); //создаём объект Date()
+    var hour = siteTime.getHours(); //получаем часы
+    var minute = siteTime.getMinutes(); //получаем минуты
+    var second = siteTime.getSeconds(); //получаем секунды
+    //В следующих трех строках проверяем, если число (часы, минуты, секунды) меньше 10,
+    // то выводим 0 перед числом (для красоты)
+    if (hour < 10) hour = "0" + hour;
+    if (minute < 10) minute  = "0" + minute;
+    if (second < 10) second  = "0" + second;
+    //Находим на странице элемент с id = siteTime и внутрь него записываем время сайта
+    document.getElementById("siteTime").innerHTML = hour + ":" + minute + ":" + second; 
+  }
+</script>
+  
+  <body>
+    
+    <p>Разделение времени:</p>
+    <ul>
+      <li>Изучение ROS 4 часа</li>
+      <li>Извлечение карты 4 часа</li>
+      <li>Оформление диплома 4 часа</li>
+      <li>Электронная и механическая часть 4 часа</li>
+      <li>Подключение робота к ROS 4 часа</li>
+    </ul>
+		
+    <script>
+        setInterval(myClock, 1000); //ставим выполнение данной функции каждую секунду  
+    </script>
+  <p style="font-weight:bold;">Time: <span id="siteTime"></span></p>
+  
+    <p><a href="index.html">index.html</a><br>
+      <iframe src="index.html" height="1024" width="1024">
+        &amp;amp;amp;lt;/p&amp;amp;amp;gt; &amp;amp;amp;lt;/body&amp;amp;amp;gt;
+        &amp;amp;amp;lt;/html&amp;amp;amp;gt; </iframe></p>
+    
+    
+  </body>
+</html>

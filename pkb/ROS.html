@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>ROS</title>
+  </head>
+  <body>
+    <h1>ROS</h1>
+    C++ <a href="http://wiki.ros.org/roscpp/Overview">http://wiki.ros.org/roscpp/Overview</a><br>
+    <br>
+    <a href="http://wiki.ros.org/ROS/Concepts">http://wiki.ros.org/ROS/Concepts</a><br>
+    <br>
+    <a href="http://robocraft.ru/page/robotics/">http://robocraft.ru/page/robotics/</a><br>
+    <br>
+    Хорошие уроки <a href="http://edu.gaitech.hk/getting_started/get-started.html">http://edu.gaitech.hk/getting_started/get-started.html</a><br>
+    <br>
+    Концепция узлов <a href="https://stepik.org/lesson/1148/">https://stepik.org/lesson/1148/</a><br>
+    <br>
+    Курс по ROS <a href="http://www.theconstructsim.com/rds-ros-development-studio/">http://www.theconstructsim.com/rds-ros-development-studio</a><br>
+    <a href="https://www.youtube.com/watch?v=DBFYZRMLr70&amp;feature=youtu.be">https://www.youtube.com/watch?v=DBFYZRMLr70&amp;feature=youtu.be</a><br>
+    <a href="https://www.youtube.com/watch?v=d5YAJh6Z2B0">https://www.youtube.com/watch?v=d5YAJh6Z2B0</a><br>
+    <a href="http://www.theconstructsim.com/construct-learn-develop-robots-using-ros/robotigniteacademy_learnros/#eluidf10f1a68">http://www.theconstructsim.com/construct-learn-develop-robots-using-ros/robotigniteacademy_learnros/#eluidf10f1a68</a><br>
+    <a href="http://www.rsl.ethz.ch/education-students/lectures/ros.html">http://www.rsl.ethz.ch/education-students/lectures/ros.html</a><br>
+    <br>
+    <a href="https://www.clearpathrobotics.com/2014/01/how-to-guide-ros-101/">https://www.clearpathrobotics.com/2014/01/how-to-guide-ros-101/</a><br>
+    <br>
+    <a href="http://www.openrobots.org/morse/doc/1.2/user/advanced_tutorials/ros_nav_tutorial.html">http://www.openrobots.org/morse/doc/1.2/user/advanced_tutorials/ros_nav_tutorial.html</a><br>
+    <br>
+    <a href="http://robocademy.com">http://robocademy.com</a><br>
+    <br>
+    Основы ROS Робофорум <a href="http://roboforum.ru/forum102/topic16513.html">http://roboforum.ru/forum102/topic16513.html</a><br>
+    <br>
+    Робокрафт <a href="http://robocraft.ru/blog/robosoft/721.html">http://robocraft.ru/blog/robosoft/721.html</a><br>
+    <p>TOD <a href="https://geektimes.ru/company/tod/blog/250444/">https://geektimes.ru/company/tod/blog/250444/</a></p>
+    Turtlebot <a href="http://learn.turtlebot.com">http://learn.turtlebot.com</a><br>
+    <a href="http://wiki.ros.org/rtabmap_ros/Tutorials/MappingAndNavigationOnTurtlebot">http://wiki.ros.org/rtabmap_ros/Tutorials/MappingAndNavigationOnTurtlebot</a><br>
+    <br>
+    Стек навигации<br>
+    Для использования узла move_base&nbsp; навигационного стека, нам нужно иметь
+    глобальный планировщик и локальный планировщик.<br>
+    <br>
+    Существуют три глобальных планировщика, которые придерживаются интерфейса
+    nav core :: BaseGlobal Planner: carrot planner, navfn и global planner.<br>
+    <br>
+    &nbsp;<br>
+    <a href="http://zkytony.com/documents/navguide.pdf">http://zkytony.com/documents/navguide.pdf</a><br>
+    To use the move base node in navigation stack, we need to have a global
+    planner and a local planner. There are three global planners that adhere to
+    nav core::BaseGlobal Planner interface: carrot planner, navfn and global
+    planner.<br>
+    <br>
+    <a href="http://wiki.ros.org/navigation">http://wiki.ros.org/navigation</a><br>
+    <a href="http://wiki.ros.org/rtabmap_ros/Tutorials/MappingAndNavigationOnTurtlebot">http://wiki.ros.org/rtabmap_ros/Tutorials/MappingAndNavigationOnTurtlebot</a><br>
+    <a href="http://wiki.ros.org/turtlebot_navigation">http://wiki.ros.org/turtlebot_navigation</a><br>
+    <a href="http://wiki.ros.org/turtlebot_gazebo/Tutorials/indigo/Make%20a%20map%20and%20navigate%20with%20it">http://wiki.ros.org/turtlebot_gazebo/Tutorials/indigo/Make%20a%20map%20and%20navigate%20with%20it</a><br>
+    <a href="http://wiki.ros.org/navigation/Tutorials/RobotSetup/TF">http://wiki.ros.org/navigation/Tutorials/RobotSetup/TF</a><br>
+    <a href="http://www.ros.org/browse/details.php?distro=lunar&amp;name=move_base">http://www.ros.org/browse/details.php?distro=lunar&amp;name=move_base</a><br>
+    Из книги Ros Robotics Projects&nbsp; стр 373:<br>
+    <br>
+    You can build the map by teleoperating the robot around the room. After
+    mapping, save the map as we<br>
+    did in the simulation:<br>
+    $ rosrun map_server map_saver -f ~/test_map<br>
+    After getting the map, launch AMCL nodes to perform final navigation. You
+    have to restart all the<br>
+    launch files and start again.<br>
+    <img style="width: 179px; height: 186px;" title="map" alt="map" src="ROS/map.png"><br>
+    <br>
+    <a href="http://wiki.ros.org/rviz/DisplayTypes/Map">http://wiki.ros.org/rviz/DisplayTypes/Map</a><br>
+    <br>
+    <br>
+    Из книги Learning ROS for Robotics programming<br>
+    Occupancy Grid Map (OGM)<br>
+    <br>
+    <p><br>
+      <iframe src="ros_map.html" height="256" width="512"> </iframe></p>
+    <p>Обучающий проет на ROS <a href="https://linorobot.org">https://linorobot.org</a></p>
+    <p><a href="https://linorobot.org"><br>
+      </a></p>
+    <p><a href="https://linorobot.org"><br>
+      </a></p>
+    <p><a href="https://linorobot.org"><br>
+      </a></p>
+    <p>Creation Bot в Gazebosim</p>
+    <p><a href="https://www.youtube.com/watch?v=UUwHK5ONTAQ">https://www.youtube.com/watch?v=ytESPnltrJ0</a></p>
+    <p><a href="https://www.youtube.com/watch?v=UUwHK5ONTAQ"><br>
+      </a></p>
+    <p>Turtlebot</p>
+    <p><a href="https://www.youtube.com/watch?v=9U6GDonGFHw">https://www.youtube.com/watch?v=9U6GDonGFHw</a></p>
+    <p><br>
+    </p>
+    Загрузка 3Д содели в Gazebosim <a href="https://www.youtube.com/watch?time_continue=78&amp;v=aP4sDyrRzpU">https://www.youtube.com/watch?time_continue=78&amp;v=aP4sDyrRzpU</a><br>
+    <br>
+    <a href="https://www.youtube.com/watch?v=EZ3MYf24c6Y&amp;t=464s">https://www.youtube.com/watch?v=EZ3MYf24c6Y&amp;t=464s</a><br>
+    <br>
+    <br>
+  </body>
+</html>

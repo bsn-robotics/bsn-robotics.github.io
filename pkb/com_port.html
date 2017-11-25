@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>com_port</title>
+  </head>
+  <body>
+    <h1>Serial port (COM port)</h1>
+    <h2>Работа c COM портом в Linux</h2>
+    <p><a href="http://linux.yaroslavl.ru/docs/howto/Serial-Programming/Serial-Programming-HOWTO_ru.html">http://linux.yaroslavl.ru/docs/howto/Serial-Programming/Serial-Programming-HOWTO_ru.html</a></p>
+    <p><a href="http://www.opennet.ru/docs/RUS/serial_guide/">http://www.opennet.ru/docs/RUS/serial_guide/</a></p>
+    <p><a href="http://dekud.blogspot.ru/2013/12/com-linux-com-com-linux.html">http://dekud.blogspot.ru/2013/12/com-linux-com-com-linux.html</a></p>
+    <h3>gtkterm</h3>
+    <p><code>sudo apt-get install gtkterm</code></p>
+    <details>
+      <summary>Пример работы на С++:<br>
+        <a href="https://ru.wikipedia.org/wiki/C_POSIX_library"></a></summary>
+      <p><code>#include &lt;fcntl.h&gt;<br>
+          #include &lt;unistd.h&gt; //read, write, close<br>
+          #include &lt;termios.h&gt;<br>
+          #include &lt;cstdio&gt;<br>
+          #include &lt;cerrno&gt;<br>
+          #include &lt;cstring&gt;<br>
+          #include &lt;sys/ioctl.h&gt;<br>
+          #include &lt;iostream&gt;<br>
+          <br>
+          int F_ID = -1;<br>
+/*----------------------------------------------------------------------------<br>
+          &nbsp;Открыть COM порт<br>
+          &nbsp;COM_name: путь к устройству, например: /dev/ttyS0 или&nbsp;
+          /dev/ttyUSB0 - для USB<br>
+          &nbsp;speed: скорость, например: B9600, B57600, B115200<br>
+&nbsp;----------------------------------------------------------------------------*/<br>
+          bool openPort(const char *COM_name,speed_t speed)<br>
+          {<br>
+          &nbsp;&nbsp;&nbsp; F_ID = open(COM_name, O_RDWR | O_NOCTTY);<br>
+          &nbsp;&nbsp;&nbsp; if(F_ID == -1)<br>
+          &nbsp;&nbsp;&nbsp; {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; char *errmsg =
+          strerror(errno);<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("%s\n",errmsg);<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return false;<br>
+          &nbsp;&nbsp;&nbsp; }<br>
+          &nbsp;&nbsp;&nbsp; struct termios options; /*структура для установки
+          порта*/<br>
+          &nbsp;&nbsp;&nbsp; tcgetattr(F_ID, &amp;options); /*читает пораметры
+          порта*/<br>
+          <br>
+          &nbsp;&nbsp;&nbsp; cfsetispeed(&amp;options, speed); /*установка
+          скорости порта*/<br>
+          &nbsp;&nbsp;&nbsp; cfsetospeed(&amp;options, speed); /*установка
+          скорости порта*/<br>
+          <br>
+          &nbsp;&nbsp;&nbsp; options.c_cc[VTIME]&nbsp;&nbsp;&nbsp; = 20; /*Время
+          ожидания байта 20*0.1 = 2 секунды */<br>
+          &nbsp;&nbsp;&nbsp; options.c_cc[VMIN]&nbsp;&nbsp;&nbsp;&nbsp; = 0;
+          /*минимальное число байт для чтения*/<br>
+          <br>
+          <br>
+          &nbsp;&nbsp;&nbsp; options.c_cflag &amp;= ~PARENB; /*бит четности не
+          используется*/<br>
+          &nbsp;&nbsp;&nbsp; options.c_cflag &amp;= ~CSTOPB; /*1 стоп бит */<br>
+          &nbsp;&nbsp;&nbsp; options.c_cflag &amp;= ~CSIZE;&nbsp; /*Размер
+          байта*/<br>
+          &nbsp;&nbsp;&nbsp; options.c_cflag |= CS8;&nbsp; /*8 бит*/<br>
+          <br>
+          &nbsp;&nbsp;&nbsp; options.c_lflag = 0;<br>
+          &nbsp;&nbsp;&nbsp; options.c_oflag &amp;= ~OPOST; /*Обязательно
+          отключить постобработку*/<br>
+          <br>
+          &nbsp;&nbsp;&nbsp; tcsetattr(F_ID, TCSANOW, &amp;options);
+          /*сохронения параметров порта*/<br>
+          <br>
+          &nbsp;&nbsp;&nbsp; return true;<br>
+          }<br>
+          <br>
+/*----------------------------------------------------------------------------<br>
+          &nbsp;Прочитать данные из COM порта<br>
+          &nbsp;buff - буфер для принятых данных<br>
+          &nbsp;size - количество запрашиваемых байт<br>
+&nbsp;----------------------------------------------------------------------------*/<br>
+          int readData(unsigned char *buff,int size)<br>
+          {<br>
+          &nbsp;&nbsp;&nbsp; int n = read(F_ID, buff, size);<br>
+          &nbsp;&nbsp;&nbsp; if(n == -1)<br>
+          &nbsp;&nbsp;&nbsp; {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; char *errmsg =
+          strerror(errno);<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("%s\n",errmsg);<br>
+          &nbsp;&nbsp;&nbsp; }<br>
+          &nbsp;&nbsp;&nbsp; return n;<br>
+          }<br>
+          <br>
+/*----------------------------------------------------------------------------<br>
+          &nbsp;Отправить в COM порт данные<br>
+          &nbsp;buff - буфер данных для отправки<br>
+          &nbsp;size - количество отправляемых байт<br>
+&nbsp;----------------------------------------------------------------------------*/<br>
+          int sendData(unsigned char* buff,int len)<br>
+          {<br>
+          &nbsp;&nbsp;&nbsp; int n = write(F_ID, buff, len);<br>
+          &nbsp;&nbsp;&nbsp; if(n == -1)<br>
+          &nbsp;&nbsp;&nbsp; {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; char *errmsg =
+          strerror(errno);<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("%s\n",errmsg);<br>
+          &nbsp;&nbsp;&nbsp; }<br>
+          &nbsp;&nbsp;&nbsp; return n;<br>
+          }<br>
+/*----------------------------------------------------------------------------<br>
+          &nbsp;Закрыть COM порт<br>
+&nbsp;----------------------------------------------------------------------------*/<br>
+          void closeCom(void)<br>
+          {<br>
+          &nbsp;&nbsp;&nbsp; close(F_ID);<br>
+          &nbsp;&nbsp;&nbsp; F_ID = -1;<br>
+          &nbsp;&nbsp;&nbsp; return;<br>
+          }<br>
+/*----------------------------------------------------------------------------<br>
+          &nbsp;Установить RTS<br>
+&nbsp;----------------------------------------------------------------------------*/<br>
+          void setRTS()<br>
+          {<br>
+          &nbsp;&nbsp;&nbsp; int status;<br>
+          &nbsp;&nbsp;&nbsp; ioctl(F_ID, TIOCMGET, &amp;status);<br>
+          &nbsp;&nbsp;&nbsp; status |= TIOCM_RTS;<br>
+          &nbsp;&nbsp;&nbsp; ioctl(F_ID, TIOCMSET, &amp;status);<br>
+          }<br>
+/*----------------------------------------------------------------------------<br>
+          Очистить RTS<br>
+&nbsp;----------------------------------------------------------------------------*/<br>
+          void clrRTS()<br>
+          {<br>
+          &nbsp;&nbsp;&nbsp; int status;<br>
+          &nbsp;&nbsp;&nbsp; ioctl(F_ID, TIOCMGET, &amp;status);<br>
+          &nbsp;&nbsp;&nbsp; status &amp;= ~TIOCM_RTS;<br>
+          &nbsp;&nbsp;&nbsp; ioctl(F_ID, TIOCMSET, &amp;status);<br>
+          }<br>
+/*----------------------------------------------------------------------------<br>
+          Пример использования<br>
+&nbsp;----------------------------------------------------------------------------*/<br>
+          int main()<br>
+          {<br>
+          &nbsp;&nbsp;&nbsp; bool res = openPort("/dev/ttyUSB0",B9600);<br>
+          &nbsp;&nbsp;&nbsp; if(!res)<br>
+          &nbsp;&nbsp;&nbsp; {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("Невозможно открыть
+          COM порт\n");<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;<br>
+          &nbsp;&nbsp;&nbsp; }<br>
+          &nbsp;&nbsp;&nbsp; unsigned char buff[8] = {0,1,2,3,4,5,6,7};<br>
+          &nbsp;&nbsp;&nbsp; sendData(buff,8);<br>
+          /*<br>
+          &nbsp;&nbsp;&nbsp; int s = readData(buff,4);<br>
+          &nbsp;&nbsp;&nbsp; if(s &lt; 4)<br>
+          &nbsp;&nbsp;&nbsp; {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("Нет ответа\n");<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;<br>
+          &nbsp;&nbsp;&nbsp; }*/<br>
+          &nbsp;&nbsp;&nbsp; int a;<br>
+          &nbsp;&nbsp;&nbsp; std :: cin &gt;&gt; a;<br>
+          <br>
+          &nbsp;/*<br>
+          &nbsp;Наш код<br>
+          &nbsp; */<br>
+          &nbsp;&nbsp;&nbsp; return 0;<br>
+          }<br>
+        </code></p>
+    </details>
+    <br>
+    Используются C POSIX Library <br>
+    <a href="https://ru.wikipedia.org/wiki/C_POSIX_library">https://ru.wikipedia.org/wiki/C_POSIX_library</a><br>
+    <a href="https://en.wikipedia.org/wiki/Unistd.h">https://en.wikipedia.org/wiki/Unistd.h</a><br>
+    <a href="https://stackoverflow.com/questions/9376837/difference-between-c-standard-library-and-c-posix-library">https://stackoverflow.com/questions/9376837/difference-between-c-standard-library-and-c-posix-library</a>
+  </body>
+</html>

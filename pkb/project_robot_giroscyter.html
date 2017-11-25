@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>project_robot_giroscyter</title>
+  </head>
+  <body>
+    <h1>Робот из гироскутера</h1>
+    <h2>Реверсинжениринг гироскутера</h2>
+    <p>В интернете я нашел только одну статью (в 2017 году), описывающую как
+      управлять моторами гироскутера, используя штатный драйвер двигателей
+      гироскутера.</p>
+    <details>
+      <summary>Ссылки на материалы </summary>
+      <p><a href="https://hackaday.com/2016/06/10/reverse-engineering-hoverboard-motor-drive/">https://hackaday.com/2016/06/10/reverse-engineering-hoverboard-motor-drive/</a></p>
+      <p><a href="http://drewspewsmuse.blogspot.ru/2016/06/how-i-hacked-self-balancing-scooter.html">http://drewspewsmuse.blogspot.ru/2016/06/how-i-hacked-self-balancing-scooter.html</a></p>
+      <p><a href="https://github.com/addibble/HoverboardController">https://github.com/addibble/HoverboardController</a></p>
+      <p><a href="https://github.com/OpHaCo/hoverbot">https://github.com/OpHaCo/hoverbot</a></p>
+      <p><a href="https://www.youtube.com/watch?v=YHwwmKngslk">https://www.youtube.com/watch?v=YHwwmKngslk</a></p>
+      <p><a href="https://www.youtube.com/watch?v=VRblWU34dUU">https://www.youtube.com/watch?v=VRblWU34dUU</a></p>
+      <p><a href="https://www.youtube.com/watch?v=kbsE_kjdLKA">https://www.youtube.com/watch?v=kbsE_kjdLKA</a></p>
+      <p><a href="https://www.youtube.com/watch?v=LJzoy2TJXFk">https://www.youtube.com/watch?v=LJzoy2TJXFk</a></p>
+      <p><a href="https://www.youtube.com/watch?v=X4em6_nVVQU">https://www.youtube.com/watch?v=X4em6_nVVQU</a></p>
+      <p><a href="https://www.youtube.com/watch?v=Q4zEAsdSWl0">https://www.youtube.com/watch?v=Q4zEAsdSWl0</a></p>
+      <p>Силовой разьем <a href="https://tiu.ru/p260280859-silovoj-razem-xt60.html">https://tiu.ru/p260280859-silovoj-razem-xt60.html</a></p>
+      <p><a href="https://www.youtube.com/watch?v=x8sz-r1y4hE">https://www.youtube.com/watch?v=x8sz-r1y4hE</a></p>
+      <p>Крутая статья <a href="https://geektimes.ru/company/mailru/blog/288534/">https://geektimes.ru/company/mailru/blog/288534/</a></p>
+      <p><a href="https://youtu.be/IzySHuXNeDU">https://youtu.be/IzySHuXNeDU</a></p>
+      <p><br>
+      </p>
+      <p>Управление бесколлекторным мотором <a href="http://radioparty.ru/mob-programm-c-avr/636-lesson-bldc-sensorless-ir2101-hall-sensor">http://radioparty.ru/mob-programm-c-avr/636-lesson-bldc-sensorless-ir2101-hall-sensor</a></p>
+      <p>Крутаа статья <a href="https://geektimes.ru/post/271136/">https://geektimes.ru/post/271136/</a></p>
+      <p><a href="https://geektimes.ru/company/npf_vektor/blog/269486/">https://geektimes.ru/company/npf_vektor/blog/269486/</a></p>
+      <p><a href="https://www.drive2.ru/b/1835474/">https://www.drive2.ru/b/1835474/</a></p>
+      <p>Open Source контроллер <a href="http://vedder.se/2015/01/vesc-open-source-esc/">http://vedder.se/2015/01/vesc-open-source-esc/</a></p>
+      <p><a href="http://radioparty.ru/prog-avr/program-c/611-lesso">http://radioparty.ru/prog-avr/program-c/611-lesso</a></p>
+      <p>Контроллер для HDD двигателя<a href="https://www.youtube.com/watch?v=nufQf7oFBvg">https://www.youtube.com/watch?v=nufQf7oFBvg</a></p>
+      <p>Включение без регулятора со щеткой <a href="https://www.youtube.com/watch?v=z1IR7s_kxGQ">https://www.youtube.com/watch?v=z1IR7s_kxGQ</a></p>
+      <p><a href="https://www.youtube.com/watch?v=8xGrPpXyc5w">https://www.youtube.com/watch?v=8xGrPpXyc5w</a></p>
+      <p> Управление бесколлекторным двигателем с датчиками Холла&nbsp; <a href="http://www.avislab.com/blog/brushless03/">http://www.avislab.com/blog/brushless03/</a></p>
+      <p>Nine BOt гироскутер <a href="https://www.youtube.com/watch?v=QAQ4ugWidlY">https://www.youtube.com/watch?v=QAQ4ugWidlY</a></p>
+      <p>Homemade <a href="https://www.youtube.com/watch?v=XeqC7nnae_Y">https://www.youtube.com/watch?v=XeqC7nnae_Y</a></p>
+      <p>Робофорум <a href="http://roboforum.ru/forum104/topic13195-30.html?style=9">http://roboforum.ru/forum104/topic13195-30.html?style=9</a></p>
+      <p><a href="https://www.youtube.com/watch?v=TgSP7Ly1cUA">https://www.youtube.com/watch?v=TgSP7Ly1cUA</a></p>
+      <p><a href="https://v-kudryashov.livejournal.com/609.html">https://v-kudryashov.livejournal.com/609.html</a></p>
+      <p>Очень хорошая статья с обьяснением откуда взялось <a href="http://radiohlam.ru/?p=1383">http://radiohlam.ru/?p=1383</a></p>
+      <p><a href="http://www.avislab.com/blog/brushless03/">http://www.avislab.com/blog/brushless03/</a></p>
+      <p>Продолжение <a href="http://radiohlam.ru/?p=1441">http://radiohlam.ru/?p=1441</a></p>
+      <p>Реверс бесколлекторного двигателя <a href="http://electrotransport.ru/ussr/index.php?topic=1788.0">http://electrotransport.ru/ussr/index.php?topic=1788.0</a></p>
+    </details>
+    <p>Скорость</p>
+    <p>Разбор протокола:</p>
+    <p><br>
+      <code><code>signed int sp = 20;<br>
+        </code>Serial.write((sp &gt;&gt; 8) &amp; 0xFF);<br>
+        <br>
+        <br>
+        signed int в Arduino UNO занимает 2 байта, </code><code><code>int16_t в
+          STM32 занимает тоже 2 байта.</code><br>
+        0000 0000 0000 0000</code></p>
+    <p><code>mySerial.write9(256);<br>
+        mySerial.write9(sp &amp; 0xFF);<br>
+        mySerial.write9((sp &gt;&gt; 8) &amp; 0xFF);</code></p>
+    <p><code></code><code>Что значит это всё ?</code></p>
+    <p><code>Cначала отправляется младший байт </code><br>
+      <code>sp &amp; 0xFF</code></p>
+    <p><code>Потом отправляется старший байт</code><br>
+      <code>(sp &gt;&gt; 8) &amp; 0xFF</code></p>
+    <p><code>sp &gt;&gt; 8 значит что мы сдвигаем двоичное представление числа
+        sp (20) на 8 разрядов вправо</code><br>
+      <code>20 (10тичная) = 0000 0000 0001 0100 (двоичная)<br>
+      </code></p>
+    <h3><br>
+    </h3>
+    <h3>Разработка протокола управления скоростью двигателей</h3>
+    <p>Для того чтобы управлять моторами, мы должны принимать на вход скорость в
+      виде числа, для левого и правого моторов.</p>
+    <p>Пусть скорость для моторов задается одним байтом.</p>
+    <p>Тогда для левого мотора мы будем использовать старшие разряды, а для
+      правого мотора будем использовать младшие разряды.</p>
+    <p><br>
+    </p>
+    <p><img style="width: 440px; height: 263px;" longdesc="1" title="1" alt="1"
+        src="img/project_robot_giroscyter_1.png"></p>
+    <p>Сообщения</p>
+    <p>'1' - 49 - 0x31</p>
+    <p>'2' - 50 - 0x32</p>
+    <p>'3' - 51 - 0x33</p>
+    <p>'4' - 52 - 0x34</p>
+    <p><br>
+    </p>
+    <p>1&nbsp;&nbsp; - 255 255 </p>
+    <p>2&nbsp;&nbsp; - 254 255</p>
+    <p>20 - 236 255</p>
+    <p>40 - 216 255</p>
+    <p>60 - 196 255</p>
+    <p>80 - 176 255</p>
+    <p>0&nbsp;&nbsp; - 0&nbsp;&nbsp;&nbsp;&nbsp; 0</p>
+    <p>- 1&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp; 0</p>
+    <p>- 2&nbsp;&nbsp; 2&nbsp;&nbsp;&nbsp;&nbsp; 0</p>
+    <p>-20 - 20 0</p>
+    <p><br>
+    </p>
+    <p>Пусть диапазон будет от -7 до&nbsp; +7 попугая.</p>
+    <p>Кодируется все одним байтом 0 - 255</p>
+    <p>Первые 4 бита для первого мотора, вторые 4 бита для второго мотора.</p>
+    <p>Рассмотрим 4 бита для первого мотора</p>
+    <p>1111</p>
+    <p>Самый старший бит задает направление вращения колеса, 1 - вперед, 0 -
+      назад.</p>
+    <p>При вращении вперед скорость задается остальными тремя битами, двоичным
+      числом от 001 до 111, т.е. 7 скоростей вперед. 001 - самая медленная, 111
+      - самая быстрая.</p>
+    <p>При вращении назад скорость задается, двоичным числом от 111 до 001 ,
+      т.е. 7 скоростей назад. 111 - самая медленная, 001 - самая быстрая.</p>
+    <p>Тоже самое для второго мотора.</p>
+    <p>Пример принятого байта:</p>
+    <p>1000 1000 - оба колеса не двигаются.</p>
+    <p>1111 1111 - оба колеса вперед, с максимальной скоростью.</p>
+    <p>0111 0111 - оба колеса назад, с минимальной скоростью.</p>
+    <p>1001 0111 - первое колесо вперед с минимальной скоростью, второе назад с
+      минимальной скоростью.</p>
+    <p>0110 1101&nbsp; - первое колесо назад со скоростю 2, второе колесо вперед
+      со скоростью 5.</p>
+    <p>Комбинация 0000 0000 - инвертировать разрешающий сигнал.</p>
+    <p>Комбинациии 10000000 и 00001000 - не определены.</p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p>Тогда </p>
+    <p><br>
+    </p>
+    <p>Serial port terminal - sudo gtkterm</p>
+    <h3><br>
+    </h3>
+    <h3> </h3>
+    <h3>Разработка коммутатора<br>
+    </h3>
+    Для решения проблемы ускорения гироскутера при подаче команды на движение
+    вперед с постоянной скоростью было разработано устройство аппаратно меняющие
+    направление вращения двигателя.<br>
+    <br>
+    Поиск комбинациии соединения проводов, таких чтобы двигатель вращался в
+    обратную сторону.<br>
+    Всего может быть 36 различных комбинаций 6 проводов.<br>
+    Известно[источник], что чтобы получить такую комбинацию нужно из изначальной
+    комбинации(мотор вращается вперед) поменять местами два силовых и два
+    сигналных провода.<br>
+    Таких комбинаций остается уже 9, вместо изначальных 36.<br>
+    <br>
+    Таблица для поиска комбинация проводов в гироскутере, позволяющих реверсировать
+    двигатель.<br>
+    <br>
+    зеленый синий желтый<br>
+    1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 <br>
+    <table style="width: 100%" border="1">
+      <tbody>
+        <tr>
+          <td style="width: 260.55px;">Провода с д.Холла\Провода от фаз
+            двигателя</td>
+          <td style="width: 93.083px;">123</td>
+          <td style="width: 99.433px;">132</td>
+          <td style="width: 104.35px;">213</td>
+          <td style="width: 73.35px;">231</td>
+          <td style="width: 61.333px;">312</td>
+          <td style="width: 65.433px;">321</td>
+          <td style="width: 188.15px;"><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td>123</td>
+          <td>Вперед</td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td>Нет</td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td>132</td>
+          <td><br>
+          </td>
+          <td>Нет</td>
+          <td>ДА Назад</td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td>Нет</td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td>213</td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td>231</td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td>312</td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td>321</td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+          <td><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    Задача: по сигналу с микроконтроллера коммутироватировать силовые и
+    сигнальные провода так, чтобы двигатель реверсировался.<br>
+    <br>
+    Для коммутации фаз двигателя используются 2 переключающих реле. <br>
+    <br>
+    Реле RT314012(TE Connectivity (Tyco)) 12 В 16 А 220 В.<br>
+    <br>
+    <img style="width: 408px; height: 221px;" longdesc="2" title="2" alt="2" src="img/project_robot_giroscyter_2.jpg"><br>
+    <br>
+    Управление реле <a href="https://www.youtube.com/watch?v=t1sb2WaXASw">https://www.youtube.com/watch?v=t1sb2WaXASw</a><br>
+    <br>
+    Транзисторный ключ <a href="https://www.youtube.com/watch?v=DgSEMjxoHN8">https://www.youtube.com/watch?v=DgSEMjxoHN8</a><br>
+    <br>
+    <br>
+    Для коммутации сигналов с датчиков Холла, используется микросхема
+    счетверенного мультиплесора 2 в 1.<br>
+    <br>
+    Микросхема мультиплексор кр1561кп4 (справочник Шило Популярные микросхемы
+    кмоп стр. 16)<br>
+    <br>
+    <br>
+    <br>
+    <img style="width: 447px; height: 330px;" longdesc="3" title="3" alt="3" src="img/project_robot_giroscyter_3.png"><img
+      style="width: 453px; height: 259px;" longdesc="4" title="4" alt="4" src="img/project_robot_giroscyter_4.png"><br>
+    <br>
+    <br>
+    <br>
+    Логическое уровенение для 1/4 схемы: D = A &amp; EA | B &amp; EB .<br>
+    <br>
+    Нумерация выводов, если расположить микросхему ключом сверху, то нумерация
+    начинается слева от ключа, против часовой стрелки.<br>
+    <br>
+    Разъемы <br>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    РШИ-П 1,5-4, Разъем штекерный изолированный (папа),
+    https://www.chipdip.ru/product/rshi-p-1-5-4<br>
+    РШИ-М 1,5-4, Разъем штекерный изолированный (мама)
+    https://www.chipdip.ru/product/rshi-m-1-5-4<br>
+    <br>
+    <br>
+    <h2>Модифицирование механики</h2>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+  </body>
+</html>

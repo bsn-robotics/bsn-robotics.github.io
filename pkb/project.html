@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>project</title>
+  </head>
+  <body>
+    <h1>Project</h1>
+    <h2><a href="chapter0.html">0 Введение</a></h2>
+    <a href="SLAM.html"> </a>
+    <h2><a target="_blank" href="SLAM.html">1 Аналитический обзор существующих
+        алгоритмов навигации и их практических реализаций</a></h2>
+    <h2><a target="_blank" href="map.html">2 Модель неизвестной среды для задач
+        навигации робота</a></h2>
+    <h2><a target="_blank" href="chapter3.html">3 Алгоритмы навигации робота</a></h2>
+    <h2><a target="_blank" href="chapter4.html">4 Практическая реализация
+        разработанных алгоритмов<br>
+      </a></h2>
+    <h2><a href="robot.html">Робот общее устройство</a></h2>
+    <h2><a href="modelling_ros.html">Моделирование робота в ROS RVIZ и Gazebo</a></h2>
+    <h2><a href="project_robot_giroscyter.html">Реверсинжениринг гироскутера</a></h2>
+    <h2> <a href="remote_control.html">Удаленное управление</a></h2>
+    <h2><a href="move_base.html">Move_base</a></h2>
+    <h2> <a href="rtabmap.html">Работа с RTAB-Map</a></h2>
+    <h2><a href="send_goal.html">Send Goal</a></h2>
+    <h2><a href="exploration.html">Exploration</a></h2>
+    <h2><a href="pid.html">ПИД-регулятор для двигателя</a></h2>
+    <h2><a href="encoder.html">Чтение данных с энкодера</a></h2>
+    <h2><a href="ros_clion.html">Программирование для ROS в IDE CLion</a></h2>
+    <h2>Kinect 2</h2>
+    <p>Для работы с kinect 2, я использую следующие программное обеспечение:</p>
+    <ol>
+      <li>&nbsp;&nbsp;&nbsp; ОС Linux Ubuntu 14.04.5 LTS</li>
+      <li>&nbsp;&nbsp;&nbsp; ROS indigo</li>
+      <li>&nbsp;&nbsp;&nbsp;
+        libfreenect2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/wiedemeyer/libfreenect2">https://github.com/wiedemeyer/libfreenect2</a></li>
+      <li>&nbsp;&nbsp;&nbsp; IAI Kinect2
+        kinect2_bridge&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/code-iai/iai_kinect2">https://github.com/code-iai/iai_kinect2</a></li>
+    </ol>
+    <p><br>
+      На ROS Kinetic не удалось запустить kinect2_bridge, я установил ROS
+      Indigo.<br>
+      Позже одногруппник сказал, что можно скомпилировать, если добавить строчку<br>
+      <code>add_definitions( -fexceptions )</code><br>
+      в каждый CmakeList второго кинекта, и тогда он соберётся в kinetic.<br>
+      <br>
+      По материалам взятым с<br>
+      <br>
+      iai kinect2 использует библиотеку freenect2.</p>
+    <h3>Установка libfreenect</h3>
+    <p><code>$ sudo dpkg -i debs/libusb*deb</code><br>
+      <br>
+      !!!!!!!!!!!! короткий - , а не длинный как в книжке, там ошибка
+      (Ros_robotics_example 342).<br>
+      <code><br>
+        git clone https://github.com/OpenKinect/libfreenect2.git</code><br>
+      <code>$ cd ~/libfreenect2<br>
+        $ mkdir build<br>
+        $ cd build<br>
+        $ cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/freenect2 -DENABLE_CXX11=ON<br>
+        $ make<br>
+        $ make install</code><code><br>
+        sudo cp ~/libfreenect2/platform/linux/udev/90-kinect2.rules
+        /etc/udev/rules.d</code></p>
+    <h3>Установка iai_kinect2</h3>
+    <p><code>https://github.com/code-iai/iai_kinect2<br>
+        cd ~/catkin_ws/src/<br>
+        git clone https://github.com/code-iai/iai_kinect2.git<br>
+        cd iai_kinect2<br>
+        rosdep install -r —from-paths<br>
+        cd ~/catkin_ws<br>
+        catkin_make -DCMAKE_BUILD_TYPE="Release"</code><br>
+      <br>
+      Возможность компиляции под ros kinetic<br>
+      <a href="http://answers.opencv.org/question/114664/is-it-possible-to-run-ros-kinetic-with-opencv-24x/">http://answers.opencv.org/question/114664/is-it-possible-to-run-ros-kinetic-with-opencv-24x/</a></p>
+    <h3>Запуск kinect2_bridge</h3>
+    <p>открываем консоль, устанавливаем источник<br>
+      <br>
+      <code>cd catkin_ws<br>
+        source devel/setup.bash</code><br>
+      <br>
+      Запускаем мост<br>
+      <code><br>
+        roslaunch kinect2_bridge kinect2_bridge.launch</code><br>
+      <br>
+      В другой консоли, можем запустить viewer открываем консоль, устанавливаем
+      источник<br>
+      <br>
+      <code>cd catkin_ws<br>
+        source devel/setup.bash</code><br>
+      <br>
+      Запускаем viewer<br>
+      <code><br>
+        rosrun kinect2_viewer kinect2_viewer</code></p>
+    <h3>Установка RTABMAP</h3>
+    <p>Запуск<br>
+      <br>
+      <a href="http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping">http://wiki.ros.org/rtabmap_ros/Tutorials/HandHeldMapping</a><br>
+      <br>
+      В каждом терминале свой набор команд.<br>
+      <br>
+      В первом терминале запускается мост между ROS и драйвером libreenect2:<br>
+      <code><br>
+        cd catkin_ws<br>
+        source devel/setup.bash<br>
+        roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true</code><br>
+      <br>
+      Во втором терминале заупускается RVIZ с данными из RTABMAP. Выполнять не
+      обязательно. :<br>
+      <code><br>
+        cd catkin_ws<br>
+        source devel/setup.bash<br>
+        roslaunch rtabmap_ros rgbd_mapping.launch
+        rtabmap_args:="--delete_db_on_start" rviz:=true rtabmapviz:=false</code><br>
+      <br>
+      В третьем:<br>
+      <code><br>
+        cd catkin_ws<br>
+        source devel/setup.bash<br>
+        rosrun tf static_transform_publisher 0 0 0 -1.5707963267948966 0
+        -1.5707963267948966 camera_link kinect2_link 100</code><br>
+      <br>
+      В четвертом запускается RTABMAP:<br>
+      <code><br>
+        cd catkin_ws<br>
+        source devel/setup.bash<br>
+        roslaunch rtabmap_ros rgbd_mapping.launch
+        rtabmap_args:="--delete_db_on_start"
+        rgb_topic:=/kinect2/qhd/image_color_rect
+        depth_registered_topic:=/kinect2/qhd/image_depth_rect
+        camera_info_topic:=/kinect2/qhd/camera_info</code><br>
+      <br>
+      Для запуска режима локализации:<br>
+      <br>
+      Убрать аргумент "--delete_db_on_start"<br>
+      <br>
+      По этому пути находится файл rtabmap.launch:
+      /opt/ros/indigo/share/rtabmap_ros<br>
+      <br>
+      Merge<br>
+      <br>
+      RTAB-Map имеет возможность автоматически объединять сеансы сопоставления,
+      такие как добавление новых изображений на предыдущую карту. Когда вы
+      нажимаете pause / resume, отображение продолжается с последней позы на той
+      же карте. Если вы остановите отображение, а затем запустите снова, в
+      текущей базе данных будет создана новая карта: когда будет закрыто
+      замыкание цикла между текущим сеансом сопоставления и предыдущим в базе
+      данных, карты будут объединены вместе. Когда вы хотите начать новый сеанс
+      сопоставления из чистой базы данных, вы должны закрыть текущий и создать
+      новый, нажать «Файл-&gt; Закрыть базу данных» (обратите внимание, что
+      резервная копия текущей базы данных автоматически сохраняется):<br>
+      <br>
+      Graphview сохранить<br>
+      <br>
+      Обновить изображение базы.<br>
+      <br>
+      Multi session <br>
+      <br>
+      Склейка нескольких карт.<br>
+      <br>
+      <br>
+      <br>
+      Навигация с Turtlebot<br>
+      <br>
+      2014 Challenge<br>
+      RVIZ<br>
+      <br>
+      Запуск<br>
+      <br>
+      В первом терминале:<br>
+      <br>
+      roscore<br>
+      <br>
+      Во втором терминале:<br>
+      <br>
+      rosrun rviz rviz<br>
+      <br>
+      <br>
+      Программа на С++ с этой библиотекой.<br>
+      <br>
+http://answers.opencv.org/question/76468/opencvkinect-onekinect-for-windows-v2linuxlibfreenect2/<br>
+      <br>
+      <br>
+      Программа с использованием PCL (effective_rob_prog 398-431)</p>
+    <h3>Проекция облака точек на плоскость пола.</h3>
+    <p><br>
+      proj_map (nav_msgs/OccupancyGrid)<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; Mapping Occupancy grid generated from projection of the
+      3D point clouds on the ground. Use parameters with prefixes map_, grid_
+      and proj_ below.<br>
+      <br>
+      <br>
+      get_proj_map (nav_msgs/GetMap)<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; Call this service to get the occupancy grid built from
+      the projection of the 3D point clouds<br>
+      <br>
+      <br>
+      The Map display shows a nav_msgs/OccupancyGrid message. The occupancy grid
+      is treated the way the navigation stack treats it. A value of 100 is black
+      (occupied), a value of 0 is white (unoccupied), and anything else is gray
+      (unknown).<br>
+      <br>
+      <br>
+      ~grid_cell_size (double, default: 0.05)<br>
+      <br>
+      Mapping Grid cell size (m). Used for grid_map and proj_map published
+      topics.<br>
+      <br>
+      ~grid_size (double, default: 0)<br>
+      <br>
+      Mapping Initial size of the map (m). If 0, the map will grow as new data
+      are added. If set, the map will still grow when the initial size is
+      reached. Used for grid_map and proj_map published topics.<br>
+      <br>
+      <br>
+      ~proj_max_ground_angle (double, default: 45)<br>
+      <br>
+      Mapping Maximum angle (degrees) between point's normal to ground's normal
+      to label it as ground. Points with higher angle difference are considered
+      as obstacles. Used for proj_map published topic.<br>
+      <br>
+      ~proj_min_cluster_size (int, default: 20)<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; Mapping Minimum cluster size to project the points. The
+      distance between clusters is defined by 2*grid_cell_size. Used for
+      proj_map published topic.<br>
+      <br>
+      ~proj_max_height (double, default: 2.0)<br>
+      <br>
+      Mapping Maximum height of points used for projection. Used for proj_map
+      published topic.<br>
+      <br>
+      <br>
+      <br>
+      Алгоритм берет данные из сообщения ROS интерфейса nav_msgs/OccupancyGrid<br>
+      <br>
+      <br>
+      <br>
+      Просмотр карты в RVIZ<br>
+      <br>
+      distance = 10<br>
+      <br>
+      pitch = 1.5698<br>
+      <br>
+      yaw =3.14159<br>
+      <br>
+      скриншот<br>
+      <br>
+      rosservice call /rtabmap/get_proj_map</p>
+    <h3>Поставновка задачи</h3>
+    <p>Разработка алгоритмов навигации робота в неизвестной среде с
+      использованием времяпролётной камеры.<br>
+      <br>
+      <br>
+      3D SLAM</p>
+    <h3>Другие проекты по этой теме</h3>
+    <p>Робот германского центра робототехники<br>
+      <a href="http://www.dlr.de/rmc/rm/en/desktopdefault.aspx/tabid-3755/17612_read-44875/"><br>
+http://www.dlr.de/rmc/rm/en/desktopdefault.aspx/tabid-3755/17612_read-44875/</a><br>
+      <br>
+      <a href="https://www.youtube.com/watch?v=wCTkSxcna8o">https://www.youtube.com/watch?v=wCTkSxcna8o</a></p>
+    <p><a href="https://sungjik.wordpress.com/2015/09/28/my_personal_robotic_companion/">https://sungjik.wordpress.com/2015/09/28/my_personal_robotic_companion/</a>
+    </p>
+    <p style="margin-bottom: 0in"><br>
+    </p>
+    <p style="margin-bottom: 0in">TurtleBot 2.0</p>
+    <p style="margin-bottom: 0in"><br>
+    </p>
+    <p style="margin-bottom: 0in"><a class="western" href="http://spectrum.ieee.org/automaton/robotics/diy/turtlebot-2-now-available-for-preorder-from-clearpath-robotics">http://spectrum.ieee.org/automaton/robotics/diy/turtlebot-2-now-available-for-preorder-from-clearpath-robotics</a></p>
+    <p style="margin-bottom: 0in"><br>
+    </p>
+    <p style="margin-bottom: 0in"><br>
+    </p>
+    <p style="margin-bottom: 0in">Обзор времепролетных камер</p>
+    <p style="margin-bottom: 0in; widows: 2; orphans: 2"><a class="western" href="https://geektimes.ru/post/224605/">https://geektimes.ru/post/224605/</a></p>
+    <p style="margin-bottom: 0in; widows: 2; orphans: 2"><br>
+    </p>
+    <p style="margin-bottom: 0in; widows: 2; orphans: 2">139 стр ROS by example
+      навигация робота</p>
+    <h2><a href="modelling_ros.html">Моделирование робота в ROS RVIZ и Gazebo</a></h2>
+    <p style="margin-bottom: 0in; widows: 2; orphans: 2"></p>
+    <h3 style="   margin-bottom: 0in; widows: 2; orphans: 2">Полезные команды из
+      книжки</h3>
+    <p>rostopic echo /scan</p>
+    <p>rostopic echo /robot/laser/scan</p>
+    <h2 style="  margin-bottom: 0in; widows: 2; orphans: 2">Навигация робота</h2>
+    <p><a href="http://wiki.ros.org/move_base">http://wiki.ros.org/move_base</a></p>
+    <p>Разбор работы <a href="https://sungjik.wordpress.com/2015/09/28/my_personal_robotic_companion/">https://sungjik.wordpress.com/2015/09/28/my_personal_robotic_companion/</a></p>
+    <p>Автор использует gmapping и телеуправление, не использует автономное
+      картографирование не используется.<br>
+    </p>
+    <p>------------------------------------</p>
+    <h3>Сначала разберемся с TF - Преобразование координат.</h3>
+    <p><a href="http://wiki.ros.org/navigation/Tutorials/RobotSetup/TF">http://wiki.ros.org/navigation/Tutorials/RobotSetup/TF</a></p>
+    <p>Созадим новый пакет в рабочем пространстве catkin_test в папке src:</p>
+    <p><code>catkin_create_pkg robot_setup_tf roscpp tf geometry_msgs</code></p>
+    <p>Напишем и скомпилируем два узла.</p>
+    <p>Более подробно в документации</p>
+    <p><a href="http://docs.ros.org/lunar/api/tf/html/c++/Transform_8h.html">http://docs.ros.org/lunar/api/tf/html/c++/Transform_8h.html</a></p>
+    <h3>Одометрия</h3>
+    <p><a href="http://wiki.ros.org/odometry_publisher_tutorial">http://wiki.ros.org/odometry_publisher_tutorial</a></p>
+    <p><a href="https://github.com/ros-planning/navigation_tutorials">https://github.com/ros-planning/navigation_tutorials</a></p>
+    <p>Созадим новый пакет в рабочем пространстве catkin_test в папке src: </p>
+    <p><code>catkin_create_pkg odometry_publisher_tutorial roscpp tf
+        geometry_msgs</code></p>
+    Напишем и скомпилируем.<br>
+    <br>
+    <h3> base controller</h3>
+    <a href="https://geektimes.ru/company/tod/blog/250444/">https://geektimes.ru/company/tod/blog/250444/</a><br>
+    <br>
+    НАдо написать этот узел самому<br>
+    МОжно посмотреть на пример Pi robot, но я там нашел только скрипты на
+    питоне.<br>
+    <br>
+    Создание этого узла описано в книге 3Learning ROS for robotics programming
+    стр. 238( 255 если см в pdf), также в книжке
+    6effective-robotics-programming-ros-3rd, стр. 192.<br>
+    <br>
+    Для моделирования в Gazebo писать base controller не надо, Gazebo сам с
+    помощью плагина skid_steer_drive_controller слушает тему <b>cmd_vel</b>. <br>
+    <br>
+    В книге ошибка rosrun model tf_broadca<b>st</b>, а не rosrun model
+    tf_broadca<b>ster<br>
+    </b><code><span style="font-family: serif;"></span></code><br>
+    <br>
+    sudo apt-get install ros-indigo-serial<br>
+    <br>
+    Выполнение от имени суперпользователя:<br>
+    <br>
+    sudo -s<br>
+    <br>
+    roslaunch base base_controller.launch<br>
+    <br>
+    <p><b> В отделе СТЗ занимаются ROS.</b></p>
+    <p><b><br>
+      </b></p>
+    <h3>Настройка навигационного стека</h3>
+    <p>Source&nbsp; <a href="https://github.com/ros-planning/navigation">https://github.com/ros-planning/navigation</a></p>
+    <p>kinect2 to laserscan <a href="https://github.com/DrawZeroPoint/kinect2_to_laserscan">https://github.com/DrawZeroPoint/kinect2_to_laserscan</a></p>
+    <h3>Global planner</h3>
+    <h3>Local planner</h3>
+    <h3>Costmap 2d</h3>
+    <b> </b><b><br>
+      <a href="https://github.com/arebgun/erratic_robot/tree/master/erratic_navigation/navigation_config">https://github.com/arebgun/erratic_robot/tree/master/erratic_navigation/navigation_config</a><br>
+      <a href="https://github.com/ros-planning/navigation/issues/90">https://github.com/ros-planning/navigation/issues/90</a><br>
+      <a href="http://www.robotshop.com/letsmakerobots/my-first-autonomous-robot-with-ros-indigo">http://www.robotshop.com/letsmakerobots/my-first-autonomous-robot-with-ros-indigo</a><br>
+      <a href="https://www.youtube.com/watch?v=0qzNXHXgJGU&amp;list=PLG_hAfR-MItxEs2IvXojOokS4ywKjPupz&amp;index=9">https://www.youtube.com/watch?v=0qzNXHXgJGU&amp;list=PLG_hAfR-MItxEs2IvXojOokS4ywKjPupz&amp;index=9</a><br>
+      <br>
+      <a href="https://github.com/googlecartographer/cartographer">https://github.com/googlecartographer/cartographer</a><br>
+      <a href="http://google-cartographer.readthedocs.io/en/latest/">http://google-cartographer.readthedocs.io/en/latest/</a><br>
+      <a href="https://github.com/googlecartographer/cartographer_turtlebot">https://github.com/googlecartographer/cartographer_turtlebot</a><br>
+      <br>
+      Autonomous mapping <a href="https://www.youtube.com/watch?v=Q1ipn42rMh8">https://www.youtube.com/watch?v=Q1ipn42rMh8</a><br>
+      <a href="https://www.youtube.com/watch?v=khSrWtB0Xik&amp;t=202s">https://www.youtube.com/watch?v=khSrWtB0Xik&amp;t=202s</a><br>
+      <a href="http://www.pirobot.org/code/">http://www.pirobot.org/code/</a><br>
+      <br>
+      RTAB-Map mapping <a href="https://www.youtube.com/watch?v=j8OYlSZcqMc">https://www.youtube.com/watch?v=j8OYlSZcqMc</a><br>
+      <a href="https://groups.google.com/forum/#%21forum/ros-by-example">https://groups.google.com/forum/#!forum/ros-by-example</a><br>
+      <br>
+    </b><br>
+    Обновление одометрии и облака точек происходит с частотой 1 Гц.<br>
+    Следовательно скорость должна обновляться с частотой 1-2 Гц<br>
+    Это должно быть прописано в настройках move_base и base_controller.<br>
+    <br>
+    скорость кодируется<br>
+    <br>
+    <code><code>signed int sp = 20;<br>
+        <br>
+      </code>Serial.write((sp &gt;&gt; 8) &amp; 0xFF);<br>
+      <br>
+      <br>
+      signed int в Arduino UNO занимает 2 байта, </code><code><code>int16_t в
+        STM32 занимает тоже 2 байта.</code><br>
+      0000 0000 0000 0000<br>
+    </code><br>
+    <code> <br>
+      &nbsp;<br>
+      <br>
+      <br>
+    </code>Алгоритмы построения пути для беспилотного автомобиля <a href="https://habrahabr.ru/company/yandex/blog/340674/">https://habrahabr.ru/company/yandex/blog/340674/</a><br>
+    <br>
+    <br>
+    <h3>Adding Relaxed Astar Global Path Planner As Plugin in ROS</h3>
+    <a href="http://www.iroboapp.org/index.php?title=Adding_Relaxed_Astar_Global_Path_Planner_As_Plugin_in_ROS">http://www.iroboapp.org/index.php?title=Adding_Relaxed_Astar_Global_Path_Planner_As_Plugin_in_ROS</a><br>
+    <br>
+    <a href="https://www.youtube.com/watch?v=We1gGDXAO_o&amp;list=PL93n88K6Qpb63pyaaPaOTudQB30Z2Qn4r&amp;index=1">https://www.youtube.com/watch?v=We1gGDXAO_o&amp;list=PL93n88K6Qpb63pyaaPaOTudQB30Z2Qn4r&amp;index=1</a><br>
+    <br>
+    <h3>RobotAcademy</h3>
+    <a href="https://robotacademy.net.au/">https://robotacademy.net.au/</a>
+    <p></p>
+  </body>
+</html>

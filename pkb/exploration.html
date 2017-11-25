@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>exploration</title>
+  </head>
+  <body>
+    <h1>Exploration</h1>
+    <p>Разведка неизвестной среды.</p>
+    <p>В ROS по меньшей мере 5 пакетов реализуют эту функцию.</p>
+    <p><a href="http://wiki.ros.org/explore_lite">http://wiki.ros.org/explore_lite</a><br>
+      <a href="http://wiki.ros.org/explorer">http://wiki.ros.org/explorer</a><br>
+      <a href="http://wiki.ros.org/hector_exploration_planner">http://wiki.ros.org/hector_exploration_planner</a><br>
+      <a href="http://wiki.ros.org/nav2d">http://wiki.ros.org/nav2d</a><br>
+      <a href="http://wiki.ros.org/frontier_exploration">http://wiki.ros.org/frontier_exploration</a></p>
+    <p>Общее устройство:</p>
+    <p>Explorer получает карту одним из способов:</p>
+    <ol>
+      <li>map_server</li>
+      <li>topic /map</li>
+    </ol>
+    <p>Рассмотрим внутреннее устройство explorer_lite. Его исходный код состоит
+      из:</p>
+    <p>explore.cpp<br>
+      costmap_client.cpp<br>
+      frontier_search.cpp<br>
+      costmap_client.h<br>
+      frontier_search.h<br>
+      explore.h<br>
+      costmap_tools.h</p>
+    <p>Из функции <code>makePlan() </code>вызывается функция <code>getRobotPose()
+        </code>, которая получает позицию робота.</p>
+    <p>Внутри функции <code>getRobotPose() <br>
+      </code></p>
+    <p>Внутри функции <code>searchFrom(pose.position)</code></p>
+    <p>Позиция робота относительно мира конвертируется в позицию относительно
+      карты и координаты записываются в <code>unsigned int mx, my </code>.</p>
+    <p><code>bool worldToMap(double wx, double wy, unsigned int&amp; mx,
+        unsigned int&amp; my) const;</code><br>
+    </p>
+    <p><code>void Explore::makePlan()<br>
+        {<br>
+        &nbsp; // find frontiers<br>
+        &nbsp; auto pose = costmap_client_.getRobotPose();<br>
+        &nbsp; auto frontiers = search_.searchFrom(pose.position);<br>
+        &nbsp; ROS_DEBUG("found %lu frontiers", frontiers.size());<br>
+        &nbsp; for (size_t i = 0; i &lt; frontiers.size(); ++i) {<br>
+        &nbsp;&nbsp;&nbsp; ROS_DEBUG("frontier %zd cost: %f", i,
+        frontiers[i].cost);<br>
+        &nbsp; }<br>
+        <br>
+        &nbsp; if (frontiers.empty()) {<br>
+        &nbsp;&nbsp;&nbsp; stop();<br>
+        &nbsp;&nbsp;&nbsp; return;<br>
+        &nbsp; }<br>
+        <br>
+        &nbsp; // publish frontiers as visualization markers<br>
+        &nbsp; if (visualize_) {<br>
+        &nbsp;&nbsp;&nbsp; visualizeFrontiers(frontiers);<br>
+        &nbsp; }<br>
+        <br>
+        &nbsp; // find non blacklisted frontier<br>
+        &nbsp; auto frontier =<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; std::find_if_not(frontiers.begin(),
+        frontiers.end(),<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        [this](const frontier_exploration::Frontier&amp; f) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        return goalOnBlacklist(f.centroid);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        });<br>
+        &nbsp; if (frontier == frontiers.end()) {<br>
+        &nbsp;&nbsp;&nbsp; stop();<br>
+        &nbsp;&nbsp;&nbsp; return;<br>
+        &nbsp; }<br>
+        &nbsp; // todo sort frontiers<br>
+        &nbsp; geometry_msgs::Point target_position = frontier-&gt;centroid;<br>
+        <br>
+        &nbsp; // time out if we are not making any progress<br>
+        &nbsp; bool same_goal = prev_goal_ == target_position;<br>
+        &nbsp; prev_goal_ = target_position;<br>
+        &nbsp; if (!same_goal || prev_distance_ &gt; frontier-&gt;min_distance)
+        {<br>
+        &nbsp;&nbsp;&nbsp; // we have different goal or we made some progress<br>
+        &nbsp;&nbsp;&nbsp; last_progress_ = ros::Time::now();<br>
+        &nbsp;&nbsp;&nbsp; prev_distance_ = frontier-&gt;min_distance;<br>
+        &nbsp; }<br>
+        &nbsp; // black list if we've made no progress for a long time<br>
+        &nbsp; if (ros::Time::now() - last_progress_ &gt; progress_timeout_) {<br>
+        &nbsp;&nbsp;&nbsp; frontier_blacklist_.push_back(target_position);<br>
+        &nbsp;&nbsp;&nbsp; ROS_DEBUG("Adding current goal to black list");<br>
+        &nbsp;&nbsp;&nbsp; makePlan();<br>
+        &nbsp;&nbsp;&nbsp; return;<br>
+        &nbsp; }<br>
+        <br>
+        &nbsp; // we don't need to do anything if we still pursuing the same
+        goal<br>
+        &nbsp; if (same_goal) {<br>
+        &nbsp;&nbsp;&nbsp; return;<br>
+        &nbsp; }<br>
+        <br>
+        &nbsp; // send goal to move_base if we have something new to pursue<br>
+        &nbsp; move_base_msgs::MoveBaseGoal goal;<br>
+        &nbsp; goal.target_pose.pose.position = target_position;<br>
+        &nbsp; goal.target_pose.pose.orientation.w = 1.;<br>
+        &nbsp; goal.target_pose.header.frame_id =
+        costmap_client_.getGlobalFrameID();<br>
+        &nbsp; goal.target_pose.header.stamp = ros::Time::now();<br>
+        &nbsp; move_base_client_.sendGoal(<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; goal, [this, target_position](<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        const actionlib::SimpleClientGoalState&amp; status,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        const move_base_msgs::MoveBaseResultConstPtr&amp; result) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reachedGoal(status, result,
+        target_position);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });<br>
+        }</code><br>
+    </p>
+    <ol>
+    </ol>
+  </body>
+</html>

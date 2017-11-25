@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>Modelling ROS</title>
+  </head>
+  <body>
+    <h1>Моделирование робота в ROS RVIZ и Gazebo</h1>
+    <h2>URDF формат</h2>
+    <p>URDF - формат описания кинематической схемы робота в ROS.</p>
+    <p><a href="http://wiki.ros.org/urdf">http://wiki.ros.org/urdf</a></p>
+    <p><a href="http://wiki.ros.org/urdf/Tutorials">http://wiki.ros.org/urdf/Tutorials</a></p>
+    <p><a href="http://gazebosim.org/tutorials?tut=ros_urdf">http://gazebosim.org/tutorials?tut=ros_urdf</a></p>
+    <p>см. книгу ROS by example стр. 40 - стр. 54, а также книгу 6Effective
+      Robotics Programming ROS, стр. 160.</p>
+    <p>Масса звеньев</p>
+    <p>Момент инерции звеньев</p>
+    <p><a href="http://www.teoretmeh.ru/">http://www.teoretmeh.ru/</a></p>
+    <p><a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D0%BC%D0%B5%D0%BD%D1%82_%D0%B8%D0%BD%D0%B5%D1%80%D1%86%D0%B8%D0%B8">https://ru.wikipedia.org/wiki/Момент_инерции</a></p>
+    <p>Пассивное колесо робота для модели было взято от модели робота <a href="http://robots.ros.org/innok-heros/">http://robots.ros.org/innok-heros/</a></p>
+    <p><a href="http://wiki.ros.org/innok_heros_gazebo/Tutorials/Simulating%20Innok%20Heros">http://wiki.ros.org/innok_heros_gazebo/Tutorials/Simulating%20Innok%20Heros</a></p>
+    <p>Команда для запуска rviz с моделью:</p>
+    <p><code>roslaunch ros_robotics ddrobot_rviz.launch model:=dd_robot6.urdf
+        gui:=True</code></p>
+    <h2>SDF формат</h2>
+    <p>SDF - это XML формат, который описывает объекты и окружающую среду для
+      симуляции робота, визуализации и управления.</p>
+    <h2>Gazebo</h2>
+    <p><a href="http://gazebosim.org/projects">http://gazebosim.org/projects</a></p>
+    <p><a href="http://gazebosim.org/tutorials/?tut=ros_urdf">http://gazebosim.org/tutorials/?tut=ros_urdf</a></p>
+    <p><br>
+    </p>
+    <h2>Управление с помощью клавиатуры</h2>
+    <p>Нужно подключить плагин в SDF файле, и установить пакет в ROS.</p>
+    <p><code>sudo apt-get install ros-kinetic-teleop-twist-keyboard<br>
+        rosstack profile<br>
+        rospack profile</code></p>
+    <p><code>rosrun teleop_twist_keyboard teleop_twist_keyboard.py<br>
+      </code></p>
+    <h2>Вид с виртуальной камеры</h2>
+    <p>Нужно подключить плагин в SDF файле, и установить пакет в ROS.</p>
+    <p><code>rosrun image_view image_view image:=/robot/camera1/image_raw</code></p>
+    <p><code><br>
+      </code></p>
+    <h2>Моделирование turtlebot2 вместе с rtabmap.</h2>
+    <p><a href="http://wiki.ros.org/rtabmap_ros/Tutorials/MappingAndNavigationOnTurtlebot">http://wiki.ros.org/rtabmap_ros/Tutorials/MappingAndNavigationOnTurtlebot</a></p>
+    <h4><a href="http://learn.turtlebot.com/2015/02/03/8/">http://learn.turtlebot.com/2015/02/03/8/</a></h4>
+    <h4>Автономная навигация с rtabmap</h4>
+    <p></p>
+    <p>Команды для запуска симуляции:</p>
+    <p><code>roslaunch turtlebot_gazebo turtlebot_world.launch<br>
+        roslaunch rtabmap_ros demo_turtlebot_mapping.launch simulation:=true<br>
+        roslaunch rtabmap_ros demo_turtlebot_rviz.launch</code></p>
+    <h4>Автономная навигация без rtabmap</h4>
+    <h4></h4>
+    <p>Для того чтобы запустить автономную навигацию c amcl</p>
+    <p><code>roslaunch turtlebot_gazebo turtlebot_world.launch</code></p>
+    <p><code>roslaunch turtlebot_gazebo amcl_demo.launch</code></p>
+    <p><code>roslaunch turtlebot_rviz_launchers view_navigation.launch</code><br>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    </p>
+    <h4>Gmapping</h4>
+    <p><code>roslaunch turtlebot_gazebo turtlebot_world.launch</code></p>
+    <p><code>roslaunch turtlebot_gazebo gmapping_demo.launch</code></p>
+    <p><code>roslaunch turtlebot_rviz_launchers view_navigation.launch</code></p>
+    <p><code></code>move_base при этом не запускается.<br>
+    </p>
+    <p> </p>
+    <p> </p>
+    <p></p>
+    <p></p>
+  </body>
+</html>

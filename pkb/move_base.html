@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>move_base</title>
+  </head>
+  <body>
+    <h1>Move_base</h1>
+    <p>Настройка</p>
+    <p>1) Tf transform, между base_link и kinect2.</p>
+    <p>2) Одометрия <a href="http://wiki.ros.org/navigation/Tutorials/RobotSetup/Odom">http://wiki.ros.org/navigation/Tutorials/RobotSetup/Odom</a></p>
+    <p>3) base controller</p>
+    <p><br>
+    </p>
+    <p>Move_base</p>
+    <p>1) Преобразование облака точек в данные с лазерного дальномера</p>
+    <p>Пакет depthimage_to_laserscan</p>
+    <p>Этот пакет не удавалось запустить, решение нашел тут&nbsp;</p>
+    Кроме того существует еще два пакета, реализующих тоже самое преобразование:
+    <a href="http://blog.csdn.net/Forrest_Z/article/details/56665631">http://blog.csdn.net/Forrest_Z/article/details/56665631</a><br>
+    <a href="http://wiki.ros.org/laserscan_kinect">http://wiki.ros.org/laserscan_kinect</a><br>
+    <br>
+    <a href="https://github.com/mdrwiega/depth_nav_tools">https://github.com/mdrwiega/depth_nav_tools</a><br>
+    <br>
+    <a href="http://www.jamris.org/images/ISSUES/ISSUE-2017-02/48_56%20Drwiega.pdf">http://www.jamris.org/images/ISSUES/ISSUE-2017-02/48_56%20Drwiega.pdf</a><br>
+    <br>
+    pointcloud_to_laserscan<br>
+    <br>
+    Команды запуска:<br>
+    <code><br>
+      roslaunch robot_2dnav robot_2dnav.launch</code><br>
+    <br>
+    <code>//roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true<br>
+    </code>
+    <p><code>roslaunch rtabmap_ros rgbd_mapping_kinect2.launch rviz:=true
+        rtabmapviz:=false</code></p>
+    <code>roslaunch robot_2dnav move_base.launch<br>
+    </code><br>
+    <code>roslaunch base base_controller.launch<br>
+      <br>
+    </code><code>rostopic pub -1 /cmd_vel geometry_msgs/Twist -- '[0.0, 0.0,
+      0.0]' '[0.0, 0.0, 0.0]'<br>
+      <br>
+      rosrun tf view_frames</code><br>
+    <p>Настройки для rviz можно взять у turtle bota</p>
+    <p><br>
+    </p>
+    <p>Настройки move_base тоже возьмем у turtlebot.</p>
+    <p><br>
+    </p>
+    <p>Проблема </p>
+    <p>прокладывает путь через препятсвие.</p>
+    <p>Взял параметры от Pirobota, проблема решилась.</p>
+    <p><a href="http://www.pirobot.org/blog/0020/">http://www.pirobot.org/blog/0020/</a></p>
+    <p><a href="https://groups.google.com/forum/#%21forum/ros-by-example">https://groups.google.com/forum/#!forum/ros-by-example</a></p>
+    <p>а</p>
+    <p><a href="http://wiki.ros.org/nav_core">http://wiki.ros.org/nav_core</a></p>
+    <p><a href="http://wiki.ros.org/dwa_local_planner">http://wiki.ros.org/dwa_local_planner</a></p>
+    <p><a href="http://kaiyuzheng.me/documents/navguide.pdf">http://kaiyuzheng.me/documents/navguide.pdf</a></p>
+    <p><a href="http://wiki.ros.org/base_local_planner">http://wiki.ros.org/base_local_planner</a></p>
+    <p><br>
+    </p>
+    <p>Картографирование в ручном режиме:</p>
+    <p><code>sudo x11vnc</code></p>
+    <p><code>sudo ./speed driver<br>
+        roslaunch robot_2dnav robot_2dnav.launch<br>
+        roslaunch rtabmap_ros rgbd_mapping_kinect2.launch rviz:=true
+        rtabmapviz:=false</code></p>
+    <p><code>rosrun map_server map_saver -f map<br>
+      </code></p>
+  </body>
+</html>

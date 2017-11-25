@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <title></title>
+    <style type="text/css">
+	</style>
+  </head>
+  <body dir="ltr" style="background: #ffffff" bgcolor="#ffffff" lang="ru-RU" text="#000000">
+    <h1>Алгоритмы поиска пути на графе (англ.
+      Pathfinding)</h1>
+    <p style="margin-bottom: 0.2in">Полезные ссылки ! </p>
+    <p style="margin-bottom: 0.2in" align="left"><a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%BF%D1%83%D1%82%D0%B8">https://ru.wikipedia.org/wiki/Поиск_пути</a></p>
+    <p style="margin-bottom: 0.2in" align="left"><a href="https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0_%D0%BE_%D0%BA%D1%80%D0%B0%D1%82%D1%87%D0%B0%D0%B9%D1%88%D0%B5%D0%BC_%D0%BF%D1%83%D1%82%D0%B8">https://ru.wikipedia.org/wiki/Задача_о_кратчайшем_пути</a></p>
+    <p style="margin-bottom: 0.2in" align="left">https://wiki2.org/ru/Задача_о_кратчайшем_пути#Video</p>
+    <p style="margin-bottom: 0.2in">Хороший сайт 2000 года
+      с обьяснением <a href="http://pmg.org.ru/ai/stout.htm">http://pmg.org.ru/ai/stout.htm</a></p>
+    <p style="margin-bottom: 0.2in">Робофорум
+      <a href="http://roboforum.ru/wiki/%D0%9F%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D1%89%D0%B5%D0%BD%D0%B8%D0%B5_%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B0_%D0%B2_%D0%BD%D1%83%D0%B6%D0%BD%D1%83%D1%8E_%D1%82%D0%BE%D1%87%D0%BA%D1%83_%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D0%BE%D0%B9_%D0%BA%D0%B0%D1%80%D1%82%D1%8B">http://roboforum.ru/wiki/Перемещение_робота_в_нужную_точку_векторной_карты</a></p>
+    <p style="margin-bottom: 0.2in"><a href="http://savepearlharbor.com/?p=159417">http://savepearlharbor.com/?p=159417</a></p>
+    <p style="margin-bottom: 0.2in">Стратегия земля
+      онимодов <a href="http://www.loonies.narod.ru/pathfindr.htm">http://www.loonies.narod.ru/pathfindr.htm</a></p>
+    <p style="margin-bottom: 0.2in"><a href="https://tproger.ru/articles/pathfindings/">https://tproger.ru/articles/pathfindings/</a></p>
+    <p style="margin-bottom: 0.2in"><a href="http://www.lki.ru/text.php?id=2499">http://www.lki.ru/text.php?id=2499</a></p>
+    <p style="margin-bottom: 0.2in"><font face="Liberation Serif, serif">Все
+        приведенные выше методы поиска
+        предполагали, что пространство разбито
+        на квадратные или шестиугольные ячейки.
+        Но что, если игровое пространство
+        непрерывно? Что, если позиции и объектов
+        и препятствий сохранены в виде непрерывных
+        значений и могут быть настолько точно
+        представлены, как и разрешение экрана?
+        Для ответа на эти условия поиска можно
+        заглянуть в область робототехники и
+        увидеть какие подходы используются для
+        мобильных роботов. Как правило, находят
+        способы для сведения непрерывного
+        пространства к нескольким дискретным
+        вариантам. После этого можно использовать
+        A* для поиска желаемого пути. Способы
+        дискретизации пространства включают:</font></p>
+    <ul>
+      <li>
+        <p style="margin-bottom: 0.2in"><font face="Liberation Serif, serif">Ячейки;</font></p>
+      </li>
+      <li>
+        <p style="margin-bottom: 0.2in"><font face="Liberation Serif, serif">Точки
+            видимости;</font></p>
+      </li>
+      <li>
+        <p style="margin-bottom: 0.2in"><font face="Liberation Serif, serif">Выпуклые
+            полигоны;</font></p>
+      </li>
+      <li>
+        <p style="margin-bottom: 0.2in"><font face="Liberation Serif, serif">Квадрантные
+            деревья;</font></p>
+      </li>
+      <li>
+        <p style="margin-bottom: 0.2in"><font face="Liberation Serif, serif">Обобщенные
+            цилиндры;</font></p>
+      </li>
+      <li>
+        <p style="margin-bottom: 0.2in"><font face="Liberation Serif, serif">Потенциальные
+            поля.</font></p>
+      </li>
+    </ul>
+    <p style="margin-bottom: 0.2in"><br>
+      <br>
+    </p>
+    <p style="margin-bottom: 0.2in"><b>Визуализаторы</b></p>
+    <p style="margin-bottom: 0.2in"><a href="https://qiao.github.io/PathFinding.js/visual/"><b>https://qiao.github.io/PathFinding.js/visual/</b></a></p>
+    <p style="margin-bottom: 0.2in"><a href="https://habrahabr.ru/post/323650/"><b>https://habrahabr.ru/post/323650/</b></a></p>
+    <h2 class="western">Поиск в глубину</h2>
+    <p style="margin-bottom: 0.2in"><a href="https://en.wikipedia.org/wiki/Depth-first_search">https://en.wikipedia.org/wiki/Depth-first_search</a></p>
+    <p style="margin-bottom: 0.2in"><br>
+      <br>
+    </p>
+    <h2 class="western">Поиск в ш<font face="Liberation Serif, serif">ирину</font></h2>
+    <h2 class="western">A*</h2>
+    <p style="margin-bottom: 0.2in"><font face="Liberation Serif, serif">Геймдев
+        <a href="http://www.gamedev.ru/articles/?id=70121">http://www.gamedev.ru/articles/?id=70121</a></font></p>
+  </body>
+</html>

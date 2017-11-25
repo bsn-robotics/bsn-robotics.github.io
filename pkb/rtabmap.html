@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <title>RTAB-Map</title>
+  </head>
+  <body>
+    <h1>RTAB-Map</h1>
+    <p><br>
+    </p>
+    <p>http://wiki.ros.org/rtabmap_ros</p>
+    <p>4.Узлы</p>
+    <p>4.1 </p>
+    <blockquote>
+      <p> <span style="color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">To
+          get a 3D point cloud or a 2D occupancy grid of the environment,
+          subscribe to<span class="Apple-converted-space">&nbsp;</span></span><tt
+          class="backtick" style="box-sizing: border-box; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">cloud_map</tt><span
+          style="color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">,<span
+            class="Apple-converted-space">&nbsp;</span></span><tt class="backtick"
+          style="box-sizing: border-box; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">grid_map</tt><span
+          style="color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><span
+            class="Apple-converted-space">&nbsp;</span>or<span class="Apple-converted-space">&nbsp;</span></span><tt
+          class="backtick" style="box-sizing: border-box; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">proj_map</tt><span
+          style="color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><span
+            class="Apple-converted-space">&nbsp;</span>topics.</span></p>
+    </blockquote>
+    <p>grid_map topic</p>
+    <p>proj_map topic</p>
+    <p><a href="http://wiki.ros.org/rviz/DisplayTypes/Map">http://wiki.ros.org/rviz/DisplayTypes/Map</a></p>
+    <h4>Извлечение карты <a href="https://answers.ros.org/question/217097/export-2d-map-from-rviz-andor-rtab-map/">https://answers.ros.org/question/217097/export-2d-map-from-rviz-andor-rtab-map/</a><br>
+    </h4>
+    <p><a href="https://github.com/introlab/rtabmap_ros/blob/ea859291ed8b690946265d2f9fcec436f58a02bf/src/MapsManager.cpp#L175-L183">C++
+        https://github.com/introlab/rtabmap_ros/blob/ea859291ed8b690946265d2f9fcec436f58a02bf/src/MapsManager.cpp#L175-L183<span
+          style="color: black;"><br>
+        </span></a></p>
+    <p>create2DMapFromOccupancyLocalMaps</p>
+    <p> <iframe src="ros_map.html" height="256" width="512"> </iframe></p>
+    <br>
+    <p> <span style="color: rgb(36, 41, 46); font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">cloudOutputVoxelized_(</span><span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197); font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">true</span><span
+style="color: rgb(36, 41, 46); font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">),</span></p>
+    <p><br>
+    </p>
+    <p> </p>
+    <table class="highlight tab-size js-file-line-container" data-tab-size="8" style="box-sizing: border-box; border-spacing: 0px; border-collapse: collapse; tab-size: 8; color: rgb(36, 41, 46); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+      <tbody style="box-sizing: border-box;">
+        <tr style="box-sizing: border-box;">
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="LC1095" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;"><span
+class="pl-c" style="box-sizing: border-box; color: rgb(106, 115, 125);"><span class="pl-c"
+style="box-sizing: border-box; color: rgb(106, 115, 125);">//</span> create the grid map</span></td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1096" class="blob-num js-line-number" data-line-number="1096"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+          <td id="LC1096" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">		<span
+class="pl-k" style="box-sizing: border-box; color: rgb(215, 58, 73);">float</span> xMin=<span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197);">0</span>.<span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197);">0f</span>, yMin=<span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197);">0</span>.<span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197);">0f</span>, gridCellSize = <span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197);">0</span>.<span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197);">05f</span>;</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1097" class="blob-num js-line-number" data-line-number="1097"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+          <td id="LC1097" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">		cv::Mat pixels = <span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197);">this</span>-&gt;<span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197);">generateGridMap</span>(poses, xMin, yMin, gridCellSize);</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1098" class="blob-num js-line-number" data-line-number="1098"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <table class="highlight tab-size js-file-line-container" data-tab-size="8" style="box-sizing: border-box; border-spacing: 0px; border-collapse: collapse; tab-size: 8; color: rgb(36, 41, 46); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
+      <tbody style="box-sizing: border-box;">
+        <tr style="box-sizing: border-box;">
+          <td id="LC1036" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">nav_msgs::OccupancyGrid map;</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1037" class="blob-num js-line-number" data-line-number="1037"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+          <td id="LC1037" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">				map.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">info</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">resolution</span> = gridCellSize;</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1038" class="blob-num js-line-number" data-line-number="1038"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+          <td id="LC1038" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">				map.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">info</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">origin</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">position</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">x</span> = <span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197);">0.0</span>;</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1039" class="blob-num js-line-number" data-line-number="1039"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+          <td id="LC1039" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">				map.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">info</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">origin</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">position</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">y</span> = <span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197);">0.0</span>;</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1040" class="blob-num js-line-number" data-line-number="1040"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+          <td id="LC1040" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">				map.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">info</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">origin</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">position</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">z</span> = <span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197);">0.0</span>;</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1041" class="blob-num js-line-number" data-line-number="1041"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+          <td id="LC1041" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">				map.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">info</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">origin</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">orientation</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">x</span> = <span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197);">0.0</span>;</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1042" class="blob-num js-line-number" data-line-number="1042"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+          <td id="LC1042" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">				map.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">info</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">origin</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">orientation</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">y</span> = <span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197);">0.0</span>;</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1043" class="blob-num js-line-number" data-line-number="1043"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+          <td id="LC1043" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">				map.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">info</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">origin</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">orientation</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">z</span> = <span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197);">0.0</span>;</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1044" class="blob-num js-line-number" data-line-number="1044"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+          <td id="LC1044" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">				map.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">info</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">origin</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">orientation</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">w</span> = <span
+class="pl-c1" style="box-sizing: border-box; color: rgb(0, 92, 197);">1.0</span>;</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1045" class="blob-num js-line-number" data-line-number="1045"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+          <td id="LC1045" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">
+</td></tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1046" class="blob-num js-line-number" data-line-number="1046"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+          <td id="LC1046" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">				map.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">info</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">width</span> = pixels.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">cols</span>;</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1047" class="blob-num js-line-number" data-line-number="1047"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+          <td id="LC1047" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">				map.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">info</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">height</span> = pixels.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">rows</span>;</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1048" class="blob-num js-line-number" data-line-number="1048"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+          <td id="LC1048" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">				map.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">info</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">origin</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">position</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">x</span> = xMin;</td>
+        </tr>
+        <tr style="box-sizing: border-box;">
+          <td id="L1049" class="blob-num js-line-number" data-line-number="1049"
+            style="box-sizing: border-box; padding: 0px 10px; width: 50px; min-width: 50px; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; line-height: 20px; color: rgba(27, 31, 35, 0.3); text-align: right; white-space: nowrap; vertical-align: top; cursor: pointer; user-select: none;"><br>
+          </td>
+          <td id="LC1049" class="blob-code blob-code-inner js-file-line" style="box-sizing: border-box; padding: 0px 10px; position: relative; line-height: 20px; vertical-align: top; overflow: visible; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 12px; color: rgb(36, 41, 46); word-wrap: normal; white-space: pre;">				map.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">info</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">origin</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">position</span>.<span
+class="pl-smi" style="box-sizing: border-box; color: rgb(36, 41, 46);">y</span> = yMin;</td>
+        </tr>
+      </tbody>
+    </table>
+    <br class="Apple-interchange-newline">
+    <h3>Настройки rtabmap_ros</h3>
+    <p>&nbsp;&lt;arg
+      name="subscribe_scan"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      default="false"/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &lt;!-- Assuming 2D scan if set, rtabmap will do 3DoF mapping instead of
+      6DoF --&gt;<br>
+      &nbsp; &lt;arg
+      name="scan_topic"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      default="/scan"/&gt;<br>
+      &nbsp; <br>
+      &nbsp; &lt;arg name="subscribe_scan_cloud"&nbsp;&nbsp;&nbsp;
+      default="false"/&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &lt;!-- Assuming 3D scan if set --&gt;<br>
+      &nbsp; &lt;arg
+      name="scan_cloud_topic"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      default="/scan_cloud"/&gt;<br>
+      <a href="https://github.com/introlab/rtabmap_ros/blob/ea859291ed8b690946265d2f9fcec436f58a02bf/src/MapsManager.cpp#L175-L183"><span
+          style="color: black;"></span></a></p>
+  </body>
+</html>

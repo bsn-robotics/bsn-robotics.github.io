@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <title>cplusplus</title>
+  </head>
+  <body>
+    <h1>С++</h1>
+    <p><a href="https://prog-cpp.ru/c-files/">https://prog-cpp.ru/c-files/</a></p>
+    <p><a href="http://cppstudio.com/post/446/">http://cppstudio.com/post/446/</a></p>
+    <p><a href="https://www.cprogramming.com/">https://www.cprogramming.com/</a><br>
+    </p>
+    <p><a href="http://proginfo.ru/">http://proginfo.ru/</a></p>
+    <p>Уроки CS <a href="https://compscicenter.ru/courses/cpp-1/2011-autumn/classes/461/">https://compscicenter.ru/courses/cpp-1/2011-autumn/classes/461/</a></p>
+    <p>Уроки СS С++ в Linux <a href="https://www.lektorium.tv/lecture/13353">https://www.lektorium.tv/lecture/13353</a></p>
+    <p>CLion, решение проблемы <a href="http://vswebschool.blogspot.ru/2015/11/ubuntu-ibus-prior-to-1511-idea78860.html">http://vswebschool.blogspot.ru/2015/11/ubuntu-ibus-prior-to-1511-idea78860.html</a><span
+        style="color: #0000ee;"><br>
+      </span></p>
+    CLion делает Питерский отдел jetbrains(Хабр).<br>
+    <p>Библиотека HTML интерфейса <a href="https://habrahabr.ru/post/142585/">https://habrahabr.ru/post/142585/</a></p>
+    <p><a href="http://www.webtoolkit.eu/wt/documentation">http://www.webtoolkit.eu/wt/documentation</a><br>
+    </p>
+    <p><br>
+    </p>
+    <p>CodeForses <a href="http://codeforces.com/">http://codeforces.com/</a></p>
+    <p><br>
+    </p>
+    <p>QT+CLion</p>
+    <p><a href="http://www.cyberforum.ru/blogs/849454/blog4312.html">http://www.cyberforum.ru/blogs/849454/blog4312.html</a></p>
+    <p><a href="https://evileg.com/ru/post/270/">https://evileg.com/ru/post/270/</a></p>
+    <p><a href="https://www.youtube.com/watch?v=Sp5TywYeNzE">https://www.youtube.com/watch?v=Sp5TywYeNzE</a></p>
+    <p>QT+ OpenGL</p>
+    <p><a href="http://www.bogotobogo.com/Qt/Qt5_OpenGL_QGLWidget.php">http://www.bogotobogo.com/Qt/Qt5_OpenGL_QGLWidget.php</a></p>
+    <p><a href="https://pikabu.ru/story/pishem_igru_quotzhiznquot_pod_android_ispolzuya_c_i_qt_za_chas_3926549">https://pikabu.ru/story/pishem_igru_quotzhiznquot_pod_android_ispolzuya_c_i_qt_za_chas_3926549</a></p>
+    <p><a href="http://www.gamedev.ru/code/articles/OpenGL_Qt4">http://www.gamedev.ru/code/articles/OpenGL_Qt4</a></p>
+    <p><a href="https://pikabu.ru/story/risuem_v_3d_na_c_poverkhnost_zadannuyu_formuloy_5108264">https://pikabu.ru/story/risuem_v_3d_na_c_poverkhnost_zadannuyu_formuloy_5108264</a></p>
+    <p><a href="http://easy-qt.blogspot.ru/2012/05/qt-opengl.html">http://easy-qt.blogspot.ru/2012/05/qt-opengl.html</a></p>
+    <p><a href="http://savepearlharbor.com/?p=206156">http://savepearlharbor.com/?p=206156</a></p>
+    <p><a href="http://www.kdab.com/opengl-in-qt-5-1-part-2/">http://www.kdab.com/opengl-in-qt-5-1-part-2/</a></p>
+    <p>SDL, SFML</p>
+    <p><a href="https://toster.ru/q/135891">https://toster.ru/q/135891</a></p>
+    <p><a href="https://bcmpinc.wordpress.com/2015/08/18/creating-an-opengl-4-5-context-using-sdl2-and-glad/">https://bcmpinc.wordpress.com/2015/08/18/creating-an-opengl-4-5-context-using-sdl2-and-glad/</a></p>
+    <p> Vulkan<br>
+      Bullet Physics<br>
+      OGRE</p>
+    <p>Golems</p>
+    <p><br>
+    </p>
+    <p>Игра стратегия в реальном времени<br>
+      Осада замка, юнитам можно отдавать команды и менять их поведение,</p>
+    <p><br>
+    </p>
+    <p>Битва роботов, роботов можно программировать<br>
+      Внешний вид роботов можно загружать модели сделанные в CAD.<br>
+      Ограничение на колличество полигонов<br>
+      Блок АКБ, блоки двигателей, блок пушек.<br>
+      Все остальное моделируется в URDF<br>
+      Размеры робота ограничены ангаром.<br>
+      На карте есть ресурс - энергия за который сражаются роботы. Похоже на
+      Robocraft.<br>
+      Есть завод по производтву роботов.</p>
+    <p>Можно перехватывать управление роботами противника.<br>
+      Стратегия<br>
+      Визуальный язык программирования Scratch<br>
+      Выбор алгоритмов для навигации </p>
+    <p><br>
+      2D стратегия<br>
+      Agar io</p>
+    <h3>Управление с клавиатуры Linux, функция getch()</h3>
+    <code>#include &lt;stdio.h&gt;<br>
+      #include &lt;termios.h&gt;<br>
+      #include &lt;unistd.h&gt;<br>
+      int getch( ) {<br>
+      struct termios oldt,<br>
+      newt;<br>
+      int ch;<br>
+      tcgetattr( STDIN_FILENO, &amp;oldt );<br>
+      newt = oldt;<br>
+      newt.c_lflag &amp;= ~( ICANON | ECHO );<br>
+      tcsetattr( STDIN_FILENO, TCSANOW, &amp;newt );<br>
+      ch = getchar();<br>
+      tcsetattr( STDIN_FILENO, TCSANOW, &amp;oldt );<br>
+      return ch;<br>
+      }<br>
+    </code>
+    <h3><code>Программа чтобы посмотреть коды клавиш Linux</code></h3>
+    <code>#include &lt;stdio.h&gt;<br>
+      #include &lt;termios.h&gt;<br>
+      #include &lt;unistd.h&gt;<br>
+      int getch( ) {<br>
+      struct termios oldt,<br>
+      newt;<br>
+      int ch;<br>
+      tcgetattr( STDIN_FILENO, &amp;oldt );<br>
+      newt = oldt;<br>
+      newt.c_lflag &amp;= ~( ICANON | ECHO );<br>
+      tcsetattr( STDIN_FILENO, TCSANOW, &amp;newt );<br>
+      ch = getchar();<br>
+      tcsetattr( STDIN_FILENO, TCSANOW, &amp;oldt );<br>
+      return ch;<br>
+      }<br>
+      int main()<br>
+      {<br>
+      int key;<br>
+      while(1){<br>
+      key = getch();<br>
+      printf("%d", key);<br>
+      }<br>
+      }<br>
+    </code><a href="Linux.html#compile">Компилирование</a><br>
+  </body>
+</html>

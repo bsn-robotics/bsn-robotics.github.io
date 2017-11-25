@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <title></title>
+    <meta name="generator" content="LibreOffice 4.2.8.2 (Linux)">
+    <meta name="author" content="Серега Солнечный">
+    <meta name="created" content="20160309;23431182">
+    <meta name="changed" content="20170822;165834922646846">
+    <style type="text/css">
+	<!--
+		@page { size: 8.27in 11.69in }
+		td p { margin-bottom: 0in; color: #000000 }
+		h1 { color: #000000 }
+		p { margin-bottom: 0in; color: #000000 }
+	-->
+	</style>
+  </head>
+  <body dir="ltr" style="background: #ffffff" bgcolor="#ffffff" lang="ru-RU" text="#000000">
+    <h1>Работа с библиотекой SDL 2.0</h1>
+    <p><font style="font-size: 12pt" size="3">Для реализации
+        визуализатора для дипломного проекта,
+        была использована библиотека SDL.</font></p>
+    <p><font style="font-size: 12pt" size="3">Библиотека
+        используется для вывода изображения
+        на экран.</font></p>
+    <p><font style="font-size: 12pt" size="3">Посмотреть,
+        установлен ли пакет SDL2 </font>
+    </p>
+    <p><a href="https://losst.ru/kak-uznat-ustanovlen-li-paket-v-ubuntu"><font style="font-size: 12pt"
+          size="3">https://losst.ru/kak-uznat-ustanovlen-li-paket-v-ubuntu</font></a></p>
+    <table style="page-break-inside: avoid" cellpadding="4" cellspacing="0" width="100%">
+      <colgroup><col width="256*"> </colgroup>
+      <tbody>
+        <tr>
+          <td style="border: 1px double #808080; padding: 0.04in" valign="top" width="100%">
+            <p><font face="Liberation Serif, serif">$ dpkg -s libsdl2-dev</font></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p> </p>
+    <p><font style="font-size: 12pt" size="3">или чтобы
+        посмотреть пакеты, которые содержат в
+        имени sdl</font></p>
+    <p><br>
+    </p>
+    <table style="page-break-inside: avoid" cellpadding="4" cellspacing="0" width="100%">
+      <colgroup><col width="256*"> </colgroup>
+      <tbody>
+        <tr>
+          <td style="border: 1px double #808080; padding: 0.04in" valign="top" width="100%">
+            <p><font style="font-size: 12pt" size="3">Dpkg --get-selections |
+                grep sdl</font></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><br>
+    </p>
+    <p><font style="font-size: 12pt" size="3">На моем компьютере
+        был установлен SDL 1.2, а нам нужна версия
+        SDL 2.0</font></p>
+    <p><br>
+    </p>
+    <p><font style="font-size: 12pt" size="3">Вопрос на
+        stackoverflow
+        <a href="https://stackoverflow.com/questions/21588379/installing-sdl2-on-linux">https://stackoverflow.com/questions/21588379/installing-sdl2-on-linux</a></font></p>
+    <p><br>
+    </p>
+    <p><font style="font-size: 12pt" size="3">Установить
+        библиотеку в Ubuntu</font></p>
+    <p><a href="http://wiki.libsdl.org/Installation"><font style="font-size: 12pt"
+          size="3">http://wiki.libsdl.org/Installation</font></a></p>
+    <p><font style="font-size: 12pt" size="3">Для установки
+        выполним команду:</font></p>
+    <table style="page-break-inside: avoid" cellpadding="4" cellspacing="0" width="100%">
+      <colgroup><col width="256*"> </colgroup>
+      <tbody>
+        <tr>
+          <td style="border: 1px double #808080; padding: 0.04in" valign="top" width="100%">
+            <p><font style="font-size: 12pt" size="3">sudo apt-get install
+                libsdl2-dev</font></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><br>
+    </p>
+    <p><font style="font-size: 12pt" size="3">Подключение
+        библиотеки в Clion</font></p>
+    <p><font style="font-size: 12pt" size="3">Создание cmake
+        файла:</font></p>
+    <p><font style="font-size: 12pt" size="3"><a href="https://brendanwhitfield.wordpress.com/2015/02/26/using-cmake-with-sdl2/">https://brendanwhitfield.wordpress.com/2015/02/26/using-cmake-with-sdl2/</a></font></p>
+    <p><font style="font-size: 12pt" size="3">(<a href="https://toster.ru/q/337373">https://toster.ru/q/337373</a></font></p>
+    <p><a href="https://stackoverflow.com/questions/23850472/how-to-use-sdl2-and-sdl-image-with-cmake"><font
+          style="font-size: 12pt" size="3">https://stackoverflow.com/questions/23850472/how-to-use-sdl2-and-sdl-image-with-cmake</font></a><font
+        style="font-size: 12pt" size="3">)</font></p>
+    <p> </p>
+    <p><font style="font-size: 12pt" size="3">Cmake файл моего
+        проекта:</font></p>
+    <table style="page-break-inside: avoid" cellpadding="4" cellspacing="0" width="100%">
+      <colgroup><col width="256*"> </colgroup>
+      <tbody>
+        <tr>
+          <td style="border: 1px double #808080; padding: 0.04in" valign="top" width="100%">
+            <p style="font-style: normal; font-weight: normal; text-decoration: none">
+              <font face="Liberation Serif, serif"><font style="font-size: 12pt"
+                  size="3">cmake_minimum_required(<font color="#008000">VERSION
+                    3.8</font>)</font></font></p>
+            <p style="font-style: normal; font-weight: normal; text-decoration: none">
+              <font face="Liberation Serif, serif"><font style="font-size: 12pt"
+                  size="3">project(<font color="#008000">untitled</font>)</font></font></p>
+            <p style="font-style: normal; font-weight: normal; text-decoration: none">
+              <font face="Liberation Serif, serif"><font style="font-size: 12pt"
+                  size="3">set(<font color="#008000">CMAKE_MODULE_PATH
+                    ${PROJECT_SOURCE_DIR}/cmake-build-debug</font>)</font></font></p>
+            <p style="font-style: normal; font-weight: normal; text-decoration: none">
+              <font face="Liberation Serif, serif"><font style="font-size: 12pt"
+                  size="3">find_package(<font color="#008000">SDL2 REQUIRED</font>)</font></font></p>
+            <p style="font-style: normal; font-weight: normal; text-decoration: none">
+              <font face="Liberation Serif, serif"><font style="font-size: 12pt"
+                  size="3">include_directories(<font color="#008000">${SDL2_INCLUDE_DIR}</font>)</font></font></p>
+            <p style="font-style: normal; font-weight: normal; text-decoration: none">
+              <font face="Liberation Serif, serif"><font style="font-size: 12pt"
+                  size="3">set(<font color="#008000">CMAKE_CXX_FLAGS </font>"<font
+                    color="#008000">${CMAKE_CXX_FLAGS} -std=c++11</font>")</font></font></p>
+            <p style="font-style: normal; font-weight: normal; text-decoration: none">
+              <font face="Liberation Serif, serif"><font style="font-size: 12pt"
+                  size="3">set(<font color="#008000">SOURCE_FILES main.cpp</font>)</font></font></p>
+            <p style="font-style: normal; font-weight: normal; text-decoration: none">
+              <font face="Liberation Serif, serif"><font style="font-size: 12pt"
+                  size="3">add_executable(<font color="#008000">untitled
+                    ${SOURCE_FILES}</font>)</font></font></p>
+            <p style="font-style: normal; font-weight: normal; text-decoration: none">
+              <font face="Liberation Serif, serif"><font style="font-size: 12pt"
+                  size="3"><font color="#000000">target_link_libraries(</font><font
+                    color="#008000">untitled ${SDL2_LIBRARY}</font><font color="#000000">)</font></font></font></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><br>
+    </p>
+    <p><font style="font-size: 12pt" size="3">Используется
+        файл FindSDL2.cmake, который позволяет найти
+        и установить пути к библиотеке SDL2.</font></p>
+    <p><font style="font-size: 12pt" size="3"><a href="https://github.com/brendan-w/collector/blob/master/cmake/FindSDL2.cmake">https://github.com/brendan-w/collector/blob/master/cmake/FindSDL2.cmake</a></font></p>
+    <p><br>
+    </p>
+    <p><font style="font-size: 12pt" size="3">Код тестовой
+        программы см. в каталоге
+        ClionProjects/SDL_project_sample</font></p>
+    <p><font style="font-size: 12pt" size="3">По статьям
+        <a href="https://habrahabr.ru/post/198600/">https://habrahabr.ru/post/198600/</a>
+        и <a href="https://habrahabr.ru/post/134936/">https://habrahabr.ru/post/134936/</a>
+        :</font></p>
+    <p><span style="font-variant: normal"><font color="#000000"><font face="Liberation Serif, serif"><span
+              style="font-style: normal"><span style="font-weight: normal">Для
+                того, чтобы начать работать с SDL, нам
+                необходимо инициализировать различные
+                SDL подсистемы, которые мы хотим
+                использовать. Это можно сделать с помощью
+                функции </span></span></font></font></span><a href="http://wiki.libsdl.org/moin.fcg/SDL_Init"><span
+          style="font-variant: normal"><font color="#000000"><font face="Liberation Serif, serif"><span
+                style="font-style: normal"><u><span style="font-weight: normal"><span
+                      style="background: #ffffff">SDL_Init</span></span></u></span></font></font></span></a><span
+        style="font-variant: normal"><font color="#000000"><font face="Liberation Serif, serif"><span
+              style="font-style: normal"><span style="font-weight: normal">,
+                которая принимает набор </span></span></font></font></span><a href="http://wiki.libsdl.org/moin.fcg/SDL_Init#Remarks"><span
+          style="font-variant: normal"><font color="#000000"><font face="Liberation Serif, serif"><span
+                style="font-style: normal"><u><span style="font-weight: normal"><span
+                      style="background: #ffffff">флагов</span></span></u></span></font></font></span></a><span
+        style="font-variant: normal"><font color="#000000"><font face="Liberation Serif, serif"><span
+              style="font-style: normal"><span style="font-weight: normal">,
+                указывающих, какие подсистемы мы хотим
+                инициализировать. Сейчас мы просто
+                скажем, что хотим инициализировать все,
+                но если хотите, вы можете это изменить.
+                Минимум, что необходимо для нашего урока
+                — это SDL_INIT_VIDEO. Если все пройдет успешно,
+                SDL_Init вернет 0, в противном случае мы
+                напечатаем ошибку и выйдем.</span></span></font></font></span></p>
+    <p><br>
+    </p>
+    <table style="page-break-inside: avoid" cellpadding="4" cellspacing="0" width="100%">
+      <colgroup><col width="256*"> </colgroup>
+      <tbody>
+        <tr>
+          <td style="border: 1px double #808080; padding: 0.04in" valign="top" width="100%">
+            <p style="font-style: normal; font-weight: normal; text-decoration: none">
+              <font color="#808000">#include </font><font color="#008000">&lt;SDL.h&gt;</font></p>
+            <p style="font-style: normal; font-weight: normal; text-decoration: none">
+              <br>
+            </p>
+            <p><br>
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><br>
+    </p>
+    <p><br>
+    </p>
+    <p><font style="font-size: 12pt" size="3">Список источников:
+      </font>
+    </p>
+    <p><font style="font-size: 12pt" size="3">1) Статья на хабре
+      </font><font style="font-size: 12pt" size="3">по созданию
+        игры</font><font style="font-size: 12pt" size="3">
+        <a href="https://habrahabr.ru/post/134936/">https://habrahabr.ru/post/134936/</a></font></p>
+    <p><font style="font-size: 12pt" size="3">2) Уроки по SDL на
+        хабре <a href="https://habrahabr.ru/post/198600/">https://habrahabr.ru/post/198600/</a></font></p>
+    <p><font style="font-size: 12pt" size="3">3) Создание RPG
+        игры на SDL
+        <a href="https://www.youtube.com/playlist?list=PLHM_A02NtaaVey-4Ezh7p6bbOsv-DKA-0">https://www.youtube.com/playlist?list=PLHM_A02NtaaVey-4Ezh7p6bbOsv-DKA-0</a></font></p>
+    <p><br>
+    </p>
+    <p><font style="font-size: 12pt" size="3">3) Установка SDL
+        <a href="http://www.willusher.io/pages/sdl2/">http://www.willusher.io/pages/sdl2/</a></font></p>
+    <p><a href="http://www.willusher.io/sdl2%20tutorials/2014/03/06/lesson-0-cmake"><font
+          style="font-size: 12pt" size="3">http://www.willusher.io/sdl2%20tutorials/2014/03/06/lesson-0-cmake</font></a></p>
+    <p><br>
+    </p>
+    <p><font style="font-size: 12pt" size="3">Уроки для Windows:</font></p>
+    <p><a href="http://grafika.me/node/493"><font style="font-size: 12pt" size="3">http://grafika.me/node/493</font></a></p>
+    <p><font style="font-size: 12pt" size="3">Похожая библиотека,
+        написанная на С++, SFML:</font></p>
+    <p><a href="https://ru.wikipedia.org/wiki/SFML"><font style="font-size: 12pt"
+          size="3">https://ru.wikipedia.org/wiki/SFML</font></a></p>
+    <p><a href="https://ru.wikipedia.org/wiki/SFML"><font style="font-size: 12pt"
+          size="3"><br>
+        </font></a></p>
+    <p><a href="https://ru.wikipedia.org/wiki/SFML"><font style="font-size: 12pt"
+          size="3"><br>
+        </font></a></p>
+    <h2><a name="sdl">Материалы по SDL2 и OpenGL:</a></h2>
+    <p><a href="http://headerphile.com/sdl2/opengl-part-1-sdl-opengl-awesome/">http://headerphile.com/sdl2/opengl-part-1-sdl-opengl-awesome/&nbsp;</a></p>
+    <p><a href="https://bcmpinc.wordpress.com/2015/08/18/creating-an-opengl-4-5-context-using-sdl2-and-glad/">https://bcmpinc.wordpress.com/2015/08/18/creating-an-opengl-4-5-context-using-sdl2-and-glad/</a>
+    </p>
+    <p>ПОхоже на мою игру&nbsp;<a href="https://www.opengl.org/discussion_boards/showthread.php/185966-c-SDL2-OpenGL-ES-Camera-without-GLUT-on-Android">
+https://www.opengl.org/discussion_boards/showthread.php/185966-c-SDL2-OpenGL-ES-Camera-without-GLUT-on-Android</a></p>
+  </body>
+</html>
