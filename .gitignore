@@ -1,2 +1,5 @@
 *.bak
 *~
+/Private
+/img/Private
+
