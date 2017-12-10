@@ -5,132 +5,231 @@
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>Chapter 2 map</title>
   </head>
-  <body><page size="A4"><br>
+  <body><page size="A4">
+      <p><page size="A4"></page></p>
+    </page><page size="A4"><br>
       <h2> 2 Модель неизвестной среды для задачи навигации робота</h2>
-      <p>Модель неизвестной среды предполагает следующие допущения:</p>
-      <p>- среда является статичной;</p>
-      <p>- нет движущихся объектов кроме самого робота.</p>
-      <p>Данные, полученные с времепролетной камеры и обработанные с помощью
-        алгоритмов библиотеки RTAB-MAP (выбранной для работы в результате
-        аналитического обзора), представляют собой цветное облако точек в
-        декартовых координатах, которые лежат на поверхности объектов
-        пространства вокруг робота.</p>
-      <p>Цветное облако точек – это множество точек в трехмерном пространстве,
-        полученных в результате 3D-сканирования объекта реального мира и
-        представляющих поверхность этого объекта. Каждая точка имеет три
-        координаты x, y, z&nbsp; и значение цвета в цветовой модели RGB(Red,
-        Green, Blue).<!--Вне помещения, солнечный свет ослепляет датчик !--></p>
-      <p>Максимальное расстояние до объектов, которое может измерять
-        времепролетная камера Microsoft Kinect 2.0, составляет 4,5 м, поэтому
-        запись данных производилась в помещении.</p>
-      <p>На рисунке 9 представлен вид трехмерной карты, полученной в помещении.</p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">Модель неизвестной среды
+              предполагает следующие допущения:</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">- среда является статичной;</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">- нет движущихся объектов кроме
+              самого робота.</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">Данные, полученные с
+              времепролетной камеры и обработанные с помощью алгоритмов
+              библиотеки RTAB-MAP (выбранной для работы в результате
+              аналитического обзора), представляют собой цветное облако точек в
+              декартовых координатах, которые лежат на поверхности объектов
+              пространства вокруг робота.</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">Цветное облако точек – это
+              множество точек в трехмерном пространстве, полученных в результате
+              3D-сканирования объекта реального мира и представляющих
+              поверхность этого объекта. Каждая точка имеет три координаты x, y,
+              z&nbsp; и значение цвета в цветовой модели RGB (Red, Green, Blue).</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">Максимальное расстояние до
+              объектов, которое может измерять времепролетная камера Microsoft
+              Kinect 2.0, составляет 4,5 м, поэтому запись данных производилась
+              в помещении.</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">На рисунке 9 представлен вид
+              трехмерной карты, полученной в помещении.</font></font></font></p>
       <p><img style="width: 419px; height: 385px;" longdesc="9" title="9" alt="9"
           src="img/chapter2_1.png"></p>
       <p>Рисунок 9 – Вид трехмерной карты</p>
-      <p>Библиотека RTAB-MAP использует в качестве формата выходных данных
-        файловый формат PCD (Point Cloud Data). Этот файл представляет собой
-        данные о цветном облаке точек, записанные в памяти компьютера в
-        определенной последовательности.<br>
-      </p>
+      <p> </p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">Библиотека RTAB-MAP использует в
+              качестве формата выходных данных файловый формат PCD (Point Cloud
+              Data). Этот файл представляет собой данные о цветном облаке точек,
+              записанные в памяти компьютера в определенной последовательности.</font></font></font></p>
+      <p> </p>
       <h3>2.1 Формат хранения облака точек в памяти</h3>
-      <p>Каждый файл PCD содержит заголовок, который идентифицирует и
-        декларирует определенные свойства данных облаков точек, хранящихся в
-        файле. Заголовок из PCD <a href="source.html#12">[12]</a> должен быть
-        закодирован в ASCII (англ. American standard code for information
-        interchange)<a href="source.html#12"></a>.<br>
-        В заголовке содержатся следующие ключевые слова и переменные:<br>
-        VERSION – определяет версию файла PCD;<br>
-        FIELDS – определяет имя каждого измерения, например: x y z rgb -
-        координаты точки и её цвет;<br>
-        SIZE – определяет размер каждого измерения в байтах;<br>
-        TYPE – определяет тип каждого измерения;<br>
-        COUNT – определяет, сколько элементов имеет каждое измерение. По
-        умолчанию, если COUNT не определен, счетчик всех размеров
-        устанавливается в единицу;<br>
-        WIDTH – определяет ширину облака точек;<br>
-        HEIGHT – определяет высоту облака точек;<br>
-        VIEWPOINT – определяет точку обзора;<br>
-        POINTS – определяет общее количество точек в облаке;<br>
-        DATA – определяет тип данных текстовой или двоичный;</p>
-      <p>Далее в файле следуют непосредственно данные, определяющие координаты и
-        цвет каждой точки.<br>
-        Пример содержимого файла:<br>
-        # .PCD v.7 - Point Cloud Data file format<br>
-        VERSION .7<br>
-        FIELDS x y z rgb<br>
-        SIZE 4 4 4 4<br>
-        TYPE F F F F<br>
-        COUNT 1 1 1 1<br>
-        WIDTH 213<br>
-        HEIGHT 1<br>
-        VIEWPOINT 0 0 0 1 0 0 0<br>
-        POINTS 213<br>
-        DATA ascii<br>
-        0.93773 0.33763 0 4.2108e+06<br>
-        0.90805 0.35641 0 4.2108e+06<br>
-        0.81915 0.32 0 4.2108e+06<br>
-        0.97192 0.278 0 4.2108e+06<br>
-        0.944 0.29474 0 4.2108e+06</p>
-      <p><br>
-      </p>
-      <p>Для работы с форматом данных PCD используется библиотека PCL.<br>
-        Библиотека PCL (Point Cloud Library) – библиотека для работы с облаком
-        точек, предназначенная для обработки 3D геометрии и облако точек.</p>
-      <p>С помощью алгоритмов реализованных RTAB-Map и библиотекой PCL
-        <!--PCL или RTAB-Map ?
-реализованных библиотекой PCL -->, производится первичная обработка данных на
-        трехмерной карте, включающая в себя уменьшение плотности облака точек.
-        Анализ множества трехмерных точек весьма ресурсоемкая задача. Для
-        ускорения обработки сокращается число точек в облаке, с минимальной
-        потерей информации о сцене.</p>
-      <p>Используемая модель облака точек позволяет алгоритму SLAM RTAB-Map
-        выполнять локализацию робота в пространстве.</p>
+      <p> </p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">Каждый файл PCD содержит
+              заголовок, который идентифицирует и декларирует определенные
+              свойства данных облаков точек, хранящихся в файле. Заголовок<span
+                lang="en-US"> </span>файла<span lang="en-US"> PCD&nbsp;<a href="https://bsn-robotics.github.io/source.html#12">[14]</a>
+              </span>должен<span lang="en-US"> </span>быть<span lang="en-US"> </span>закодирован<span
+                lang="en-US"> </span>в<span lang="en-US"> ASCII (American
+                standard code for information interchange). </span>В заголовке
+              содержатся следующие ключевые слова и переменные:</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">- VERSION – определяет версию
+              файла PCD; </font></font></font> </p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">- FIELDS – определяет имя каждого
+              измерения, например: x y z rgb - координаты точки и её цвет;</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">- SIZE – определяет размер
+              каждого измерения в байтах; </font></font></font> </p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">- TYPE – определяет тип каждого
+              измерения;</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">- COUNT – определяет, сколько
+              элементов имеет каждое измерение. По умолчанию, если COUNT не
+              определен, счетчик всех размеров устанавливается в единицу;</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">- WIDTH – определяет ширину
+              облака точек;</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">- HEIGHT – определяет высоту
+              облака точек;</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">- VIEWPOINT – определяет точку
+              обзора;</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">- POINTS – определяет общее
+              количество точек в облаке;</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">- DATA – определяет тип данных
+              текстовой или двоичный;</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">Далее в файле следуют
+              непосредственно данные, определяющие координаты и цвет каждой
+              точки.</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="left"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">Пример<span lang="en-US"> </span>содержимого<span
+                lang="en-US"> </span>файла<span lang="en-US">:<br>
+                # .PCD v.7 - Point Cloud Data file format<br>
+                VERSION .7<br>
+                FIELDS x y z rgb<br>
+                SIZE 4 4 4 4<br>
+                TYPE F F F F<br>
+                COUNT 1 1 1 1<br>
+                WIDTH 213<br>
+                HEIGHT 1<br>
+                VIEWPOINT 0 0 0 1 0 0 0<br>
+                POINTS 213<br>
+                DATA ascii<br>
+                0.93773 0.33763 0 4.2108e+06<br>
+                0.90805 0.35641 0 4.2108e+06<br>
+                0.81915 0.32 0 4.2108e+06<br>
+                0.97192 0.278 0 4.2108e+06<br>
+                0.944 0.29474 0 4.2108e+06</span></font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-top: 0.17in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">Для работы с форматом данных PCD
+              используется библиотека PCL (Point Cloud Library). С помощью
+              алгоритмов реализованных RTAB-Map и библиотекой PCL&nbsp;,
+              производится первичная обработка данных на трехмерной карте,
+              включающая в себя уменьшение плотности облака точек. Анализ
+              множества трехмерных точек весьма ресурсоемкая задача. Для
+              ускорения обработки сокращается число точек в облаке, с
+              минимальной потерей информации о сцене.</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">Используемая модель облака точек
+              позволяет алгоритму SLAM RTAB-Map выполнять локализацию <span lang="en-US">(</span>определять
+              местоположение<span lang="en-US">)</span> робота в пространстве.</font></font></font></p>
       <h3>2.2 Преобразование 3D карты в 2D граф</h3>
-      <p></p>
-      <p>Для работы алгоритмов, отвечающих за планирование перемещений робота
-        (см. разделы 3 и 4 данной работы) используется плоское представление
-        окружающей среды. Чтобы получить плоское представление требуется
-        спроецировать облако точек на плоскость.</p>
-      <p>На рисунке 10 показана общая схема алгоритма перевода 3D карты в 2D
-        представление. Плоскость проекции распологается перпендикулярно оси Z 3D
-        карты на уровне Z = - 0,45 м от положения камеры. На уровне Z = 0,5 м
-        проходит плоскость, ограничивающая срез проецируемого облака точек. Т.е.
-        проецируемый срез облака точек заключён между плоскотью проекции и
-        ограничивающей плоскостью. Все точки находящиеся ниже плоскости
-        проекции, считаются свободным участком. Точки, находящиеся выше
-        плоскости проекции, но ниже ограничивающей плоскости считаются
-        препятствием.</p>
-      <p><br>
-      </p>
-      <!--
-Рисунок 10 - Проецирование облака точек на плоскость-->
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">Для работы алгоритмов, отвечающих
+              за планирование перемещений робота (см. разделы 3 и 4 данной
+              работы) используется плоское представление окружающей среды. Чтобы
+              получить плоское представление требуется спроецировать облако
+              точек на плоскость.</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">На рисунке 10 показана общая
+              схема алгоритма перевода 3D карты в 2D представление. Плоскость
+              проекции располагается перпендикулярно оси Z 3D карты на уровне Z
+              = - 0,45 м от положения камеры. На уровне Z = 0,5 м проходит
+              плоскость, ограничивающая срез проецируемого облака точек. Т.е.
+              проецируемый срез облака точек заключён между плоскостью проекции
+              и ограничивающей плоскостью. Все точки находящиеся ниже плоскости
+              проекции, считаются свободным участком. Точки, находящиеся выше
+              плоскости проекции, но ниже ограничивающей плоскости считаются
+              препятствием.</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">Для дальнейшего использования
+              проекция дискретизируется сеткой, с шагом 0,05 м.</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"> <font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">В результате получается сетчатая
+              карта занятости (occupancy grid map), являющяяся 2D графом (см.
+              рисунок 11).</font></font></font></p>
       <p><img style="width: 595px; height: 945px;" title="2_3" alt="2_3" src="img/chapter2_3_2.png"></p>
       <p>Рисунок 10 - Общая схема алгоритма перевода 3D карты в 2D карту</p>
-      <p>Для дальнейшего использования проекция дискретизируется сеткой, с шагом
-        0,05 м.</p>
-      <p>В результате получается сетчатая карта занятости (occupancy grid map),
-        являющяяся 2D графом (см. рисунок 11). Сетчатая карта представляет среду
-        как матрицу ячеек, каждая из которых может иметь одно из трех значений:</p>
-      <p>- препятствие, т.е. робот не может проехать через эту ячейку (на
-        рисунке 11 отмечена черным цветом);</p>
-      <p>- свободна, где робот может передвигаться (белый цвет);</p>
-      <p>- неизвестно (серый цвет).</p>
-      <p>Карта такого типа не может абсолютно точно описывать среду, но при
-        достаточно малом размере ячейки дискретизирующей сетки, она содержит
-        необходимую информацию об окружающем робота пространстве.<page size="A4"></page></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">Сетчатая карта представляет среду
+              как матрицу ячеек, каждая из которых может иметь одно из трех
+              значений:</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">- препятствие, т.е. робот не
+              может проехать через эту ячейку (на рисунке&nbsp;11 отмечена
+              черным цветом);</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">- свободна, где робот может
+              передвигаться (белый цвет);</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">- неизвестно (серый цвет).</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify"> <font color="#000000"><font face="Times New Roman, serif"><font
+              style="font-size: 14pt" size="4">Карта такого типа не может
+              абсолютно точно описывать среду, но при достаточно малом размере
+              ячейки дискретизирующей сетки, она содержит необходимую информацию
+              об окружающем робота пространстве.</font></font></font></p>
       <p><img style="width: 504px; height: 292px;" longdesc="11" title="11" alt="11"
           src="img/chapter2_2.png"></p>
       <p>Рисунок 11 - 2D граф</p>
-      <p><page size="A4"></page></p>
       <p> </p>
       <h3> 2.2 Выводы по разделу</h3>
-      <p>В данном разделе описана модель неизвестной среды, и предложено
-        разделить модель на две составляющие.</p>
-      <p>Первая составляющая модели, представляет собой 3D карту, состоящую из
-        облака точек. Эта часть модели в дальнейшем используется для работы
-        алгоритма SLAM.</p>
-      <p>Вторая составляющая модели требуется для работы алгоритмов планирования
-        пути и представляет собой 2D карту.</p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify">
+        <font color="#000000"><font face="Times New Roman, serif"><font style="font-size: 14pt"
+              size="4">В
+              данном разделе описана модель неизвестной
+              среды, и предложено разделить модель
+              на две составляющие.</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify">
+        <font color="#000000"><font face="Times New Roman, serif"><font style="font-size: 14pt"
+              size="4">Первая
+              составляющая модели, представляет собой
+              3D карту, состоящую из облака точек. Эта
+              часть модели в дальнейшем используется
+              для работы алгоритма SLAM.</font></font></font></p>
+      <p class="western" style="margin-right: 0in; margin-bottom: 0in; line-height: 150%; widows: 2; orphans: 2"
+        align="justify">
+        <font color="#000000"><font face="Times New Roman, serif"><font style="font-size: 14pt"
+              size="4">Вторая
+              составляющая модели требуется для
+              работы алгоритмов планирования пути и
+              представляет собой 2D карту.</font></font></font></p>
       <p><br>
       </p>
     </page>
