@@ -9,8 +9,76 @@
     <p>Книга introdusing to mobile robots Roland Seigwart</p>
     <p>TOF - page 135</p>
     <p>Ransac - page 254</p>
+    <p>Преобразование в данные лазера <a href="http://blog.csdn.net/Forrest_Z/article/details/56665631">http://blog.csdn.net/Forrest_Z/article/details/56665631</a></p>
     <p><br>
     </p>
-    <p>Преобразование в данные лазера <a href="http://blog.csdn.net/Forrest_Z/article/details/56665631">http://blog.csdn.net/Forrest_Z/article/details/56665631</a></p>
+    <p><br>
+    </p>
+    <p>Для работы с kinect 2, я использую следующие программное обеспечение: </p>
+    <ol>
+      <li>&nbsp;&nbsp;&nbsp; ОС Linux Ubuntu 14.04.5 LTS</li>
+      <li>&nbsp;&nbsp;&nbsp; ROS indigo</li>
+      <li>&nbsp;&nbsp;&nbsp;
+        libfreenect2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/wiedemeyer/libfreenect2">https://github.com/wiedemeyer/libfreenect2</a></li>
+      <li>&nbsp;&nbsp;&nbsp; IAI Kinect2
+        kinect2_bridge&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://github.com/code-iai/iai_kinect2">https://github.com/code-iai/iai_kinect2</a></li>
+    </ol>
+    <p><br>
+      На ROS Kinetic не удалось запустить kinect2_bridge, я установил ROS
+      Indigo.<br>
+      Позже одногруппник сказал, что можно скомпилировать, если добавить строчку<br>
+      <code>add_definitions( -fexceptions )</code><br>
+      в каждый CmakeList второго кинекта, и тогда он соберётся в kinetic.<br>
+      <br>
+      По материалам взятым с<br>
+      <br>
+      iai kinect2 использует библиотеку freenect2.</p>
+    <h3>Установка libfreenect</h3>
+    <p><code>$ sudo dpkg -i debs/libusb*deb</code><br>
+      <br>
+      !!!!!!!!!!!! короткий - , а не длинный как в книжке, там ошибка
+      (Ros_robotics_example 342).<br>
+      <code><br>
+        git clone https://github.com/OpenKinect/libfreenect2.git</code><br>
+      <code>$ cd ~/libfreenect2<br>
+        $ mkdir build<br>
+        $ cd build<br>
+        $ cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/freenect2 -DENABLE_CXX11=ON<br>
+        $ make<br>
+        $ make install</code><code><br>
+        sudo cp ~/libfreenect2/platform/linux/udev/90-kinect2.rules
+        /etc/udev/rules.d</code></p>
+    <h3>Установка iai_kinect2</h3>
+    <p><code>https://github.com/code-iai/iai_kinect2<br>
+        cd ~/catkin_ws/src/<br>
+        git clone https://github.com/code-iai/iai_kinect2.git<br>
+        cd iai_kinect2<br>
+        rosdep install -r —from-paths<br>
+        cd ~/catkin_ws<br>
+        catkin_make -DCMAKE_BUILD_TYPE="Release"</code><br>
+      <br>
+      Возможность компиляции под ros kinetic<br>
+      <a href="http://answers.opencv.org/question/114664/is-it-possible-to-run-ros-kinetic-with-opencv-24x/">http://answers.opencv.org/question/114664/is-it-possible-to-run-ros-kinetic-with-opencv-24x/</a></p>
+    <h3>Запуск kinect2_bridge</h3>
+    открываем консоль, устанавливаем источник<br>
+    <br>
+    <code>cd catkin_ws<br>
+      source devel/setup.bash</code><br>
+    <br>
+    Запускаем мост<br>
+    <code><br>
+      roslaunch kinect2_bridge kinect2_bridge.launch</code><br>
+    <br>
+    В другой консоли, можем запустить viewer открываем консоль, устанавливаем
+    источник<br>
+    <br>
+    <code>cd catkin_ws<br>
+      source devel/setup.bash</code><br>
+    <br>
+    Запускаем viewer<br>
+    <code><br>
+      rosrun kinect2_viewer kinect2_viewer</code>
   </body>
 </html>
