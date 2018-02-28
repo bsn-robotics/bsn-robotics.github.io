@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>remote_control</title>
   </head>
   <body>
@@ -11,6 +11,17 @@
     <p><a href="http://linux-sys-adm.com/how-to-install-and-configure-ssh-on-ubuntu-server-14.04-lts-step-by-step/">http://linux-sys-adm.com/how-to-install-and-configure-ssh-on-ubuntu-server-14.04-lts-step-by-step/</a></p>
     <p><a href="https://gamelton.com/2011/08/08/vnc-via-ssh/">https://gamelton.com/2011/08/08/vnc-via-ssh/</a></p>
     <p><a href="https://losst.ru/ustanovka-ssh-ubuntu-16-04">https://losst.ru/ustanovka-ssh-ubuntu-16-04</a></p>
+    <p>Устновка ssh-сервера на ubuntu 16.04</p>
+    <p><code>sudo apt install openssh-server<br>
+      </code></p>
+    <p><code>service ssh status<br>
+        ssh start/running, process 2006</code></p>
+    <p><code>Проверка открытости 22 порта (порт, используемый по умолчанию SSH):<br>
+        <br>
+        netstat -tulpan | grep :22<br>
+      </code></p>
+    <p><code></code><br>
+    </p>
     <p>Автозагрузка для 16.04:</p>
     <p><code>sudo systemctl enable sshd</code></p>
     <p><code>sudo systemctl disable sshd</code></p>
@@ -21,5 +32,25 @@
     <p><a href="http://zombievdk.clan.su/news/nastrojka_ultravnc_na_linux_ubuntu_14_04/2016-02-16-4">http://zombievdk.clan.su/news/nastrojka_ultravnc_na_linux_ubuntu_14_04/2016-02-16-4</a></p>
     <p><a href="http://s.chervach.com/zapusk-vnc-servera-cherez-ssh/">http://s.chervach.com/zapusk-vnc-servera-cherez-ssh/</a></p>
     <p><a href="https://oss-it.ru/23">https://oss-it.ru/23</a></p>
+    <h2>x11vnc</h2>
+    <p>Итак, удаляем vino, в Ubuntu и Debian это:<br>
+      <br>
+      <code>sudo apt-get remove vino</code><br>
+      <br>
+      Устанавливаем x11vnc<br>
+      <br>
+      <code>sudo apt-get install x11vnc</code><br>
+      <br>
+      Генерируем пароль для доступа:<br>
+      <br>
+      <code>x11vnc -storepasswd</code><br>
+      <br>
+      После этого пароль по-умолчанию сохраняется в /home/USERNAME/.vnc/passwd
+      (где USERNAME – имя пользователя, под которым вы выполнили команду).<br>
+      <br>
+      Теперь нам надо добавить автозагрузку сервера.</p>
+    <p>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    </p>
   </body>
 </html>

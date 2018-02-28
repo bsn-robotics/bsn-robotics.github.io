@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>opengl</title>
   </head>
   <body>
@@ -30,7 +30,18 @@
     <br>
     <p>&nbsp;&nbsp;&nbsp; Для того чтобы начать изучать OpenGL по урокам <a href="https://learnopengl.com/">https://learnopengl.com/</a>
       надо установить две библиотеки - GLFW и GLAD.</p>
-    <p>Я использую IDE CLion на OS Ubuntu 14.04. </p>
+    <p>Перед этим надо установить реализацию opengl:</p>
+    <p><code><code>sudo apt-get update<br>
+        </code>sudo apt-get install mesa-utils<br>
+        sudo apt-get install freeglut3<br>
+        sudo apt-get install freeglut3-dev<br>
+        sudo apt-get install binutils-gold<br>
+        sudo apt-get install libglew-dev<br>
+        sudo apt-get install mesa-common-dev<br>
+        sudo apt-get install build-essential<br>
+        sudo apt-get install libglew1.5-dev libglm-dev<br>
+      </code></p>
+    <p>Я использую IDE CLion на OS Ubuntu 16.04 (ранее 14.04). </p>
     <p>CLion для подключения библиотек и компиляции использует CMake, поэтому
       нужно написать CMakeLists.txt, а готового решения я не нашел, поэтому для
       тех у кого возникла такая же проблема я выкладываю свой путь решения.</p>
@@ -43,7 +54,6 @@
     <p>Разархиврировать, перейти в терминале в эту директорию.</p>
     <p>Установить зависимости:</p>
     <p><code>sudo apt-get install xorg-dev</code></p>
-    <p><code>cmake</code> </p>
     <p>Создать поддиректорию Build:</p>
     <code> </code>
     <p><code>mkdir glfw-build</code></p>

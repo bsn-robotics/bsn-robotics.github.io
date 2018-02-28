@@ -1,0 +1,431 @@
+/*------------------------------------------------------------*
+**  Software Portal - Free Edition
+**  Автор - www.senorra.net
+**------------------------------------------------------------*/
+
+* {
+	margin:0;
+	padding:0;
+}
+
+body, html {
+	background:#fff;
+	color:#555;
+	font-family:Tahoma, sans-serif;
+	font-size:12px;
+	line-height:19px;
+}
+
+a {
+	color:#282A9A;
+	text-decoration: none;
+}
+
+a:hover {
+	color:#595959;
+}
+
+img {
+	border:none;
+}
+
+/*------------------------------------------------------------*
+**  Блоки
+**------------------------------------------------------------*/
+
+#outer {
+	text-align:left;
+	background:#fff;
+	margin:0;
+}
+
+#top {
+	height:20px;
+	background:#757575 url('../images/top.gif') repeat-x bottom;
+	color:#fff;
+}
+
+#header {
+	width:100%;
+	height:280px;
+}
+
+#logo {
+	width:100%;
+	float:left;
+}
+
+#nav {
+	float:left;
+}
+
+#menu {
+	clear:left;
+	height:107px;
+	width:100%;
+	background:url('../images/nav.png') repeat-x;
+}
+
+#menu-left {
+	width:135px;
+	height:107px;
+	float:left;
+	background:url('../images/nav-logo.png') no-repeat;
+}
+
+#menu-right {
+	float:left;
+}
+
+#wrapper {
+	float:left;
+	width:100%;
+}
+
+#content {
+	margin-left:220px;
+	margin-right:220px;
+	padding-top:0px;
+}
+
+#second {
+	float:left;
+	width:220px;
+	margin-left:-100%;
+}
+
+#third {
+	float:left;
+	width:225px;
+	margin-left:-225px;
+}
+
+#footer {
+	width:100%;
+	clear:both;
+	background:url('../images/footer.gif') repeat-x;
+	height:82px;
+	color:#fff;
+	font-size:12px;
+}
+
+#footer p {
+	padding-top:50px;
+	padding-left:30px;
+}
+
+#footer a {
+	color:#fff;
+}
+/*------------------------------------------------------------*
+**  Меню рядом с лого
+**------------------------------------------------------------*/
+
+#nav ul {
+	margin-top:50px;
+	list-style:none;
+}
+
+#nav li {
+	display:inline;
+	margin-right:20px;
+}
+
+#nav a {
+	color:#1c9dc3;
+	font-size:18px;
+	text-decoration:none;
+}
+
+#nav a:hover {
+	color:#595959;
+}
+
+/*------------------------------------------------------------*
+**  Главное меню
+**------------------------------------------------------------*/
+
+#menu ul {
+	margin-top:10px;
+	list-style:none;
+	float:left;
+	margin-left:35px;
+	padding-left:5px;
+	border-left: #595959 solid 1px;
+}
+
+#menu ul.first {
+	margin-left:0px;
+	padding-left:20px;
+	border-left:none;
+}
+
+#menu li {
+	margin-bottom:0px;
+	padding-left:14px;
+	background:url('../images/menu_li.png') no-repeat;
+}
+
+#menu a {
+	color:#fff;
+	font-size:11px;
+	text-decoration:none;
+}
+
+#menu a:hover {
+	color:#fff;
+	text-decoration:underline;
+}
+
+/*------------------------------------------------------------*
+**  Оформление
+**------------------------------------------------------------*/
+
+h1, h2, h3, h4 {
+	font-weight:normal;
+	font-family:Tahoma;
+	color:#595959;
+}
+
+h1 {
+	font-size:22px;
+	padding-bottom:3px;
+}
+
+h1 a {
+	text-decoration:none;
+}
+h2 {
+	font-size:18px;
+}
+h1 a:hover {
+	text-decoration:underline;
+}
+
+.text {
+	padding:10px;
+}
+
+.news {
+	padding-bottom:30px;
+	padding-left:15px;
+	margin-bottom:40px;
+	background:url('../images/img10.gif') no-repeat left bottom;
+}
+
+.info {
+	margin-top:5px;
+	font-size:12px;
+}
+
+.info ul {
+	list-style:none;
+}
+
+li.more {
+	background:url('../images/img16.gif') no-repeat;
+	display:inline;
+	padding-left:25px;
+	margin-right:20px;
+	padding-bottom:3px;
+}
+
+li.com {
+	background:url('../images/img17.gif') no-repeat;
+	display:inline;
+	padding-left:25px;
+}
+
+li.views {
+	background:url('../images/bullet-info.gif') no-repeat;
+	display:inline;
+	padding-left:20px;
+	margin-right:20px;
+	padding-bottom:3px;
+}
+
+li.fav {
+	display:inline;
+	padding-left:10px;
+}
+
+.top-info {
+	margin-bottom:5px;
+	font-size:11px;
+	padding-left:0px;
+}
+.post-date {
+	width: 45px;
+	height: 49px;
+	float:left;
+	background: url(../images/date-bg.gif) no-repeat;
+	margin-right:5px;
+}
+.post-month {
+	font-size: 10px;
+	color: #FFFFFF;
+	text-align: center;
+	display:block;
+	line-height: 11px;
+	padding-top: 2px;
+	margin-left: -3px;
+}
+.post-day {
+	font-size: 18px;
+	text-transform: uppercase;
+	color: #999999;
+	text-align: center;
+	display:block;
+	line-height: 18px;
+	padding-top: 7px;
+	margin-left: -3px;
+}
+.post-title {
+	float: left;
+	margin-left: 10px;
+}
+.news-text {
+	clear:left;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+#module {
+	margin-bottom:10px;
+	font-size:12px;
+	margin-top:10px;
+	margin-left:10px;
+}
+
+#module h1 {
+	font-size:18px;
+}
+
+.m-bottom {
+	width:210px;
+	background:url('../images/m-bottom.gif') repeat-y bottom;
+	border-top:2px solid #ededed;
+}
+
+.m-text {
+	padding:3px 10px 30px 10px;
+}
+
+h1.red {
+	color:#C40000;
+}
+
+h1.yellow {
+	color:#d2a437;
+}
+
+.hello {
+	background:#FFF9DE;
+	margin-left:10px;
+	padding:5px;
+	border:1px dashed #aaa;
+	margin-bottom:15px;
+}
+
+#top-right {
+	float:right;
+	width:20px;
+	height:17px;
+	background:url('../images/top-right.gif') no-repeat;
+}
+
+#b-l {
+	width:27px;
+	height:18px;
+	background:url('../images/b-l.gif') no-repeat;
+	float:left;
+}
+
+#b-r {
+	width:27px;
+	height:18px;
+	background:url('../images/b-r.gif') no-repeat;
+	float:right;
+}
+	
+/* ==================== */
+
+.f_textarea {
+	color: #757575;		/* ! */
+	font-size: 11px;		/* ! */
+	font-family: tahoma;	/* ! */
+	background-image: url(../images/dlet_field_o.gif);
+	background-repeat: repeat-x;
+	
+	width: 449px;
+	height: 156px;
+	border: 1px solid #e0e0e0;
+}
+.f_input {
+	color: #757575;		/* ! */
+	font-size: 11px;		/* ! */
+	font-family: tahoma;	/* ! */
+	background-image: url(../images/dlet_field_o.gif);
+	background-repeat: repeat-x;
+	
+	width: 300px;
+	height: 14px;
+	border: 1px solid #e0e0e0;
+}
+.f_select {
+	color: #757575;		/* ! */
+	font-size: 11px;		/* ! */
+	font-family: tahoma;	/* ! */
+	background-image: url(../images/dlet_field_o.gif);
+	background-repeat: repeat-x;
+	
+	height: 14px;
+	border: 1px solid #e0e0e0;
+}
+/*------------------------------------------------------------*
+**  Комментарии
+**------------------------------------------------------------*/
+#comment {
+	margin-bottom:10px;
+	padding-bottom:10px;
+}
+#comment-top {
+	font-size:11px;
+}
+.comment-date {
+	float:left;
+	padding-right:10px;
+}
+#comment-bottom {
+	margin:5px;
+	font-size:11px;
+	paddding-top:5px;
+	clear:left;
+}
+.comment-s {
+	padding:10px;
+	overflow:hidden;
+}
+#com-l {
+	width:20%;
+	float:left;
+}
+#com-r {
+	width:70%;
+	float:left;
+}
+#com {
+	margin-bottom:20px;
+	border-top:1px dashed #e6e6e6;
+	background:url('../images/news.gif') bottom right no-repeat;
+}
+.ctitle {
+	font-size:18px;
+}	
+
+.clear {
+	clear:both;
+}
+
+#footer span { color:#888; float:right; }
+#footer span a { color:#888; }
