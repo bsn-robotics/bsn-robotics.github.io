@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>translate</title>
+  </head>
+  <body>
+    <h1>Translate</h1>
+    <p>Перевод текста с экрана:</p>
+    <p><a href="https://github.com/soimort/translate-shell">https://github.com/soimort/translate-shell</a></p>
+    <p><a href="https://habrahabr.ru/post/256063/">https://habrahabr.ru/post/256063/</a></p>
+    <p><a href="https://habrahabr.ru/post/137215/">https://habrahabr.ru/post/137215/</a></p>
+    <p><br>
+    </p>
+    <p><a href="Linux.html#binding">Выполнение скрипта по нажатию сочитания
+        клавиш</a></p>
+    <p><br>
+    </p>
+    <h3>Вариант №1</h3>
+    <p>Получаем ключ API для запросов перевода от Яндекс <a href="https://translate.yandex.ru/developers/keys">https://translate.yandex.ru/developers/keys</a></p>
+    <p>Скрипт:</p>
+    <p><code>#!/bin/sh<br>
+        key="вставляем сюда свой ключ API"<br>
+        text="$(echo $(xsel -o) | sed "s/[\"\'&lt;&gt;]//g")"<br>
+        translate="$(wget -qO -
+"https://translate.yandex.net/api/v1.5/tr.json/translate?key=$key&amp;text=$text&amp;lang=ru")"<br>notify-send
+        -u critical "$text" "$(echo $translate | sed
+        's/.*\[\"\(.*\)\"\].*/\1/')"</code></p>
+    <p>Называем, например translate и помещаем в /usr/bin/, задав свойство на
+      исполнение:</p>
+    <p><code>sudo chmod 777 ./translate &amp;&amp; sudo mv ./</code><code><code>translate</code>
+        /usr/bin/</code>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    </p>
+    <h3>Вариант №2</h3>
+    <p>С использованием <a href="https://github.com/soimort/translate-shell">https://github.com/soimort/translate-shell</a></p>
+    <p>Установим зависимости:</p>
+    <p><code>sudo apt-get install gawk</code></p>
+    <p>Скрипт:</p>
+    <p><code>#!/bin/sh<br>
+        notify-send -u critical "$(xsel -o | trans -no-ansi -l ru)"</code></p>
+    <p>Называем, например translate и помещаем в /usr/bin/, задав свойство на
+      исполнение:
+    </p>
+    <p><code>sudo chmod 777 ./translate &amp;&amp; sudo mv ./</code><code><code>translate</code>
+        /usr/bin/</code></p>
+  </body>
+</html>
